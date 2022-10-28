@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pede - PIZZA</title>
+        <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/reset.css">
+        <link rel="stylesheet" href="./login.css">
+    </head>
+    <body>
+        <form action="./login.html" class="loginForm" id="loginForm">
+            <h1>Welcome!</h1>
+            <img src="../assets/pizza.png" alt="">
+            <input id="nameInput" type="text" placeholder="Nome" >
+            <input id="emailInput" type="text" placeholder="Email">
+            <input id="pswdInput" type="password" placeholder="Password">
+            
+            <input id="submitBTN" type="submit" value="Login">
+            <a id="changeModeBTN" onclick="changeFormMode()">Don't have a account? Create Account</a>
+        </form>
+
+        <script type="module" src="./login.js"></script>
+    </body>
+</html>

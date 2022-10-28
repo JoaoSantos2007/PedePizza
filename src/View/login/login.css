@@ -1,0 +1,71 @@
+html,body{
+    height: 100%;
+    background-image: linear-gradient(45deg,red,green);
+}
+
+.loginForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+    height: 65%;
+    width: 30%;
+    background: white;
+    text-align: center;
+}
+
+.loginForm h1{
+    color: #000;
+    font-weight: bold;
+    font-size: 3em;
+    margin: 20px 0px;
+}
+
+.loginForm img{
+    margin-bottom: 10px;
+}
+
+#nameInput,#emailInput,#pswdInput{
+    border: none;
+    border-bottom: 1px solid;
+    width: 80%;
+    height: 12%;
+    margin: 2% auto;
+    font-size: 1.5em;
+    outline: none;
+}
+
+#nameInput{
+    display: none;
+}
+
+#submitBTN{
+    background-image: linear-gradient(to right,red,green);
+    color: #FFF;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 50%;
+    height: 3em;
+    cursor: pointer;
+}
+
+#submitBTN:hover{
+    background-image: linear-gradient(to right,green,red);
+    font-size: 1.4em;
+    width: 60%;
+    height: 3.5em;
+    transition: 0.5s;
+}
+
+.loginForm a{
+    margin-top: 20px;
+}
+
+.loginForm input,.loginForm a{
+    display: block;
+}

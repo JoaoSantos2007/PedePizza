@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pede - PIZZA</title>
+        <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/reset.css">
+        <link rel="stylesheet" href="../assets/base.css">
+        <link rel="stylesheet" href="./account.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar header__navbar">
+                <a href="../index.html" class="logo"><img src="../assets/pizza.png" alt="Pizza logo"></a>
+                <a href="../home/home.html">Home</a>
+                <a href="../news/news.html">News</a>
+                <a href="../info/info.html">About us</a>
+                <a href="../account/account.html">Account</a>  
+            </nav>
+            <h1 class="header__title">Conta</h1>
+        </header>
+
+        <main>
+            <section class="userInfo">
+                <div class="userHead">
+                    <img class="userImg" id="userImg" src="../assets/user.png" alt="user Image" >
+                    <p class="userName" id="userName">Name</p>
+                </div>
+
+                <hr>
+
+                <div class="userBody">
+                    <p class="userEmail_txt">Email: </p>
+                    <p class="userEmail" id="userEmail">email@email.com</p>
+                    <br>
+                    <p class="userID_txt">UserID: </p>
+                    <p class="userID" id="userID">xxxxxxxxxxxxxxxxxx</p>
+                </div>
+
+                <hr>
+
+                <div class="userFooter">
+                    <input type="button" id="logoutBTN" value="Sair">
+                    <input type="button" id="deleteBTN" value="Apagar conta">
+                    <input type="button" id="resetPswdBTN" value="Redefinir Senha">
+                </div>
+
+                
+
+                <a class="adminSection" id="adminSection" href="../admin/admin.html">
+                    <hr>
+                    Manage Pizzas     
+                </a>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer__links">
+                <a href="../index.html">Service</a>
+                <a href="../index.html">Support</a>
+                <a href="../index.html">Company</a>
+                <a href="../index.html">Legal</a>
+                <a href="../index.html">Join Us</a>
+            </div>
+
+            <div class="footer__social">
+                <img src="../assets/instagram.png" alt="Icone instagram">
+                <img src="../assets/facebook.png" alt="Icone facebook">
+                <img src="../assets/twitter.png" alt="Icone twitter">
+                <img src="../assets/whatsapp.png" alt="Icone whatsapp">
+                <img src="../assets/linkedin.png" alt="Icone linkedin">
+            </div>
+
+            <div class="footer__logo">
+                <img src="../assets/logo.png" alt="Logo Pizza">
+            </div>
+        </footer>
+
+        <script type="module" src="./account.js"></script>
+    </body>
+</html>

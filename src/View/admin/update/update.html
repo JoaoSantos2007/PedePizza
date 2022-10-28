@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pede - PIZZA</title>
+        <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../../assets/reset.css">
+        <link rel="stylesheet" href="./update.css">
+    </head>
+    <body>
+        <form action="update.html" method="post" id="pizzaInput" class="pizzaInput">
+            <h1 id="pizzaTitle">Create Pizza</h1>
+            <input type="text" id="inputPizzaName" placeholder="Nome Pizza">
+            <input type="text" id="inputPizzaSabor" placeholder="Sabor Pizza">
+            <input type="number" id="inputPizzaPreco" placeholder="Preço Pizza">
+            <input type="url" id="inputPizzaIMG" placeholder="URL Imagem Pizza">
+            <div class="pizzaControl">
+                <input type="button" onclick="exit()" id="cancelPizzaBTN" value="Cancel"></button>
+                <input type="submit" value="Save" id="inputPizza">
+            </div>
+
+        </form>
+
+        <script src="../../script.js"></script>
+        <script src="./update.js"></script>
+    </body>
+</html>
