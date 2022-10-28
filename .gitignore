@@ -1,3 +1,5 @@
 /node_modules
 
+/src/View/assets/pizzaria.mp4
+
 .env
