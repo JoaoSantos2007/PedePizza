@@ -15,12 +15,20 @@ class authController{
             }
         })
 
+        //temp
+        if(!user){
+            res.status(401).send({"msg": "Incorrect email or password!"})
+            return
+        }
+
         const isAuthenticated =  bcrypt.compareSync(password,user.hashPassword)
         
-        if(!isAuthenticated) res.status(401).send("Incorrect email or password!")
+        if(!isAuthenticated){
+            res.status(401).send({"msg": "Incorrect email or password!"})
+            return
+        } 
     
         const token = await authMiddleware.createToken(user.id)
-        console.log(token)
 
         res.cookie("token", token, {
             httpOnly: true,

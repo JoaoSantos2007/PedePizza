@@ -1,4 +1,17 @@
-const api = `http://localhost:3030`
+const api = `${window.location.protocol}//${window.location.host}`
+const myUrl = window.location.href.replace(window.location.pathname,"")
+
+const request = async (url,myInit) => {
+    const res = await fetch(url,myInit)
+
+    if(res.ok){
+        return await res.json()
+    } 
+    else{
+        console.log(await res.json())
+        return false
+    } 
+}
 
 class INIT{
     constructor(method,body=null){
@@ -27,7 +40,7 @@ class API {
         const myInit = new INIT("POST",pizza)
         const url = api + '/pizza'
         
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
     //Read pizzas
@@ -35,7 +48,7 @@ class API {
         const myInit = new INIT("GET")
         const url = !pizzaID ? api + '/pizza' : api + `/pizza/${pizzaID}`
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
     //Update pizza
@@ -43,7 +56,7 @@ class API {
         const myInit = new INIT("PUT",pizza)
         const url = api+`/pizza/${pizzaID}`
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
     //Delete pizza
@@ -51,7 +64,7 @@ class API {
         const myInit = new INIT("DELETE")
         const url = api + `/pizza/${pizzaID}`
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
 
@@ -61,27 +74,36 @@ class API {
     =============================
     */
 
+    //Create User
+    static async createUser(user){
+        const myInit = new INIT("POST",user)
+        const url = api + '/user'
+
+        return await request(url,myInit)
+    }
+
+    //Read User
     static async getUser(){
         const myInit = new INIT("GET")
         const url = api + '/user'
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
+    //Login User
     static async login(user){
         const myInit = new INIT("POST",user)
         const url = api + '/login'
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
 
+    //Logut User
     static async logout(){
         const myInit = new INIT("POST")
         const url = api + '/logout'
 
-        return await (await fetch(url,myInit)).json()
+        return await request(url,myInit)
     }
     
 }
-
-export default API

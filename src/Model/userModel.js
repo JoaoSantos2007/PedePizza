@@ -2,9 +2,9 @@ import db from "../config/mysql.js";
 import { Sequelize,DataTypes } from "sequelize";
 import bcrypt from 'bcrypt'
 import randomID from "../scripts/randomID.js";
-
 const salt = process.env.SALT
 
+//User Model
 const Users = db.define("users",{
     id:{
         type: DataTypes.STRING(25),
@@ -12,7 +12,7 @@ const Users = db.define("users",{
         primaryKey: true
     },
     email:{
-        type: DataTypes.STRING(),
+        type: DataTypes.STRING(200),
         allowNull: false
     },
     name:{
@@ -24,7 +24,7 @@ const Users = db.define("users",{
         allowNull: false
     },
     img:{
-        type: DataTypes.STRING(),
+        type: DataTypes.STRING(1200),
         allowNull: true,
         defaultValue: undefined
     },
@@ -37,11 +37,11 @@ const Users = db.define("users",{
 {
     timestamps: false
 })
-
 Users["hashPassword"] = (password) => {
     return bcrypt.hashSync(password,salt)
 }
 
+//Verif Admin
 const verifAdmin = async () => {
 
     const isAdmin = await Users.findOne({
@@ -49,17 +49,27 @@ const verifAdmin = async () => {
             admin: true
         }
     })
-    if(isAdmin) return
+
+    if(isAdmin){
+        await isAdmin.update({
+            "email" :  process.env.ADMIN_EMAIL,
+            "hashPassword" : Users.hashPassword(process.env.ADMIN_PASSWORD)
+        })
+
+        console.log(`${process.env.ADMIN_EMAIL}, ${process.env.ADMIN_PASSWORD}`)
+        
+        return
+    }
 
     const admin = await Users.create({
-    "id": randomID(),
-    "email": "admin@admin.com",
-    "name": "admin",
-    "hashPassword": Users.hashPassword('admin123'),
-    "admin": true
+        "id": randomID(),
+        "email": process.env.ADMIN_EMAIL,
+        "name": "admin",
+        "hashPassword": Users.hashPassword(process.env.ADMIN_EMAIL),
+        "admin": true
     })
 
-    console.log('Admin created!')
+    console.log(`Admin created!, ${admin}`)
 }
 
 verifAdmin()

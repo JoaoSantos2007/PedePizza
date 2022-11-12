@@ -7,16 +7,18 @@ const salt = process.env.SALT
 
 class authMiddleware{
     static async verifyToken(req,res,next){
-        const token = req.cookies.token//req.headers['x-access-token']
+        const token = req.cookies.token
 
+        //Verif exist token
         if(!token){
-            res.status(401).send("No token provided!")
+            res.status(401).send({"msg": "no token provided"})
             return
         } 
         
+        //JWT verif token
         jwt.verify(token,secret,async (err,token) => {
             if(err) {
-                res.status(401).send(`Token error: ${err.message}`)
+                res.status(401).send({"msg": `Token error: ${err.message}`})
                 return
             }
 
@@ -26,12 +28,20 @@ class authMiddleware{
                     email: email
                 }
             })
-    
-            if(!(bcrypt.hashSync(user.id,salt) === token.userID)){
-                res.status(401).send("Token Invalid, Data doesn't match")
+
+            //User is invalid
+            if(!user){
+                res.status(401).send({"msg": "Token Invalid, Data doesn't match"})
+                return
             }
-    
-            req.user = user
+
+            //UserID is invalid
+            if(!(bcrypt.hashSync(user.id,salt) === token.userID)){
+                res.status(401).send({"msg": "Token Invalid, Data doesn't match"})
+            }
+            
+            if(user) req.user = user
+            else req.user = ""
 
             next()
         })
@@ -52,6 +62,18 @@ class authMiddleware{
         )
 
         return token
+    }
+
+    static async verifyAdmin(req,res,next){
+        authMiddleware.verifyToken(req,res,next)
+
+        if(!req.user) return
+
+        const user = req.user
+
+        if(user.admin) next()
+
+        res.status(401).send({"msg":"you need admin"})
     }
     
 }

@@ -2,52 +2,70 @@ import Pizzas from "../Model/pizzaModel.js"
 import randomID from "../scripts/randomID.js"
 
 class pizzaController{
-    //Get Pizzas
+    //Create Pizzas
+    static async createPizza(req,res){
+        const data = req.body
+
+        const newPizza = {
+            "id": randomID(),
+            "nome": data.nome,
+            "sabor": data.sabor,
+            "preco": data.preco,
+            "img": data.img
+        }
+
+        const pizza = await Pizzas.create(newPizza)
+        let status = pizza ? 201 : 500
+
+        res.status(status).send(pizza)
+    }
+
+    //Read Pizzas
     static async getPizzas(req,res){
         const id = req.params.id
 
-        const pizzas = await Pizzas.findAll()
+        const pizzas = !id ? await Pizzas.findAll() : await Pizzas.findByPk(id)
 
         res.status(200).send(pizzas)
     }
-
-
-    //Post Pizzas
-    static async addPizzas(req,res){
-        const data = req.body
-        data["id"] = randomID()
-
-        const pizza = await Pizzas.create(data)
-
-        res.status(201).send(pizza)
-    }
-
 
     //Put Pizzas
     static async updatePizza(req,res){
         const id = req.params.id
         const data = req.body
 
-        const pizza = await Pizzas.findByPk(id)
-        pizza.update(data)
+        const updatePizza = {
+            "nome": data.nome,
+            "sabor": data.sabor,
+            "preco": data.preco,
+            "img": data.img
+        }
 
-        res.status(200).send(pizza)
-    }
-
-
-    //Delete Pizzas
-    static async deletePizza(req,res){
-        const id = req.params.id
-        
-        await Pizzas.destroy({
+        const updated = await Pizzas.update(updatePizza,{
             where: {
                 id: id
             }
         })
 
-        res.status(200).send("deleted")
+        let status = updated ? 200 : 500
+
+        res.status(status).send({"updated": !!updated})
     }
-    
+
+    //Delete Pizzas
+    static async deletePizza(req,res){
+        const id = req.params.id
+        
+        const deleted = await Pizzas.destroy({
+            where: {
+                id: id
+            }
+        })
+
+        let status = deleted ? 200 : 500
+
+        res.status(status).send({"deleted": deleted})
+    }
 }
 
 export default pizzaController

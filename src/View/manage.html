@@ -7,8 +7,8 @@
         <title>Pede - PIZZA</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/base.css" />
-        <link rel="stylesheet" href="assets/css/home.css">
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/manage.css">
     </head>
     <body>
         <header>
@@ -19,11 +19,23 @@
                 <a href="info.html">About us</a>
                 <a href="account.html">Account</a>  
             </nav>
-            <h1 class="header__title">Pizzas</h1>
+            <h1 class="header__title">Create Pizza</h1>
         </header>
 
         <main>
-            <section class="content" id="content"></section>
+            <form action="" method="post" id="pizzaForm" class="pizzaForm">
+                <div class="form__main">
+                    <input type="text" id="inputName" placeholder="Nome Pizza">
+                    <input type="text" id="inputSabor" placeholder="Sabor Pizza">
+                    <input type="number" id="inputPreco" placeholder="Preço Pizza">
+                    <input type="url" id="inputURL" placeholder="URL Imagem Pizza">
+                </div>
+    
+                <div class="form__footer">
+                    <input type="button" id="cancelBTN" value="Cancel" onclick="exit()">
+                    <input type="submit" id="submitBTN" value="Save" >
+                </div>
+            </form>
         </main>
 
         <footer>
@@ -47,9 +59,9 @@
                 <img src="assets/img/logo.png" alt="Logo Pizza">
             </div>
         </footer>
-        
+
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/script.js"></script>
-        <script src="assets/js/home.js"></script>
+        <script src="assets/js/manage.js"></script>
     </body>
 </html>

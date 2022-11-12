@@ -7,8 +7,8 @@
         <title>Pede - PIZZA</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/base.css" />
-        <link rel="stylesheet" href="assets/css/home.css">
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/admin.css">
     </head>
     <body>
         <header>
@@ -19,11 +19,18 @@
                 <a href="info.html">About us</a>
                 <a href="account.html">Account</a>  
             </nav>
-            <h1 class="header__title">Pizzas</h1>
+            <h1 class="header__title">Manage Pizzas</h1>
         </header>
 
-        <main>
-            <section class="content" id="content"></section>
+        <main class="admin__main">
+            <div class="admin__addPizza">
+                <a href="manage.html" class="">
+                    <img src="assets/img/add.png" alt="add pizza">
+                </a>
+            </div>
+
+
+            <ul class="admin__list" id="pizzaList"></ul>
         </main>
 
         <footer>
@@ -47,9 +54,9 @@
                 <img src="assets/img/logo.png" alt="Logo Pizza">
             </div>
         </footer>
-        
+
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/script.js"></script>
-        <script src="assets/js/home.js"></script>
+        <script src="assets/js/admin.js"></script>
     </body>
 </html>

@@ -3,17 +3,17 @@ import {body,validationResult,query,param} from 'express-validator'
 class pizzaValidator{
     static getPizza(){
         return([
-            param('id').trim().isString().isLength({max: 25,min: 25})
-        ]),
-        (req, res, next) => {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return res.status(404).json({ errors: errors.array() });
+            param('id').trim().isString().isLength({max: 25,min: 25}),
+            (req, res, next) => {
+                const errors = validationResult(req);
+                if (!errors.isEmpty()) {
+                    return res.status(404).json({ errors: errors.array() });
+                }
+                else(
+                    next()
+                )
             }
-            else(
-                next()
-            )
-        }
+        ])
     }
 
     static postPizza(){

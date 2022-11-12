@@ -7,8 +7,8 @@
         <title>Pede - PIZZA</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/base.css" />
-        <link rel="stylesheet" href="assets/css/home.css">
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/account.css">
     </head>
     <body>
         <header>
@@ -19,11 +19,33 @@
                 <a href="info.html">About us</a>
                 <a href="account.html">Account</a>  
             </nav>
-            <h1 class="header__title">Pizzas</h1>
+            <h1 class="header__title">Conta</h1>
         </header>
 
         <main>
-            <section class="content" id="content"></section>
+            <section class="user">
+                <div class="user__header">
+                    <img class="user__img" id="userImg" src="assets/img/user.png" alt="user Image" >
+                    <p class="user__name" id="userName">Name</p>
+                </div>
+
+                <hr>
+
+                <div class="user__main">
+                    <p class="user__email">Email: <span id="userEmail">email@email.com</span></p>
+                    <br>
+                    <p class="user__id">UserID: <span id="userID">xxxxxxxxxxxxxxxxxx</span></p>
+                </div>
+
+                <hr>
+
+                <div class="user__footer">
+                    <input type="button" id="loginBTN" class="loginBTN" value="Login">
+                    <input type="button" id="logoutBTN" value="Sair">
+                    <input type="button" id="deleteBTN" value="Apagar conta">
+                    <input type="button" id="adminBTN" class="adminBTN" value="Admin">
+                </div>
+            </section>
         </main>
 
         <footer>
@@ -47,9 +69,9 @@
                 <img src="assets/img/logo.png" alt="Logo Pizza">
             </div>
         </footer>
-        
+
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/script.js"></script>
-        <script src="assets/js/home.js"></script>
+        <script src="assets/js/account.js"></script>
     </body>
 </html>
