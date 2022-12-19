@@ -4,5 +4,5 @@ WORKDIR /pizza_api
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 3030
+EXPOSE 3000
 CMD [ "npm", "start" ]

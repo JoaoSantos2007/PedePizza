@@ -3,3 +3,5 @@
 /src/View/assets/video/pizzaria.mp4
 
 .env
+
+uploads/*

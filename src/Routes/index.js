@@ -5,8 +5,6 @@ import auth from './authRoutes.js'
 import cookieParser from 'cookie-parser'
 
 const Routes = (app) => {
-    app.use("/",express.static('src/View'))
-    
     app.use((req,res,next) => {
         res.set('Access-Control-Allow-Origin','*')
         res.set('Access-Control-Allow-Headers','*')

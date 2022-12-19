@@ -11,39 +11,47 @@ class authMiddleware{
 
         //Verif exist token
         if(!token){
-            res.status(401).send({"msg": "no token provided"})
+            res.status(401).json({
+                "msg": "no token provided"
+            })
             return
         } 
         
         //JWT verif token
         jwt.verify(token,secret,async (err,token) => {
             if(err) {
-                res.status(401).send({"msg": `Token error: ${err.message}`})
+                res.status(401).json({
+                    "msg": `Token error: ${err.message}`
+                })
                 return
             }
 
             const email = token.email
-            const user = await Users.findOne({
+            Users.findOne({
                 where:{
                     email: email
                 }
             })
+                .then((user) => {
+                    //User is invalid
+                    if(!user){
+                        res.status(401).json({"msg": "Token Invalid, Data doesn't match"})
+                        return
+                    }
 
-            //User is invalid
-            if(!user){
-                res.status(401).send({"msg": "Token Invalid, Data doesn't match"})
-                return
-            }
-
-            //UserID is invalid
-            if(!(bcrypt.hashSync(user.id,salt) === token.userID)){
-                res.status(401).send({"msg": "Token Invalid, Data doesn't match"})
-            }
-            
-            if(user) req.user = user
-            else req.user = ""
-
-            next()
+                    //Verif if token userID and userID are equal
+                    if(bcrypt.hashSync(user.id,salt) === token.userID){
+                        req.user = user
+                        next()
+                    }else{
+                        res.status(401).json({
+                            "msg": "Token Invalid, Data doesn't match"
+                        })
+                    }
+                })
+                .catch((err) => {
+                    res.status(500).json(err)
+                })
         })
     }
 
@@ -65,15 +73,12 @@ class authMiddleware{
     }
 
     static async verifyAdmin(req,res,next){
-        authMiddleware.verifyToken(req,res,next)
-
-        if(!req.user) return
-
         const user = req.user
-
-        if(user.admin) next()
-
-        res.status(401).send({"msg":"you need admin"})
+        if(user.admin) {
+            next()
+        }else{
+            res.status(401).json({"msg":"you need admin"})
+        }    
     }
     
 }

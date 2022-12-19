@@ -1,0 +1,67 @@
+.admin__main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.admin__addPizza{
+    position: relative;
+    width: 100%;
+    height: 64px;
+}
+
+.admin__addPizza img{
+    position: absolute;
+    right: 1%;
+    cursor: pointer;
+}
+
+.admin__list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.pizza{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    padding: 15px 0px;
+    transition: 250ms;
+}
+
+.pizza:hover{
+    background-color:rgb(181, 156, 156)
+}
+
+.pizza__img{
+    width: 100%;
+    max-width: 300px;
+}
+
+.pizza__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pizza__name{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.pizza__price{
+    font-size: 2rem;
+}
+
+.pizza__controls img{
+    margin: 20px;
+    cursor: pointer;
+}

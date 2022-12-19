@@ -2,7 +2,7 @@
   "name": "pizzas_api",
   "version": "1.0.0",
   "description": "api de pizzas",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,6 +26,7 @@
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
     "sequelize": "^6.25.2"

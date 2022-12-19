@@ -2,69 +2,81 @@ import Pizzas from "../Model/pizzaModel.js"
 import randomID from "../scripts/randomID.js"
 
 class pizzaController{
-    //Create Pizzas
-    static async createPizza(req,res){
+    //Create Pizza
+    static createPizza(req,res){
         const data = req.body
 
-        const newPizza = {
+        Pizzas.create({
             "id": randomID(),
             "nome": data.nome,
-            "sabor": data.sabor,
             "preco": data.preco,
             "img": data.img
-        }
-
-        const pizza = await Pizzas.create(newPizza)
-        let status = pizza ? 201 : 500
-
-        res.status(status).send(pizza)
+        })
+            .then((pizza) => {
+                res.status(201).json({
+                    "created": true,
+                    pizza
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
+        
     }
 
     //Read Pizzas
-    static async getPizzas(req,res){
+    static getPizzas(req,res){
+        console.log("Ok")
         const id = req.params.id
 
-        const pizzas = !id ? await Pizzas.findAll() : await Pizzas.findByPk(id)
-
-        res.status(200).send(pizzas)
-    }
-
-    //Put Pizzas
-    static async updatePizza(req,res){
-        const id = req.params.id
-        const data = req.body
-
-        const updatePizza = {
-            "nome": data.nome,
-            "sabor": data.sabor,
-            "preco": data.preco,
-            "img": data.img
+        if(!!id){
+            res.status(200).json(req.pizza) 
+            return
         }
 
-        const updated = await Pizzas.update(updatePizza,{
-            where: {
-                id: id
-            }
-        })
-
-        let status = updated ? 200 : 500
-
-        res.status(status).send({"updated": !!updated})
+        Pizzas.findAll()
+            .then((pizzas) => {
+                res.status(200).json(pizzas)
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
     }
 
-    //Delete Pizzas
-    static async deletePizza(req,res){
-        const id = req.params.id
-        
-        const deleted = await Pizzas.destroy({
-            where: {
-                id: id
-            }
+    //Update Pizza
+    static updatePizza(req,res){
+        const pizza = req.pizza
+        const data = req.body
+
+        pizza.update({
+            "nome": data.nome,
+            "preco": data.preco,
+            "img": data.img
         })
+            .then((pizza) => {
+                res.status(200).json({
+                    "updated": true,
+                    pizza
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
+    }
 
-        let status = deleted ? 200 : 500
+    //Delete Pizza
+    static deletePizza(req,res){
+        const pizza = req.pizza
 
-        res.status(status).send({"deleted": deleted})
+        pizza.destroy()
+            .then(() => {
+                res.status(200).json({
+                    "deleted": true
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
     }
 }
 

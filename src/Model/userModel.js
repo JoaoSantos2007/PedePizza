@@ -37,6 +37,9 @@ const Users = db.define("users",{
 {
     timestamps: false
 })
+
+await Users.sync()
+
 Users["hashPassword"] = (password) => {
     return bcrypt.hashSync(password,salt)
 }
@@ -65,7 +68,7 @@ const verifAdmin = async () => {
         "id": randomID(),
         "email": process.env.ADMIN_EMAIL,
         "name": "admin",
-        "hashPassword": Users.hashPassword(process.env.ADMIN_EMAIL),
+        "hashPassword": Users.hashPassword(process.env.ADMIN_PASSWORD),
         "admin": true
     })
 

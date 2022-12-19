@@ -1,0 +1,148 @@
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.return{
+    width: 100%;
+
+}
+
+.pizzaForm{
+    background: #FFF;
+    /*border-radius: 10px;*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.form__title{
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 30px 0px;
+}
+
+.form__main{
+    margin: 30px 0px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__main > input{
+    width: 80%;
+    margin: 20px 0px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.drop-zone{
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 200px;
+    border: 0.25rem dashed #d1d5db;
+    border-radius: 0.25rem;
+    margin: 20px 0px;
+}
+
+.drop-zone__main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.drop-zone__main input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.drop-zone__main .uploadIcon{
+    height: 30%;
+}
+
+.drop-zone p{
+    color: #808080;
+}
+
+.drop-zone:hover,
+.drop-zone.dragging,
+.drop-zone.uploading {
+    border: 0.25rem dashed rgb(212, 126, 126);
+}
+.drop-zone__main.hidden{
+    opacity: 0;
+    z-index: 1;
+}
+
+.drop-zone .uploadedImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+}
+
+.uploadedImage.show{
+    opacity: 1;
+    z-index: 0;
+}
+
+
+.form__footer{
+    width: 100%;
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.form__footer input{
+    width: 40%;
+    max-width: 200px;
+    height: 64px;
+    padding: 15px 15px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    transition: 250ms;
+}
+
+.form__footer input:hover{
+    box-shadow: 5px 5px 5px #000;
+}
+
+
+#cancelBTN{
+    background-color: rgb(255, 51, 51);
+}
+#submitBTN{
+    background-color: rgb(51, 255, 68);
+}

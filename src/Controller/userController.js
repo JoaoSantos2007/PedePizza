@@ -3,61 +3,66 @@ import randomID from "../scripts/randomID.js"
 
 class userController{
     //Create user
-    static async createUser(req,res){
+    static createUser(req,res){
         const data = req.body
 
-        const newUser = {
+        Users.create({
             "id": randomID(),
             "name": data.name,
             "email": data.email,
             "hashPassword": Users.hashPassword(data.password),
             "img": data.img
-        }
-
-        const user = await Users.create(newUser)
-        let status = user ? 201 : 500
-
-        res.status(status).send(user)
+        })
+            .then((pizza) => {
+                res.status(201).json({
+                    "created": true,
+                    pizza
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
     }
 
     //Read user
-    static async getUser(req,res){
-        res.status(200).send(req.user)
+    static getUser(req,res){
+        res.status(200).json(req.user)
     }
     
     //Updtate user
-    static async updateUser(req,res){
+    static updateUser(req,res){
         const user = req.user
         const data = req.body
 
-        const updateUser = {
-            "name": data.name,
-            "img": data.img
-        }
-
-        const updated = await Users.update(updateUser,{
-            where:{
-                id: user.id
-            }
+        user.update({
+            "name": data.name ? data.name : undefined,
+            "email": data.email ? data.email : undefined,
+            "hashPassword": data.password ? Users.hashPassword(data.password) : undefined,
+            "img": data.img ? data.img : undefined
         })
-
-        let status = updated ? 200 : 500
-
-        res.status(status).send({updated: !!updated})
+            .then((user) => {
+                res.status(200).json({
+                    "updated": true,
+                    user
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
     }
 
-    static async deleteUser(req,res){
+    static deleteUser(req,res){
         const user = req.user
 
-        const deleted = await Users.destroy({
-            where:{
-                id: user.id
-            }
-        })
-
-        let status = deleted ? 200 : 500
-
-        res.status(status).send({deleted: !!deleted})
+        user.destroy()
+            .then(() => {
+                res.status(200).json({
+                    "deleted": true
+                })
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            })
     }
 }
 

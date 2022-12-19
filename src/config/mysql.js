@@ -13,4 +13,12 @@ const db = new Sequelize(
   }
 )
 
+db.authenticate()
+  .then(() => {
+    console.log("Connection successfully established with MYSQL")
+  })
+  .catch((err) => {
+    console.log("Mysql connection error: ", err)
+  })
+
 export default db;

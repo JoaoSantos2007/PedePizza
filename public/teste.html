@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" name="" id="">
+    <textarea rows="10" cols="50"></textarea>
+</body>
+<script>
+    var input = document.querySelector('input[type=file]');
+    var textarea = document.querySelector('textarea');
+
+    function readFile(event) {
+        textarea.textContent = event.target.result;
+        var value = event.target.result
+
+        console.log(typeof(value))
+        //console.log(event.target.result);
+    }
+
+    function changeFile() {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.addEventListener('load', readFile);
+        reader.readAsText(file);
+    }
+
+    input.addEventListener('change', changeFile);
+    </script>
+</html>

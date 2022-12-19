@@ -11,21 +11,24 @@ const Pizzas = db.define("pizzas",{
         type: DataTypes.STRING(100),
         allowNull: false
     },
-    sabor:{
-        type: DataTypes.STRING(30),
-        allowNull: false
+    descricao:{
+        type: DataTypes.STRING(300),
+        allowNull: true,
+        defaultValue: undefined
     },
     preco:{
         type: DataTypes.INTEGER(255),
         allowNull: false
     },
     img: {
-        type: DataTypes.STRING(),
+        type: DataTypes.STRING(50),
         allowNull: false
     }
 },
 {
     timestamps: false
 })
+
+await Pizzas.sync()
 
 export default Pizzas
