@@ -10,6 +10,7 @@ class pizzaController{
             "id": randomID(),
             "nome": data.nome,
             "preco": data.preco,
+            "descricao": data.descricao,
             "img": data.img
         })
             .then((pizza) => {

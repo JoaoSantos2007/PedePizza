@@ -31,28 +31,10 @@ class pizzaValidator{
         ])
     }
 
-    static postPizza(){
-        return([
-            body('nome').trim().isString().isLength({max: 100}),
-            body('preco').trim().isInt().isLength({max: 200}),
-            (req, res, next) => {
-                const errors = validationResult(req);
-                if (!errors.isEmpty()) {
-                    return res.status(404).json({ errors: errors.array() });
-                }
-                else(
-                    next()
-                )
-            }
-        ])
-    }
-
     static putPizza(){
         let pizza
 
         return([
-            body('nome').trim().isString().isLength({max: 100}),
-            body('preco').trim().isFloat().isLength({max: 10}),
             param('id').trim().isString().isLength({max: 25,min: 25}).custom(async (id) =>{
                 await Pizzas.findByPk(id)
                     .then((res) => {

@@ -6,11 +6,6 @@ main{
     align-items: center;
 }
 
-.return{
-    width: 100%;
-
-}
-
 .pizzaForm{
     background: #FFF;
     /*border-radius: 10px;*/
@@ -45,6 +40,13 @@ main{
     outline: none;
     font-size: 1.5rem;
     text-align: center;
+}
+
+.inputDescricao{
+    width: 80%;
+    margin: 20px 0px;
+    outline: none;
+    font-size: 1.5rem;
 }
 
 .drop-zone{

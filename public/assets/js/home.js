@@ -45,7 +45,8 @@ function renderPizzas(pizzas){
         item.append(itemFooter)
 
         item.click(() => {
-            navigate("")
+            sessionStorage.setItem("pizzaID",id)
+            navigate("/pizza.html")
         })
     
         $("#content").append(item)

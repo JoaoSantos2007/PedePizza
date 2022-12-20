@@ -13,8 +13,7 @@ const Pizzas = db.define("pizzas",{
     },
     descricao:{
         type: DataTypes.STRING(300),
-        allowNull: true,
-        defaultValue: undefined
+        allowNull: false
     },
     preco:{
         type: DataTypes.INTEGER(255),

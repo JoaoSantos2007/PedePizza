@@ -13,7 +13,8 @@ $("#pizzaForm").on("submit", async (event) => {
     const formData = new FormData();
 
     formData.append("nome",$("#inputName").val())
-    formData.append("preco",$("#inputPreco").val())
+    formData.append("preco",`$("#inputPreco").val().00`)
+    formData.append("descricao",$("#inputDescricao").val())
     formData.append("img", pizzaIMG)
     const myUrl = url + "/pizza"
 
@@ -29,7 +30,7 @@ $("#pizzaForm").on("submit", async (event) => {
         })
 })
 
-$("cancelBTN").click(() => {
+$("#cancelBTN").click(() => {
     exit()
 })
 

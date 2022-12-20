@@ -1,0 +1,18 @@
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pizzaIMG{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+}
+
+.pizzaDescricao{
+    font-size: 1.5rem;
+    margin: 30px;
+}    
