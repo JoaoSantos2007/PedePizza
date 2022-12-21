@@ -37,6 +37,8 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 20px 0px;
+    text-align: center;
+    height: auto;
 }
 
 .item hr{

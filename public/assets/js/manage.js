@@ -13,7 +13,7 @@ $("#pizzaForm").on("submit", async (event) => {
     const formData = new FormData();
 
     formData.append("nome",$("#inputName").val())
-    formData.append("preco",`$("#inputPreco").val().00`)
+    formData.append("preco",$("#inputPreco").val())
     formData.append("descricao",$("#inputDescricao").val())
     formData.append("img", pizzaIMG)
     const myUrl = url + "/pizza"
@@ -23,7 +23,13 @@ $("#pizzaForm").on("submit", async (event) => {
         body: formData,
     })
         .then((res) => {
-            console.log(res.data)
+            res.json()
+                .then((data) => {
+                    if(data.created) navigate("/index.html")
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
         })
         .catch((err) => {
             console.error(err)

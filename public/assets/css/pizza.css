@@ -7,12 +7,45 @@ main{
 
 .pizzaIMG{
     width: 50%;
-    margin: 0 auto;
     margin-bottom: 30px;
-
 }
 
 .pizzaDescricao{
     font-size: 1.5rem;
-    margin: 30px;
+    margin: 30px 0px;
+    width: 50%;
+    text-align: center;
 }    
+
+.pizzaPreco{
+    font-size: 2.5rem;
+    color: rgb(107, 11, 11);
+    margin: 30px 0px;
+}
+
+.addToCart{
+    width: 15rem;
+    height: 64px;
+    border: none;
+    background-color: #59c00b;
+    color: #FFF;
+    font-size: 1rem;
+    margin: 30px 0px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.addToCart:hover{
+    /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.411);*/
+    background-color: #479907;
+}
+
+@media screen and (max-width: 768px) {
+    .pizzaIMG{
+        width: 100vw;
+    }
+
+    .pizzaDescricao{
+        width: 100vw;
+    }
+}

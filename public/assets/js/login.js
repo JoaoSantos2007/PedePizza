@@ -1,16 +1,4 @@
-import { createUser, setCreateUserMode } from "./create-user.js"
 import { navigate, requestInit, url } from "./script.js"
-
-let formMode = "login"
-
-$("#changeFormMode").click(() => {
-    if(formMode === "login"){
-        formMode = "create"
-        setCreateUserMode()
-    } else if(formMode === "create"){
-        window.location.reload()
-    }
-})
 
 $("#loginForm").on("submit", async (event) => {
     event.preventDefault()
@@ -25,11 +13,7 @@ $("#loginForm").on("submit", async (event) => {
         password
     }
 
-    if(formMode === "create"){
-        createUser(user)
-    }else if(formMode === "login"){
-        login(user)
-    }
+    login(user)
 })
 
 function login(user){

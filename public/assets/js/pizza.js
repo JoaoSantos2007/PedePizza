@@ -27,5 +27,5 @@ function renderPizza(pizza){
     $("#pizzaName").text(pizza.nome)
     $("#pizzaIMG").attr("src",url+pizza.img)
     $("#pizzaDescricao").text(pizza.descricao)
-    $("#pizzaPreco").text(pizza.preco)
+    $("#pizzaPreco").text(`${pizza.preco},00`)
 }
