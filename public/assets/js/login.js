@@ -2,15 +2,11 @@ import { navigate, requestInit, url } from "./script.js"
 
 $("#loginForm").on("submit", async (event) => {
     event.preventDefault()
-    
-    const name = $("#nameInput").val()
-    const email = $("#emailInput").val()
-    const password = window.document.getElementById("pwdInput").value
 
     const user = {
-        email,
-        name,
-        password
+        "email": $("#emailInput").val(),
+        "name": $("#nameInput").val(),
+        "password": (window.document.getElementById("pwdInput")).value
     }
 
     login(user)
@@ -24,7 +20,7 @@ function login(user){
         .then((res) => {
             res.json()
                 .then((data) => {
-                    if(data.authenticated) navigate("/index.html")
+                    if(data.authenticated) exit
                 })
                 .catch((err) => {
                     console.error(err)
@@ -34,5 +30,13 @@ function login(user){
             console.error(err)
         })
 }
+
+function exit(){
+    navigate("/index.html")
+}
+
+$("#navigateToHome").click(() => {
+    exit()
+})
 
 export {login}

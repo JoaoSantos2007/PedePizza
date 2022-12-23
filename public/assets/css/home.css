@@ -19,6 +19,7 @@
     align-items: center;
     transition: 300ms;
     margin: 20px;
+    position: relative;
 }
 
 .item__header{
@@ -30,6 +31,10 @@
     height: 190px;
     border-top-left-radius: 4.5px;
     border-top-right-radius: 4.5px;
+}
+
+.item__main{
+    margin-bottom: 60px;
 }
 
 .item__name{
@@ -58,6 +63,8 @@
     align-items: center;
     justify-content: center;
     padding: 20px 0px;
+    position: absolute;
+    bottom: 0;
 }
 
 .item__price{

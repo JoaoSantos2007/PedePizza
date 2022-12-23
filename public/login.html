@@ -7,26 +7,63 @@
         <title>Pede - PIZZA</title>
         <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/base.css" />
         <link rel="stylesheet" href="assets/css/login.css">
     </head>
     <body>
-        <form action="./login.html" class="login" id="loginForm">
-            <div class="login__header">
-                <h2 class="login__title">Welcome!</h2>
-                <img class="login__img" src="assets/icon/pizza.png" alt="logo">
+        <header>
+            <nav class="navbar header__navbar">
+                <a href="index.html" class="logo"><img src="assets/icon/pizza.png" alt="Pizza logo"></a>
+                <a href="index.html">Home</a>
+                <a href="news.html">News</a>
+                <a href="info.html">About us</a>
+                <a href="account.html">Account</a>  
+            </nav>
+        </header>
+
+        <main>
+            <form action="./login.html" class="login" id="loginForm">
+                <div class="login__header">  
+                    <h2 class="login__title">Welcome!</h2>    
+                    <img class="login__img" src="assets/icon/pizza.png" alt="logo">
+                </div>
+    
+                <div class="login__main">
+                    <input id="nameInput" class="nameInput" type="text" placeholder="Nome" >
+                    <input id="emailInput" type="text" placeholder="Email">
+                    <input id="pwdInput" type="password" placeholder="Password" name="password">
+                </div>
+    
+                <div class="login__footer">
+                    <input id="submitBTN" type="submit" value="Login">
+                    <a href="signup.html">Don't have a account? Create Account</a>
+                </div>
+            </form>
+        </main>
+
+
+
+        <footer>
+            <div class="footer__links">
+                <a href="index.html">Service</a>
+                <a href="index.html">Support</a>
+                <a href="index.html">Company</a>
+                <a href="index.html">Legal</a>
+                <a href="index.html">Join Us</a>
             </div>
 
-            <div class="login__main">
-                <input id="nameInput" class="nameInput" type="text" placeholder="Nome" >
-                <input id="emailInput" type="text" placeholder="Email">
-                <input id="pwdInput" type="password" placeholder="Password" name="password">
+            <div class="footer__social">
+                <img src="assets/icon/instagram.svg" alt="Icone instagram">
+                <img src="assets/icon/facebook.svg" alt="Icone facebook">
+                <img src="assets/icon/twitter.svg" alt="Icone twitter">
+                <img src="assets/icon/whatsapp.svg" alt="Icone whatsapp">
+                <img src="assets/icon/linkedin.svg" alt="Icone linkedin">
             </div>
 
-            <div class="login__footer">
-                <input id="submitBTN" type="submit" value="Login">
-                <a href="signup.html">Don't have a account? Create Account</a>
+            <div class="footer__logo">
+                <img src="assets/icon/logo.png" alt="Logo Pizza">
             </div>
-        </form>
+        </footer>
 
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/login.js" type="module"></script>
