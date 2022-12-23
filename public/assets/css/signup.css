@@ -12,7 +12,7 @@ main{
     flex-direction: column;
     background-color: #FFF;
     margin-top: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .signupForm > section{
@@ -62,7 +62,7 @@ main{
 .signupForm__footer > input{
     height: 64px;
     border: none;
-    width: 128px;
+    width: 146px;
     color: #FFF;
     font-size: 1.5rem;
     cursor: pointer;
@@ -72,6 +72,14 @@ main{
     background-color: #ff3333;
 }
 
+#cancelBTN:hover{
+    background-color: #b82727;
+}
+
 #saveBTN{
     background-color: #33ff44;
+}
+
+#saveBTN:hover{
+    background-color: #23b82f;
 }

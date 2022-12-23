@@ -34,3 +34,5 @@ function login(user){
             console.error(err)
         })
 }
+
+export {login}
