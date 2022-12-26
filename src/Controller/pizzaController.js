@@ -27,7 +27,6 @@ class pizzaController{
 
     //Read Pizzas
     static getPizzas(req,res){
-        console.log("Ok")
         const id = req.params.id
 
         if(!!id){

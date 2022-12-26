@@ -25,11 +25,12 @@ function api(route, method,body=null,callback){
         .then((res) => {
             res.json()
                 .then((data) => {
-                    if(res.ok) callback(data)
-                    else(error({
+                    callback(data)
+                    
+                    if(!(res.ok)) error({
                         name: myUrl,
                         message: data.msg,
-                    }))
+                    })
                 })
                 .catch((err) => {
                     error(err)
