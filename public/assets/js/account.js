@@ -1,28 +1,29 @@
-import { navigate, requestInit, url } from "./script.js"
+import { api, navigate } from "./script.js"
 
-$("documento").ready(async () => {
-    const myUrl = url + "/user"
-    const myInit = new requestInit("GET")
-
-    fetch(myUrl,myInit)
-        .then((res) => {
-            res.json()
-                .then((user) => {
-                    if(user.email) renderUserData(user)
-                    else navigate("/login.html")
-                })
-                .catch((err) => {
-                    console.error(err)
-                })
-        })
-        .catch((err) => {
-            console.error(err)
-        })
-
-    
+$("documento").ready(() => {
+    api("/user","GET",null,(user) => {
+        if(user.email) renderUserData(user)
+        else navigate("/login.html")
+    })
 })
 
-async function renderUserData(user){
+$("#logoutBTN").click(() => {
+    api("/logout","POST",null,(data) => {
+        if(data.left) navigate("/login.html")
+    })
+})
+
+$("#deleteBTN").click(() => {
+    const confirmDeleteUser = window.confirm("Você deseja apagar esta conta?")
+
+    if(!confirmDeleteUser) return
+
+    api("/user","DELETE",null,(data) => {
+        if(data.deleted) navigate("/login.html")
+    })
+})
+
+function renderUserData(user){
     $("#userName").text(user.name)
     $("#userEmail").text(user.email)
     $("#userID").text(user.id)
@@ -31,23 +32,3 @@ async function renderUserData(user){
         $("#userImg").attr("src",user.img)
     }
 }
-
-$("#logoutBTN").click(() => {
-    const myUrl = url + "/logout"
-    const myInit = new requestInit("GET")
-
-    fetch(myUrl,myInit)
-        .then((res) => {
-            res.json()
-                .then((msg) => {
-                    console.log(msg)
-                    navigate("/index.html")
-                })
-                .catch((err) => {
-                    console.error(err)
-                })
-        })
-        .catch((err) => {
-            console.error(err)
-        })
-})

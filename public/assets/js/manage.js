@@ -1,10 +1,14 @@
-import { handleDropZoneEvents, pizzaIMG } from "./drop-zone.js"
-import {url, navigate } from "./script.js"
-import { verifyUpdatePizzaMode } from "./update-pizza.js"
+import {handleDropZoneEvents, pizzaIMG} from "./drop-zone.js"
+import {url, navigate, error } from "./script.js"
+import {verifyUpdatePizzaMode} from "./update-pizza.js"
 
 $(document).ready(() => {
     verifyUpdatePizzaMode()
     handleDropZoneEvents()
+})
+
+$("#cancelBTN").click(() => {
+    navigate("/index.html")
 })
 
 $("#pizzaForm").on("submit", async (event) => {
@@ -16,11 +20,16 @@ $("#pizzaForm").on("submit", async (event) => {
     formData.append("preco",$("#inputPreco").val())
     formData.append("descricao",$("#inputDescricao").val())
     formData.append("img", pizzaIMG)
+
+    createPizza(formData)
+})
+
+function createPizza(pizza){
     const myUrl = url + "/pizza"
 
     fetch(myUrl,{
         method: 'POST',
-        body: formData,
+        body: pizza,
     })
         .then((res) => {
             res.json()
@@ -28,18 +37,10 @@ $("#pizzaForm").on("submit", async (event) => {
                     if(data.created) navigate("/index.html")
                 })
                 .catch((err) => {
-                    console.error(err)
+                    error(err)
                 })
         })
         .catch((err) => {
-            console.error(err)
+            error(err)
         })
-})
-
-$("#cancelBTN").click(() => {
-    exit()
-})
-
-function exit(){
-    navigate("/index.html")
 }

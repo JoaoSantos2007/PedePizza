@@ -1,26 +1,13 @@
-import {url, requestInit} from "./script.js"
+import {url, api} from "./script.js"
 
 $("document").ready(() =>{
 
     const pizzaID = sessionStorage.getItem("pizzaID")
     if(!pizzaID) return
 
-    const myUrl = url + `/pizza/${pizzaID}`
-    const myInit = new requestInit("GET")
-
-    fetch(myUrl,myInit)
-        .then((res) => {
-            res.json()
-                .then((pizza) => {
-                    renderPizza(pizza)
-                })
-                .catch((err) => {
-                    console.error(err)
-                })
-        })
-        .catch((err) => {
-            console.error(err)
-        })
+    api(`/pizza/${pizzaID}`,"GET",null,(pizza) => {
+        renderPizza(pizza)
+    })
 })
 
 function renderPizza(pizza){

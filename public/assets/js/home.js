@@ -1,22 +1,9 @@
-import { url, requestInit, navigate } from "./script.js"
+import {navigate, api, url } from "./script.js"
 
 $("document").ready(() => {
-    const myUrl = url + "/pizza"
-    const myInit = new requestInit("GET")
-    
-    fetch(myUrl,myInit)
-        .then((res) => {
-            res.json()
-                .then((data) => {
-                    renderPizzas(data)
-                })
-                .catch((err) => {
-                    console.error(err)
-                })
-        })
-        .catch((err) => {
-            console.error(err)
-        })
+    api("/pizza","GET",null,(pizzas) => {
+        renderPizzas(pizzas)
+    })
 })
 
 function renderPizzas(pizzas){

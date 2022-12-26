@@ -1,4 +1,4 @@
-import {body,validationResult,query,param} from 'express-validator'
+import {body,validationResult,param} from 'express-validator'
 import Pizzas from '../Model/pizzaModel.js';
 
 class pizzaValidator{
@@ -22,7 +22,7 @@ class pizzaValidator{
 
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
-                    return res.status(404).json({ errors: errors.array() });
+                    return res.status(404).json({"msg": errors.array()[0].msg});
                 }
                 else(
                     next()
@@ -51,7 +51,7 @@ class pizzaValidator{
 
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
-                    return res.status(404).json({ errors: errors.array() });
+                    return res.status(404).json({"msg": errors.array()[0].msg});
                 }
                 else(
                     next()
@@ -80,7 +80,7 @@ class pizzaValidator{
 
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
-                    return res.status(404).json({ errors: errors.array() });
+                    return res.status(404).json({"msg": errors.array()[0].msg});
                 }
                 else(
                     next()

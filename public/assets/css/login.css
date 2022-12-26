@@ -58,10 +58,6 @@ main{
     text-indent: 10px;
 }
 
-.nameInput{
-    display: none;
-}
-
 /* Login Footer */
 
 .login__footer{
@@ -88,4 +84,10 @@ main{
 
 #submitBTN:hover{
     background-color: rgb(1, 131, 1);
+}
+
+@media screen and (max-width: 768px) {
+    .login__main > input{
+        width: 90%;
+    }
 }
