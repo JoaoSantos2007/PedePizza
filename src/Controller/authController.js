@@ -1,6 +1,4 @@
-import Users from "../Model/userModel.js"
-import bcrypt from "bcrypt"
-import authMiddleware from "../middleware/authMiddleware.js"
+import authModel from "../Model/authModel.js"
 
 class authController{
     static async login(req,res){
@@ -9,39 +7,24 @@ class authController{
         const email = data.email
         const password = data.password
 
-        const user = await Users.findOne({
-            where: {
-                email: email
-            }
-        })
-
-        //temp
-        if(!user){
-            res.status(401).send({"msg": "Incorrect email or password!"})
-            return
-        }
-
-        const isAuthenticated =  bcrypt.compareSync(password,user.hashPassword)
+        const token = await authModel.authenticate(email, password)
         
-        if(!isAuthenticated){
-            res.status(401).send({"msg": "Incorrect email or password!"})
-            return
-        } 
+        if(token){
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: !!req.headers["sec-fetch-mode"],
+                sameSite: 'none'
+            })
     
-        const token = await authMiddleware.createToken(user.id)
-
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: !!req.headers["sec-fetch-mode"],
-            sameSite: 'none'
-        })
-
-        res.status(200).send({
-            "authenticated": true,
-        })
+            res.status(200).send({
+                "authenticated": true,
+            })
+        }else{
+            res.status(401).send({"msg": "Incorrect login!"})
+        }
     }
 
-    static async logout(req,res){
+    static logout(req,res){
         res.cookie("token", "", {
             httpOnly: true,
             secure: !!req.headers["sec-fetch-mode"],

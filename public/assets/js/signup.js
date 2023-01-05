@@ -12,7 +12,7 @@ $("#signupForm").submit((event) => {
         "name": $("#inputName").val(),
         "email": $("#inputEmail").val(),
         "password": (window.document.getElementById("inputPassword")).value,
-        "img": $("inputUserIMG").val()
+        "img": $("#inputUserIMG").val()
     })
 })
 

@@ -1,5 +1,5 @@
 import multer from 'multer'
-import randomID from '../scripts/randomID.js'
+import randomID from '../Model/randomID.js'
 
 const upload = multer({
     storage: multer.diskStorage({

@@ -24,11 +24,16 @@ $("#deleteBTN").click(() => {
 })
 
 function renderUserData(user){
-    $("#userName").text(user.name)
+    const name = user.name.split(" ")
+
+    const firstName = name[0]
+    const lastName = name[(name.length - 1)]
+    
+    $("#userName").text(`${firstName} ${lastName}`)
     $("#userEmail").text(user.email)
     $("#userID").text(user.id)
-
+    
     if(user.img){
-        $("#userImg").attr("src",user.img)
+        $("#userImg").attr("src", user.img)
     }
 }

@@ -1,37 +1,37 @@
 .user{
     background: rgb(255, 255, 255);
     margin: 0px auto;
-    width: 50%;
+    width: 100%;
+    max-width: 800px;
     margin-bottom: 260px;
     display: flex;
     flex-direction: column;
 }
 
 .user__header{
-    padding: 15px;
-    height: 76px;
-    width: 100%;
+    min-height: 76px;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: relative;
 }
 
 .user__img{
-    height: 100%;
+    margin-left: 15px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
+    border-radius: 64px;
 }
 
 .user__name{
     color: black;
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: bold;
     margin-left: 30px;
 }
 
 .user__config{
-    position: absolute;
-    right: 48px;
     cursor: pointer;
 }
 
@@ -40,12 +40,17 @@ hr{
 }
 
 .user__main{
-    padding: 20px 20px;
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.user__email,.user__id{
+.user__email,.user__id,.user__order{
     font-size: 2rem;
     font-weight: bold;
+    margin: 5px 0px;
+    word-break: break-all;
 }
 
 #userEmail,#userID{
@@ -89,8 +94,12 @@ hr{
     background-color: rgb(146, 0, 0);
 }
 
-@media (max-width: 768px) {
-    .user{
-        width: 100%;
+@media (max-width: 800px) {
+    .user__name{
+        font-size: 2rem;
+    }
+
+    .user__logout, .user__delete{
+        margin: 10px 0px;
     }
 }

@@ -1,7 +1,7 @@
-import db from "../config/mysql.js";
-import { Sequelize,DataTypes } from "sequelize";
+import db from "../Config/mysql.js";
+import {DataTypes} from "sequelize";
 
-const Pizzas = db.define("pizzas",{
+const Products = db.define("products",{
     id:{
         type: DataTypes.STRING(25),
         allowNull: false,
@@ -28,6 +28,6 @@ const Pizzas = db.define("pizzas",{
     timestamps: false
 })
 
-await Pizzas.sync()
+await Products.sync()
 
-export default Pizzas
+export default Products

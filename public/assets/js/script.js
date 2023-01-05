@@ -33,6 +33,7 @@ function api(route, method,body=null,callback){
                     })
                 })
                 .catch((err) => {
+                    if(res.status === 401) navigate("/login.html")
                     error(err)
                 })
         })

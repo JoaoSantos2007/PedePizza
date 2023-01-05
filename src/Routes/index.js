@@ -1,7 +1,9 @@
 import express from 'express'
-import pizza from './pizzaRoutes.js'
+import product from './productRoutes.js'
 import user from './userRoutes.js'
 import auth from './authRoutes.js'
+import cart from "./cartRoutes.js"
+import order from "./orderRoutes.js"
 import cookieParser from 'cookie-parser'
 
 const Routes = (app) => {
@@ -16,9 +18,11 @@ const Routes = (app) => {
     app.use(
         express.json(),
         cookieParser(),
-        pizza,
+        product,
         user,
-        auth
+        auth,
+        cart,
+        order
     )
 }
 

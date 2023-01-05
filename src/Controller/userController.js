@@ -1,5 +1,5 @@
 import Users from "../Model/userModel.js"
-import randomID from "../scripts/randomID.js"
+import randomID from "../Model/randomID.js"
 
 class userController{
     //Create user

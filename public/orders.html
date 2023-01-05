@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/base.css">
-        <link rel="stylesheet" href="assets/css/manage.css">
+        <link rel="stylesheet" href="assets/css/orders.css">
     </head>
     <body>
         <header>
@@ -17,35 +17,14 @@
                 <a href="index.html">Home</a>
                 <a href="news.html">News</a>
                 <a href="info.html">About us</a>
-                <a href="account.html">Account</a>
-                <a href="cart.html" class="navbar__cart"><img src="assets/icon/cart.svg" alt="cart"></a>  
+                <a href="account.html">Account</a> 
+                <a href="cart.html" class="navbar__cart"><img src="assets/icon/cart.svg" alt="cart"></a> 
             </nav>
-            <h1 class="header__title">Pizzas</h1>
+            <h1 class="header__title">Pedidos</h1>
         </header>
 
         <main>
-            <form action="" method="post" id="pizzaForm" class="pizzaForm">
-                <div class="form__main">
-                    <input type="text" id="inputName" placeholder="Nome Pizza">
-                    <input type="number" id="inputPreco" placeholder="Preço Pizza">
-                    <textarea class="inputDescricao" id="inputDescricao" cols="30" rows="5" placeholder="Descrição da pizza"></textarea>
-                    <div class="drop-zone">
-                        <div class="drop-zone__main">
-                            <img src="assets/icon/upload.svg" alt="upload icon" class="uploadIcon">
-                            <input type="file" name="inputFile" id="inputFile" accept=".png, .jpg, .jpeg">
-                            <p>Supports: JPGE, JPG, PNG</p>
-                        </div>
 
-                        <img src="" class="uploadedImage" alt="">
-                    </div>
-
-                </div>
-    
-                <div class="form__footer">
-                    <input type="button" id="cancelBTN" value="Cancel">
-                    <input type="submit" id="submitBTN" value="Save" >
-                </div>
-            </form>
         </main>
 
         <footer>
@@ -71,6 +50,6 @@
         </footer>
 
         <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/manage.js" type="module"></script>
+        <script src="assets/js/orders.js" type="module"></script>
     </body>
 </html>

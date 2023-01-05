@@ -1,12 +1,12 @@
-import Pizzas from "../Model/pizzaModel.js"
-import randomID from "../scripts/randomID.js"
+import Products from "../Model/productModel.js"
+import randomID from "../Model/randomID.js"
 
-class pizzaController{
+class productController{
     //Create Pizza
     static createPizza(req,res){
         const data = req.body
 
-        Pizzas.create({
+        Products.create({
             "id": randomID(),
             "nome": data.nome,
             "preco": data.preco,
@@ -34,7 +34,7 @@ class pizzaController{
             return
         }
 
-        Pizzas.findAll()
+        Products.findAll()
             .then((pizzas) => {
                 res.status(200).json(pizzas)
             })
@@ -80,4 +80,4 @@ class pizzaController{
     }
 }
 
-export default pizzaController
+export default productController

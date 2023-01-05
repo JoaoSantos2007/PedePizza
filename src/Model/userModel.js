@@ -1,7 +1,7 @@
-import db from "../config/mysql.js";
-import { Sequelize,DataTypes } from "sequelize";
+import db from "../Config/mysql.js";
+import { DataTypes } from "sequelize";
 import bcrypt from 'bcrypt'
-import randomID from "../scripts/randomID.js";
+import randomID from "./randomID.js";
 const salt = process.env.SALT
 
 //User Model
