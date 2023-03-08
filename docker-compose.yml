@@ -1,42 +1,33 @@
 version: '3'
 
 services:
-  mysqlDB:
-    image: mysql:8.0.31
-    container_name: mysqlPizzas
-    env_file: ./.env
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_pizza
     networks:
-      - pizzaAPI-network
+      - pizza
     ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      - "27017:27017"
     volumes:
-      - pizzaAPI_mysqlData:/var/lib/mysql
-      - pizzaAPI_mysqlConfig:/etc/mysql
-  
-  api_pizza:
+      - mongodb_data:/data/db
+
+
+  pizza:
     depends_on:
-      - mysqlDB
-    container_name: APIpizza
+      - mongodb
+    container_name: node_pizza
     build: .
     command: npm start
     networks:
-      - pizzaAPI-network
+      - pizza
     ports:
       - "3000:3000"
     volumes:
       - .:/pizza_api
-    stdin_open: true
-    tty: true
 
 networks:
-  pizzaAPI-network:
+  pizza:
       driver: bridge
 
 volumes:
-  pizzaAPI_mysqlData:
-  pizzaAPI_mysqlConfig:
+  mongodb_data:
