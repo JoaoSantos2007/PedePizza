@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import userModel from "../Models/user.js"
+import UserModel from "../Models/User.js"
 import dotenv from "dotenv"
 import { hashPassword } from "./user.js"
 dotenv.config()
@@ -23,7 +23,7 @@ function verifyToken(token, callback){
 }
 
 async function authenticate(email, password){
-    const user = await userModel.findOne({
+    const user = await UserModel.findOne({
         "email": email,
         "hashPassword": hashPassword(password)
     }).exec()

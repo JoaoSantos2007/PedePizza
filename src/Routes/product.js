@@ -1,15 +1,15 @@
 import express from 'express'
-import productController from '../Controllers/product.js'
-import authMiddleware from '../Middlewares/auth.js'
+import ProductController from '../Controllers/Product.js'
+import AuthMiddleware from '../Middlewares/Auth.js'
 import uploadMiddleware from '../Middlewares/upload.js'
 
 const Router = express.Router()
 
 Router
-    .get('/product', productController.get)
-    .get('/product/:id', productController.get)
-    .post('/product', authMiddleware.verifyAdmin, uploadMiddleware.single("img"), productController.create)
-    .put('/product/:id', authMiddleware.verifyAdmin, productController.update)
-    .delete('/product/:id', authMiddleware.verifyAdmin, productController.delete)
+    .get('/product', ProductController.get)
+    .get('/product/:id', ProductController.get)
+    .post('/product', AuthMiddleware.verifyAdmin, uploadMiddleware.single("img"), ProductController.create)
+    .put('/product/:id', AuthMiddleware.verifyAdmin, uploadMiddleware.single("img"), ProductController.update)
+    .delete('/product/:id', AuthMiddleware.verifyAdmin, ProductController.delete)
 
 export default Router

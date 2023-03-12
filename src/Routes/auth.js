@@ -1,11 +1,11 @@
 import express from 'express'
-import authController from '../Controllers/auth.js'
-import authMiddleware from '../Middlewares/auth.js'
+import AuthController from '../Controllers/Auth.js'
+import AuthMiddleware from '../Middlewares/Auth.js'
 
 const router = express.Router()
 
 router
-    .post("/login", authController.login)
-    .post("/logout", authMiddleware.verifyAuthorization, authController.logout)
+    .post("/login", AuthController.login)
+    .post("/logout", AuthMiddleware.verifyAuthorization, AuthController.logout)
 
 export default router

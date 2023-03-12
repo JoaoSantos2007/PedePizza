@@ -1,10 +1,10 @@
 import express from "express"
 //import orderController from "../Controllers/order.js"
-import authMiddleware from "../Middlewares/auth.js"
+import AuthMiddleware from "../Middlewares/Auth.js"
 
 const Router = express.Router()
 
-Router.use("/order", authMiddleware.verifyAuthorization)
+Router.use("/order", AuthMiddleware.verifyAuthorization)
 
 Router
     //.get("/order", orderController.readOrders)

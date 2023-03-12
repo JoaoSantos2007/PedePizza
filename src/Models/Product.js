@@ -7,7 +7,10 @@ const productSchema = new Schema({
     "name": {
         "type": String,
         "required": true,
-        "unique": true
+        "unique": true,
+        "max": 30,
+        "min": 3,
+        "trim": true
     },
     "type": {
         "type": String,
@@ -28,6 +31,6 @@ const productSchema = new Schema({
     }
 })
 
-const product = db.model("Products", productSchema)
+const Product = db.model("Products", productSchema)
 
-export default product
+export default Product

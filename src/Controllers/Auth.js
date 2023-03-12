@@ -1,6 +1,6 @@
 import { authenticate, createToken } from "../Utils/auth.js"
 
-class auth{
+class Auth{
     static async login(req,res){
         const data = req.body
 
@@ -38,4 +38,4 @@ class auth{
     }
 }
 
-export default auth
+export default Auth

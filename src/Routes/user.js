@@ -1,13 +1,13 @@
 import express from "express"
-import userController from "../Controllers/user.js"
-import authMiddleware from "../Middlewares/auth.js"
+import UserController from "../Controllers/User.js"
+import AuthMiddleware from "../Middlewares/Auth.js"
 
 const Router = express.Router()
 
 Router
-    .get("/user", authMiddleware.verifyAuthorization, userController.get)
-    .post("/user", userController.create)
-    .put("/user", authMiddleware.verifyAuthorization, userController.update)
-    .delete("/user", authMiddleware.verifyAuthorization, userController.delete)
+    .get("/user", AuthMiddleware.verifyAuthorization, UserController.get)
+    .post("/user", UserController.create)
+    .put("/user", AuthMiddleware.verifyAuthorization, UserController.update)
+    .delete("/user", AuthMiddleware.verifyAuthorization, UserController.delete)
 
 export default Router
