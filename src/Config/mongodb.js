@@ -1,12 +1,16 @@
+import dotenv from "dotenv"
 import mongoose from 'mongoose'
+dotenv.config()
 
-mongoose.connect('mongodb://localhost:27017/seu_banco_de_dados', { 
-  useNewUrlParser: true,
-  useUnifiedTopology: true 
-})
+mongoose.set('strictQuery', true)
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log("Conexão com o banco de dados estabelecida com sucesso!");
+    console.log("Database connection estabilished with success!");
   })
   .catch((err) => {
-    throw new Error(`Erro ao conectar com o banco de dados: ${err}`)
+    throw new Error(`Error in database connection: ${err}`)
   });
+
+const db = mongoose.connection.useDb("pedePizza")
+
+export default db

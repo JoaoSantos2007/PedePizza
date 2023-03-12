@@ -1,17 +1,15 @@
-import Products from "../Model/productModel.js"
-import randomID from "../Model/randomID.js"
+import productModel from "../Models/product.js"
 
-class productController{
+class product{
     //add product
-    static addProduct(req,res){
+    static create(req,res){
         const data = req.body
 
-        Products.create({
-            "id": randomID(),
-            "nome": data.nome,
+        productModel.create({
+            "name": data.nome,
             "type": data.type,
-            "preco": data.preco,
-            "descricao": data.descricao,
+            "description": data.description,
+            "price": data.price,
             "img": data.img
         })
             .then((product) => {
@@ -27,7 +25,7 @@ class productController{
     }
 
     //read products
-    static getProducts(req,res){
+    static get(req,res){
         const id = req.params.id
 
         if(!!id){
@@ -35,7 +33,7 @@ class productController{
             return
         }
 
-        Products.findAll()
+        productModel.find()
             .then((products) => {
                 res.status(200).json(products)
             })
@@ -45,7 +43,7 @@ class productController{
     }
 
     //update product
-    static updateProduct(req,res){
+    static update(req,res){
         const product = req.product
         const data = req.body
 
@@ -67,7 +65,7 @@ class productController{
     }
 
     //delete product
-    static deleteProduct(req,res){
+    static delete(req,res){
         const product = req.product
 
         product.destroy()
@@ -82,4 +80,4 @@ class productController{
     }
 }
 
-export default productController
+export default product

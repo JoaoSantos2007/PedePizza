@@ -1,35 +1,28 @@
-import authModel from '../Model/authModel.js'
+import userModel from "../Models/user.js"
+import { verifyToken } from "../Utils/auth.js"
 
-class authMiddleware{
-    static async verifyToken(req,res,next){
+class auth{
+    static verifyAuthorization(req, res, next){
         const token = req.cookies.token
 
-        const isToken = await authModel.verifyToken(token)
+        return verifyToken(token, (err, payload) => {
+            if(err) return res.status(400).json(err)
 
-        if(!isToken){
-            return res.status(401).json({"msg": "token invalid!"})
-        }
-
-        const user = await authModel.getUserByToken(token)
-        req.user = user
-        
-        next()
+            console.log(payload.email)
+            return next()
+        })
     }
 
     static async verifyAdmin(req,res,next){
         const token = req.cookies.token
 
-        const isToken = await authModel.verifyToken(token)
+        return verifyToken(token, (err, payload) => {
+            if(err) return res.status(400).json(err)
 
-        if(!isToken){
-            return res.status(401).json({"msg": "token invalid!"})
-        }
-
-        const user = await authModel.getUserByToken(token)
-
-        if(user.admin) next()
-        else res.status(403).json({"msg": "you need admin!"})
+            console.log(payload.email)
+            return next()
+        })
     }
 }
 
-export default authMiddleware
+export default auth

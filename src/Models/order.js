@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import db from "../Config/mongodb.js"
 
 const Schema = mongoose.Schema
 
@@ -9,6 +10,6 @@ const orderSchema = new Schema({
     "price": Number
 })
 
-const order = mongoose.model("order", orderSchema)
+const order = db.model("order", orderSchema)
 
 export default order

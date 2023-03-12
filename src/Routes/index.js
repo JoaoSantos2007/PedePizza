@@ -1,8 +1,7 @@
 import express from 'express'
 import product from './product.js'
 import user from './user.js'
-import auth from './authRoutes.js'
-import cart from "./cartRoutes.js"
+import auth from './auth.js'
 import order from "./order.js"
 import cookieParser from 'cookie-parser'
 
@@ -21,7 +20,6 @@ const Routes = (app) => {
         product,
         user,
         auth,
-        cart,
         order
     )
 }

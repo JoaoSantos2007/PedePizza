@@ -1,17 +1,36 @@
 import mongoose from "mongoose"
+import db from "../Config/mongodb.js"
 
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    "id": String,
-    "email": String,
-    "name": String,
-    "hashPassword": String,
-    "img": String,
-    "admin": Boolean,
-    "cart": Object
+    "email": {
+        "type": String,
+        "required": true,
+        "unique": true
+    },
+    "name": {
+        "type": String,
+        "required": true
+    },
+    "hashPassword": {
+        "type": String,
+        "required": true
+    },
+    "img": {
+        "type": String,
+        "required": false
+    },
+    "admin": {
+        "type": Boolean,
+        "required": true
+    },
+    "cart": {
+        "type": Object,
+        "required": true
+    }
 })
 
-const user = mongoose.model("user", userSchema)
+const user = db.model("user", userSchema)
 
 export default user

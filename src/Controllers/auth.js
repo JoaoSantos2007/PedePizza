@@ -1,4 +1,4 @@
-import authModel from "../Model/authModel.js"
+import { authenticate, createToken } from "../Utils/auth.js"
 
 class auth{
     static async login(req,res){
@@ -7,21 +7,22 @@ class auth{
         const email = data.email
         const password = data.password
 
-        const token = await authModel.authenticate(email, password)
-        
-        if(token){
+        const authenticated = await authenticate(email, password)
+        if(authenticated){
+            const token = createToken(email)
+
             res.cookie("token", token, {
                 httpOnly: true,
                 secure: !!req.headers["sec-fetch-mode"],
                 sameSite: 'none'
             })
     
-            res.status(200).send({
+            return res.status(200).send({
                 "authenticated": true,
             })
-        }else{
-            res.status(401).send({"msg": "Incorrect login!"})
         }
+
+        return res.status(401).send({"msg": "Incorrect login!"})
     }
 
     static logout(req,res){

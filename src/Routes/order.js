@@ -1,14 +1,14 @@
 import express from "express"
-import orderController from "../Controller/orderController.js"
-import authMiddleware from "../Middleware/authMiddleware.js"
+//import orderController from "../Controllers/order.js"
+import authMiddleware from "../Middlewares/auth.js"
 
 const Router = express.Router()
 
-Router.use("/order", authMiddleware.verifyToken)
+Router.use("/order", authMiddleware.verifyAuthorization)
 
 Router
-    .get("/order", orderController.readOrders)
-    .get("/order/:id", orderController.readOrders)
-    .post("/order", orderController.createOrder)
+    //.get("/order", orderController.readOrders)
+    //.get("/order/:id", orderController.readOrders)
+    //.post("/order", orderController.createOrder)
 
 export default Router

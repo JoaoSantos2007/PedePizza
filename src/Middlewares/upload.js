@@ -1,7 +1,7 @@
 import multer from 'multer'
-import randomID from '../Model/randomID.js'
+import randomID from '../Utils/randomID.js'
 
-const uploadMiddleware = multer({
+const upload = multer({
     storage: multer.diskStorage({
       destination: "uploads/",
       filename(req, file, callback) {
@@ -16,4 +16,4 @@ const uploadMiddleware = multer({
     }),
   })
 
-export default uploadMiddleware
+export default upload
