@@ -1,26 +1,5 @@
-import jwt from "jsonwebtoken"
-import UserModel from "../Models/User.js"
-import dotenv from "dotenv"
+import UserModel from "../Models/UserModel.js"
 import { hashPassword } from "./user.js"
-dotenv.config()
-
-const secret = process.env.SECRET
-
-function createToken(email){
-    const token = jwt.sign({
-        "email": email
-    }, secret, {
-        expiresIn: '15m'
-    })
-
-    return token
-}
-
-function verifyToken(token, callback){
-    jwt.verify(token, secret, (err, payload) => {
-        callback(err, payload)
-    })
-}
 
 async function authenticate(email, password){
     const user = await UserModel.findOne({
@@ -31,5 +10,18 @@ async function authenticate(email, password){
     return(!!user === true && user.email === email &&  user.hashPassword === hashPassword(password))
 }
 
+function defineTokenCookies(req, res, accessToken="", refreshToken=""){
+    res.cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: !!req.headers["sec-fetch-mode"],
+        sameSite: 'none'
+    })
 
-export { createToken, verifyToken, authenticate }
+    res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: !!req.headers["sec-fetch-mode"],
+        sameSite: 'none'
+    })
+}
+
+export { authenticate, defineTokenCookies }

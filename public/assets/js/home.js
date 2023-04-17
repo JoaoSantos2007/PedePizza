@@ -24,12 +24,12 @@ function renderPizzas(products){
         item.append(itemHeader)
 
         const itemMain = $("<div>").addClass("item__main")
-        const itemName = $("<p>").addClass("item__name").text(product.nome)
+        const itemName = $("<p>").addClass("item__name").text(product.name)
         itemMain.append(itemName)
         item.append(itemMain)
 
         const itemFooter = $("<div>").addClass("item__footer")
-        const itemPrice = $("<p>").addClass("item__price").text("R$ "+product.preco)
+        const itemPrice = $("<p>").addClass("item__price").text("R$ "+product.price)
         itemFooter.append(itemPrice)
         item.append(itemFooter)
 

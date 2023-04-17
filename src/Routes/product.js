@@ -1,6 +1,6 @@
 import express from 'express'
-import ProductController from '../Controllers/Product.js'
-import AuthMiddleware from '../Middlewares/Auth.js'
+import ProductController from '../Controllers/ProductController.js'
+import AuthMiddleware from '../Middlewares/AuthMiddleware.js'
 import uploadMiddleware from '../Middlewares/upload.js'
 
 const Router = express.Router()

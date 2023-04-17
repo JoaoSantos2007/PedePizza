@@ -6,7 +6,7 @@ function navigate(path){
     window.location.assign(newUrl)
 }
 
-function api(route, method,body=null,callback){
+async function api(route, method,body=null,callback){
     const myUrl = url + route
 
     const myInit = {
@@ -21,25 +21,16 @@ function api(route, method,body=null,callback){
         credentials: "include"
     }
 
-    fetch(myUrl,myInit)
-        .then((res) => {
-            res.json()
-                .then((data) => {
-                    callback(data)
-                    
-                    if(!(res.ok)) error({
-                        name: myUrl,
-                        message: data.msg,
-                    })
-                })
-                .catch((err) => {
-                    if(res.status === 401) navigate("/login.html")
-                    error(err)
-                })
-        })
-        .catch((err) => {
-            error(err)
-        })
+    try{
+        const res = await fetch(myUrl,myInit)
+        const data = await res.json()
+        
+        callback(data)
+    }catch(err) {
+        if(res.status === 401) return navigate("/login.html")
+        
+        error(err)
+    }
 }
 
 function error(err){

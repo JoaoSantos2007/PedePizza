@@ -1,4 +1,4 @@
-import UserModel from "../Models/User.js"
+import UserModel from "../Models/UserModel.js"
 import { hashPassword } from "../Utils/user.js"
 
 class User{
