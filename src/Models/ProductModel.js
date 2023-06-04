@@ -1,36 +1,36 @@
-import mongoose from "mongoose"
-import db from "../Config/mongodb.js"
+import mongoose from 'mongoose';
+import db from '../Config/mongodb.js';
 
-const Schema = mongoose.Schema
+const { Schema } = mongoose;
 
 const productSchema = new Schema({
-    "name": {
-        "type": String,
-        "required": true,
-        "unique": true,
-        "max": 30,
-        "min": 3,
-        "trim": true
-    },
-    "type": {
-        "type": String,
-        "required": true,
-    },
-    "description": {
-        "type": String,
-        "unique": true
-    },
-    "price": {
-        "type": Number,
-        "required": true
-    },
-    "img": {
-        "type": String,
-        "required": true,
-        "unique": true
-    }
-})
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    max: 30,
+    min: 3,
+    trim: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    unique: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  img: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
 
-const Product = db.model("Products", productSchema)
+const Product = db.model('Products', productSchema);
 
-export default Product
+export default Product;

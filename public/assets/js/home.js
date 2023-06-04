@@ -1,43 +1,43 @@
-import {navigate, api, url } from "./script.js"
+import { navigate, api, url } from './script.js';
 
-$("document").ready(() => {
-    api("/product","GET",null,(products) => {
-        renderPizzas(products)
-    })
-})
+$('document').ready(() => {
+  api('/product', 'GET', null, (products) => {
+    renderPizzas(products);
+  });
+});
 
-function renderPizzas(products){
-    if(!products) return
-    
-    products.map((product) => {
-        const id = product.id
+function renderPizzas(products) {
+  if (!products) return;
 
-        const item = $("<div>").addClass("item")
+  products.map((product) => {
+    const { id } = product;
 
-        const itemHeader = $("<div>").addClass("item__header")
+    const item = $('<div>').addClass('item');
 
-        const image = url + product.img
-        const pizzaIMG = $("<img>").attr("src",image)
-        pizzaIMG.attr("alt",`${product.nome}`)
-        pizzaIMG.addClass("pizza__img")
-        itemHeader.append(pizzaIMG)
-        item.append(itemHeader)
+    const itemHeader = $('<div>').addClass('item__header');
 
-        const itemMain = $("<div>").addClass("item__main")
-        const itemName = $("<p>").addClass("item__name").text(product.name)
-        itemMain.append(itemName)
-        item.append(itemMain)
+    const image = url + product.img;
+    const pizzaIMG = $('<img>').attr('src', image);
+    pizzaIMG.attr('alt', `${product.nome}`);
+    pizzaIMG.addClass('pizza__img');
+    itemHeader.append(pizzaIMG);
+    item.append(itemHeader);
 
-        const itemFooter = $("<div>").addClass("item__footer")
-        const itemPrice = $("<p>").addClass("item__price").text("R$ "+product.price)
-        itemFooter.append(itemPrice)
-        item.append(itemFooter)
+    const itemMain = $('<div>').addClass('item__main');
+    const itemName = $('<p>').addClass('item__name').text(product.name);
+    itemMain.append(itemName);
+    item.append(itemMain);
 
-        item.click(() => {
-            sessionStorage.setItem("pizzaID",id)
-            navigate("/pizza.html")
-        })
-    
-        $("#content").append(item)
-    })
+    const itemFooter = $('<div>').addClass('item__footer');
+    const itemPrice = $('<p>').addClass('item__price').text(`R$ ${product.price}`);
+    itemFooter.append(itemPrice);
+    item.append(itemFooter);
+
+    item.click(() => {
+      sessionStorage.setItem('pizzaID', id);
+      navigate('/pizza.html');
+    });
+
+    $('#content').append(item);
+  });
 }

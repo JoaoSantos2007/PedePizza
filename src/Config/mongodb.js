@@ -1,16 +1,17 @@
-import dotenv from "dotenv"
-import mongoose from 'mongoose'
-dotenv.config()
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
-mongoose.set('strictQuery', true)
+dotenv.config();
+
+mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log("Database connection estabilished with success!");
+    console.log('Database connection estabilished with success!');
   })
   .catch((err) => {
-    throw new Error(`Error in database connection: ${err}`)
+    throw new Error(`Error in database connection: ${err}`);
   });
 
-const db = mongoose.connection.useDb("pedePizza")
+const db = mongoose.connection.useDb('pedePizza');
 
-export default db
+export default db;

@@ -1,20 +1,21 @@
-import db from "../Config/mongodb.js";
-import mongoose from "mongoose"
-import dotenv from "dotenv"
-dotenv.config()
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import db from '../Config/mongodb.js';
 
-const Schema = mongoose.Schema
-const accessTokenLifetime = process.env.ACCESSTOKEN_LIFETIME
+dotenv.config();
+
+const { Schema } = mongoose;
+const accessTokenLifetime = process.env.ACCESSTOKEN_LIFETIME;
 
 const blocklistModel = new Schema({
-    "key": String,
-    "expiresIn": {
-        "type": Date, 
-        "default": Date.now,
-        "expires": accessTokenLifetime * 60 //Convert Minutes to second
-    }
-})
+  key: String,
+  expiresIn: {
+    type: Date,
+    default: Date.now,
+    expires: accessTokenLifetime * 60, // Convert Minutes to second
+  },
+});
 
-const Blocklist = db.model("blocklist", blocklistModel)
+const Blocklist = db.model('blocklist', blocklistModel);
 
-export default Blocklist
+export default Blocklist;

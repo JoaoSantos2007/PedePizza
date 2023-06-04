@@ -1,61 +1,57 @@
+import TokenModel from '../Models/TokenModel.js';
+import { authenticate, defineTokenCookies } from '../Utils/auth.js';
 
-import TokenModel from "../Models/TokenModel.js"
-import { authenticate, defineTokenCookies } from "../Utils/auth.js"
+class Auth {
+  static async login(req, res) {
+    const data = req.body;
 
-class Auth{
-    static async login(req,res){
-        const data = req.body
+    const { email } = data;
+    const { password } = data;
 
-        const email = data.email
-        const password = data.password
+    const authenticated = await authenticate(email, password);
 
-        const authenticated = await authenticate(email, password)
-    
-        if(authenticated){
-            try{
-                const accessToken = TokenModel.createAccessToken(email)
-                const refreshToken = await TokenModel.createRefreshToken(email)
+    if (authenticated) {
+      try {
+        const accessToken = TokenModel.createAccessToken(email);
+        const refreshToken = await TokenModel.createRefreshToken(email);
 
-                defineTokenCookies(req, res, accessToken, refreshToken)
-                return res.status(200).json({"authenticated": true})
-            }catch(err){
-
-                return res.status(500).json(err)            
-            }
-        }
-
-        return res.status(401).send({"msg": "Incorrect login!"})
+        defineTokenCookies(req, res, accessToken, refreshToken);
+        return res.status(200).json({ authenticated: true });
+      } catch (err) {
+        return res.status(500).json(err);
+      }
     }
 
-    static async refresh(req, res){
-        const email = req.email
+    return res.status(401).send({ msg: 'Incorrect login!' });
+  }
 
-        try{
-            const accessToken = TokenModel.createAccessToken(email)
-            const refreshToken = await TokenModel.createRefreshToken(email)
+  static async refresh(req, res) {
+    const { email } = req;
 
-            defineTokenCookies(req, res, accessToken, refreshToken)
-            return res.status(200).json({"refreshed": true})
-        }catch(err) {
+    try {
+      const accessToken = TokenModel.createAccessToken(email);
+      const refreshToken = await TokenModel.createRefreshToken(email);
 
-            return res.status(500).json(err)            
-        }
+      defineTokenCookies(req, res, accessToken, refreshToken);
+      return res.status(200).json({ refreshed: true });
+    } catch (err) {
+      return res.status(500).json(err);
     }
+  }
 
-    static async logout(req,res){
-        const accessToken = req.cookies.accessToken
-        const refreshToken = req.cookies.refreshToken
-        
-        try{
-            await TokenModel.revokeUserTokens(accessToken, refreshToken)
-            defineTokenCookies(req, res)
+  static async logout(req, res) {
+    const { accessToken } = req.cookies;
+    const { refreshToken } = req.cookies;
 
-            return res.status(200).json({"left": true})
-        }catch(err){
+    try {
+      await TokenModel.revokeUserTokens(accessToken, refreshToken);
+      defineTokenCookies(req, res);
 
-            return res.status(500).json(err)
-        }
+      return res.status(200).json({ left: true });
+    } catch (err) {
+      return res.status(500).json(err);
     }
+  }
 }
 
-export default Auth
+export default Auth;

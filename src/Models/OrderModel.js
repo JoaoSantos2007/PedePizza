@@ -1,15 +1,15 @@
-import mongoose from "mongoose"
-import db from "../Config/mongodb.js"
+import mongoose from 'mongoose';
+import db from '../Config/mongodb.js';
 
-const Schema = mongoose.Schema
+const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-    "id": String,
-    "userID": String,
-    "products": Object,
-    "price": Number
-})
+  id: String,
+  userID: String,
+  products: Object,
+  price: Number,
+});
 
-const Order = db.model("order", orderSchema)
+const Order = db.model('order', orderSchema);
 
-export default Order
+export default Order;

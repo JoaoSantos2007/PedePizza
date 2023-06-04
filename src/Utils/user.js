@@ -1,11 +1,12 @@
-import bcrypt from "bcrypt"
-import dotenv from "dotenv"
-dotenv.config()
+import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
 
-const SALT = process.env.SALT
+dotenv.config();
 
-function hashPassword(password){
-    return bcrypt.hashSync(password, SALT)
+const { SALT } = process.env;
+
+function hashPassword(password) {
+  return bcrypt.hashSync(password, SALT);
 }
 
-export { hashPassword }
+export { hashPassword };
