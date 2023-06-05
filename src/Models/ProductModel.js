@@ -31,6 +31,6 @@ const productSchema = new Schema({
   },
 });
 
-const Product = db.model('Products', productSchema);
+const Product = db.model('products', productSchema);
 
 export default Product;

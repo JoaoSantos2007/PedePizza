@@ -31,6 +31,6 @@ const userSchema = new Schema({
   },
 });
 
-const User = db.model('user', userSchema);
+const User = db.models.users || db.model('users', userSchema);
 
 export default User;

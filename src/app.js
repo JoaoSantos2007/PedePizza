@@ -1,5 +1,5 @@
 import express from 'express';
-import './Config/mongodb.js';
+import './config/mongo.js';
 import bodyParser from 'body-parser';
 import Routes from './Routes/index.js';
 

@@ -10,6 +10,6 @@ const orderSchema = new Schema({
   price: Number,
 });
 
-const Order = db.model('order', orderSchema);
+const Order = db.model('orders', orderSchema);
 
 export default Order;
