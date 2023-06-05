@@ -1,15 +1,15 @@
-import AllowlistModel from '../Models/AllowlistModel.js';
-import TokenModel from '../Models/TokenModel.js';
-import UserModel from '../Models/UserModel.js';
+import Allowlist from '../models/allowlistModel.js';
+import Token from '../models/tokenModel.js';
+import User from '../models/userModel.js';
 
 class Auth {
   static verifyAuthorization(req, res, next) {
     const { accessToken } = req.cookies;
 
-    return TokenModel.verifyAccessToken(accessToken, async (err, payload) => {
+    return Token.verifyAccessToken(accessToken, async (err, payload) => {
       if (err) return res.status(401).json(err);
 
-      await UserModel.findOne({ email: payload.email }).exec()
+      await User.findOne({ email: payload.email }).exec()
         .then((user) => {
           if (!user) return res.status(401).json({ error: 'user not found!' });
 
@@ -23,10 +23,10 @@ class Auth {
   static async verifyAdmin(req, res, next) {
     const { accessToken } = req.cookies;
 
-    return TokenModel.verifyAccessToken(accessToken, async (err, payload) => {
+    return Token.verifyAccessToken(accessToken, async (err, payload) => {
       if (err) return res.status(400).json(err);
 
-      await UserModel.findOne({ email: payload.email }).exec()
+      await User.findOne({ email: payload.email }).exec()
         .then((user) => {
           if (!user) return res.status(400).json({ error: 'user not found!' });
 
@@ -42,7 +42,7 @@ class Auth {
     const { refreshToken } = req.cookies;
 
     try {
-      const refreshTokenData = await AllowlistModel.findOneAndDelete({ key: refreshToken });
+      const refreshTokenData = await Allowlist.findOneAndDelete({ key: refreshToken });
       if (!refreshToken || !refreshTokenData) return res.status(401).json({ error: 'Invalid refresh token!' });
 
       const email = refreshTokenData.value;

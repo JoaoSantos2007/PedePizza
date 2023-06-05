@@ -1,5 +1,5 @@
-import UserModel from '../Models/UserModel.js';
-import { hashPassword } from './user.js';
+import UserModel from '../Models/userModel.js';
+import { hashPassword } from './userUtils.js';
 
 async function authenticate(email, password) {
   const user = await UserModel.findOne({

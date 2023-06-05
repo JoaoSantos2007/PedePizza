@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import dotenv from 'dotenv';
-import Allowlist from './AllowlistModel.js';
-import Blocklist from './BlocklistModel.js';
+import Allowlist from './allowlistModel.js';
+import Blocklist from './blocklistModel.js';
 
 dotenv.config();
 

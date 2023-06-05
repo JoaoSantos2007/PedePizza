@@ -1,7 +1,7 @@
 import express from 'express';
-import ProductController from '../Controllers/ProductController.js';
-import AuthMiddleware from '../Middlewares/AuthMiddleware.js';
-import uploadMiddleware from '../Middlewares/upload.js';
+import ProductController from '../controllers/productController.js';
+import AuthMiddleware from '../middlewares/authMiddleware.js';
+import uploadMiddleware from '../middlewares/uploadMiddleware.js';
 
 const Router = express.Router();
 

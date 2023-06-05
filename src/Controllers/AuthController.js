@@ -1,19 +1,18 @@
-import TokenModel from '../Models/TokenModel.js';
-import { authenticate, defineTokenCookies } from '../Utils/auth.js';
+import Token from '../models/tokenModel.js';
+import { authenticate, defineTokenCookies } from '../utils/authUtils.js';
 
 class Auth {
   static async login(req, res) {
     const data = req.body;
 
-    const { email } = data;
-    const { password } = data;
+    const { email, password } = data;
 
     const authenticated = await authenticate(email, password);
 
     if (authenticated) {
       try {
-        const accessToken = TokenModel.createAccessToken(email);
-        const refreshToken = await TokenModel.createRefreshToken(email);
+        const accessToken = Token.createAccessToken(email);
+        const refreshToken = await Token.createRefreshToken(email);
 
         defineTokenCookies(req, res, accessToken, refreshToken);
         return res.status(200).json({ authenticated: true });
@@ -29,8 +28,8 @@ class Auth {
     const { email } = req;
 
     try {
-      const accessToken = TokenModel.createAccessToken(email);
-      const refreshToken = await TokenModel.createRefreshToken(email);
+      const accessToken = Token.createAccessToken(email);
+      const refreshToken = await Token.createRefreshToken(email);
 
       defineTokenCookies(req, res, accessToken, refreshToken);
       return res.status(200).json({ refreshed: true });
@@ -44,7 +43,7 @@ class Auth {
     const { refreshToken } = req.cookies;
 
     try {
-      await TokenModel.revokeUserTokens(accessToken, refreshToken);
+      await Token.revokeUserTokens(accessToken, refreshToken);
       defineTokenCookies(req, res);
 
       return res.status(200).json({ left: true });

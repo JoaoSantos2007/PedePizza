@@ -1,5 +1,5 @@
-import UserModel from '../Models/UserModel.js';
-import { hashPassword } from '../Utils/user.js';
+import UserModel from '../models/userModel.js';
+import { hashPassword } from '../utils/userUtils.js';
 
 class User {
   // create user

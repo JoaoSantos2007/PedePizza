@@ -1,4 +1,4 @@
-import ProductModel from '../Models/ProductModel.js';
+import ProductModel from '../models/productModel.js';
 
 class Product {
   // add product

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import db from '../Config/mongodb.js';
+import db from '../config/mongo.js';
 
 dotenv.config();
 
