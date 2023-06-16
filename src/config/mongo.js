@@ -1,10 +1,8 @@
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-
-dotenv.config();
+import { MONGO_URL } from '../utils/env.js';
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Database connection estabilished with success!');
   })
