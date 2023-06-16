@@ -1,0 +1,20 @@
+import path from 'path';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
+const ACCESSTOKEN_LIFETIME = process.env.ACCESSTOKEN_LIFETIME || 15;
+const REFRESHTOKEN_LIFETIME = process.env.REFRESHTOKEN_LIFETIME || 52;
+const UPLOAD_PATH = process.env.UPLOAD_PATH || path.resolve('./uploads');
+const { MONGO_URL } = process.env;
+const { SALT } = process.env;
+const { SECRET } = process.env;
+
+if (!MONGO_URL || !SALT || !SECRET) {
+  throw new Error('Está faltando as Variáveis de Ambiente no arquivo .env na raiz do projeto!');
+}
+
+export {
+  PORT, REFRESHTOKEN_LIFETIME, ACCESSTOKEN_LIFETIME, UPLOAD_PATH, MONGO_URL, SALT, SECRET,
+};
