@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/base.css" />
-        <link rel="stylesheet" href="assets/css/pizza.css" />
+        <link rel="stylesheet" href="assets/css/product.css" />
     </head>
     <body>
         <header>
@@ -20,31 +20,19 @@
                 <a href="account.html">Account</a>  
                 <a href="cart.html" class="navbar__cart"><img src="assets/icon/cart.svg" alt="cart"></a>
             </nav>
-            <h1 class="header__title" id="pizzaName">Pizza Name</h1>
         </header>
 
         <main>
-            <img id="pizzaIMG" class="pizzaIMG" alt="pizza img">
-            <p id="pizzaDescricao" class="pizzaDescricao">
-                descricão da pizza
-            </p>
+            <section class="itemContainer" id="itemContainer">
+                <h1 class="itemName">Pizza de Calabresa</h1>
 
-            <p class="pizzaPreco">R$ <span id="pizzaPreco"></span></p>
-
-            <button class="addToCart" id="addToCart">
-                <p>ADICIONAR À SACOLA</p>
-            </button>
+                <img src="http://localhost:3000/uploads/1687027161258.jpg" class="itemPizza" alt="">
+            </section>
         </main>
 
         <footer>
-            <div class="footer__links">
-                <a href="index.html">Service</a>
-                <a href="index.html">Support</a>
-                <a href="index.html">Company</a>
-                <a href="index.html">Legal</a>
-                <a href="index.html">Join Us</a>
-            </div>
-
+            <img src="assets/icon/logo.png" alt="Logo Pizza">
+            
             <div class="footer__social">
                 <img src="assets/icon/instagram.svg" alt="Icone instagram">
                 <img src="assets/icon/facebook.svg" alt="Icone facebook">
@@ -52,13 +40,8 @@
                 <img src="assets/icon/whatsapp.svg" alt="Icone whatsapp">
                 <img src="assets/icon/linkedin.svg" alt="Icone linkedin">
             </div>
-
-            <div class="footer__logo">
-                <img src="assets/icon/logo.png" alt="Logo Pizza">
-            </div>
         </footer>
 
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/pizza.js" type="module"></script>
+        <script src="assets/js/product.js" type="module"></script>
     </body>
 </html>

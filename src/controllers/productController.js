@@ -18,14 +18,14 @@ class Product {
       const response = await product.save();
       const productId = response.id;
 
-      res.status(201).json({
+      return res.status(201).json({
         success: true,
         productId,
       });
     } catch (err) {
       const { error, status } = analyzeError(err);
 
-      res.status(status).json({
+      return res.status(status).json({
         success: false,
         error,
       });
@@ -37,16 +37,17 @@ class Product {
     const { id } = req.params;
 
     try {
+      // Find product if id exists or find products if is no id
       const products = id ? await ProductModel.findById(id) : await ProductModel.find();
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         products,
       });
     } catch (err) {
       const { error, status } = analyzeError(err);
 
-      res.status(status).json({
+      return res.status(status).json({
         success: false,
         error,
       });
@@ -67,14 +68,14 @@ class Product {
       const response = await ProductModel.updateOne({ _id: id }, product);
       const { modifiedCount } = response;
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         modifiedCount,
       });
     } catch (err) {
       const { error, status } = analyzeError(err);
 
-      res.status(status).json({
+      return res.status(status).json({
         success: false,
         error,
       });
@@ -84,20 +85,23 @@ class Product {
   // update product image
   static async setImage(req, res) {
     const { id } = req.params;
-    const { img } = req;
+    const { img } = req; // get req img defined by Multer
 
     try {
+      // verif if the img was sent
+      if (!img) return res.status(404).json({ success: false, error: { name: 'Image Undefined', msg: 'No image was found' } });
+
       const response = await ProductModel.updateOne({ _id: id }, { img });
       const { modifiedCount } = response;
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         modifiedCount,
       });
     } catch (err) {
       const { error, status } = analyzeError(err);
 
-      res.status(status).json({
+      return res.status(status).json({
         success: false,
         error,
       });
@@ -111,19 +115,20 @@ class Product {
     try {
       const response = await ProductModel.findOneAndDelete({ _id: id });
 
+      // delete img if product exists
       if (response) {
         const { img } = response;
         if (img) deleteFile(img);
       }
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         deletedObject: response,
       });
     } catch (err) {
       const { error, status } = analyzeError(err);
 
-      res.status(status).json({
+      return res.status(status).json({
         success: false,
         error,
       });

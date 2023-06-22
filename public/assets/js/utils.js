@@ -21,33 +21,37 @@ async function api(route, method, body = null, callback) {
     credentials: 'include',
   };
 
+  let res;
+
   try {
-    const res = await fetch(myUrl, myInit);
+    res = await fetch(myUrl, myInit);
     const data = await res.json();
 
     callback(data);
   } catch (err) {
     if (res.status === 401) return navigate('/login.html');
 
+    console.error(err);
+
     error(err);
   }
 }
 
 function error(err) {
-  const errorSection = $('<section>').addClass('popup__error');
+  // const errorSection = $('<section>').addClass('popup__error');
 
-  const closeError = $('<img>').attr('src', 'assets/icon/close.svg').attr('alt', 'close error pop up').addClass('popup__error-close');
+  // const closeError = $('<img>').attr('src', 'assets/icon/close.svg').attr('alt', 'close error pop up').addClass('popup__error-close');
 
-  closeError.click(() => {
-    errorSection.remove();
-  });
+  // closeError.click(() => {
+  //   errorSection.remove();
+  // });
 
-  const messageError = $('<p>').text(`${err.name}: ${err.message}`).addClass('popup__error-message');
+  // const messageError = $('<p>').text(`${err.name}: ${err.message}`).addClass('popup__error-message');
 
-  errorSection.append(closeError);
-  errorSection.append(messageError);
+  // errorSection.append(closeError);
+  // errorSection.append(messageError);
 
-  $('body').append(errorSection);
+  // $('body').append(errorSection);
 }
 
 export {

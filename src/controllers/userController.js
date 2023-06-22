@@ -1,53 +1,68 @@
 import UserModel from '../models/userModel.js';
+import analyzeError from '../utils/analyzeError.js';
 import { hashPassword } from '../utils/userUtils.js';
 
 class User {
   // create user
   static async create(req, res) {
-    const data = req.body;
+    const { name, email, password } = req.body;
 
     const user = new UserModel({
-      name: data.name,
-      email: data.email,
-      hashPassword: hashPassword(data.password),
-      img: data.img,
+      name,
+      email,
+      hashPassword: hashPassword(password),
       admin: false,
       cart: {},
     });
 
     try {
       const response = await user.save();
+      const productId = response.id;
 
-      res.status(201).json({ created: true, response });
+      return res.status(201).json({
+        success: true,
+        productId,
+      });
     } catch (err) {
-      res.status(500).json(err);
+      const { error, status } = analyzeError(err);
+
+      return res.status(status).json({
+        success: false,
+        error,
+      });
     }
   }
 
   // read user
   static get(req, res) {
-    res.status(200).json(req.user);
+    return res.status(200).json({
+      success: true,
+      user: req.user,
+    });
   }
 
   // updtate user
   static async update(req, res) {
     const { user } = req;
-    const data = req.body;
+    const { name, email, cart } = req.body;
 
     const userData = {
-      name: data.name || undefined,
-      email: data.email || undefined,
-      hashPassword: data.password ? hashPassword(data.password) : undefined,
-      img: data.img || undefined,
-      cart: data.cart || undefined,
+      name,
+      email,
+      cart,
     };
 
     try {
-      const response = await UserModel.updateOne({ email: user.email }, userData);
+      const response = await UserModel.updateOne({ _id: user.id }, userData);
 
-      res.status(200).json({ updated: response.acknowledged || true });
+      return res.status(200).json({ updated: response.acknowledged || true });
     } catch (err) {
-      res.status(500).json(err);
+      const { error, status } = analyzeError(err);
+
+      return res.status(status).json({
+        success: false,
+        error,
+      });
     }
   }
 
@@ -56,7 +71,7 @@ class User {
     const { user } = req;
 
     try {
-      const response = await UserModel.deleteOne({ email: user.email });
+      const response = await UserModel.findOneAndDelete({ _id: user.id });
 
       // TEMPORÁRIO
       res.cookie('token', '', {
@@ -65,9 +80,17 @@ class User {
         sameSite: 'none',
       });
 
-      res.status(200).json({ deleted: response.acknowledged || true });
+      return res.status(200).json({
+        success: true,
+        deletedUser: response,
+      });
     } catch (err) {
-      res.status(500).json(err);
+      const { error, status } = analyzeError(err);
+
+      return res.status(status).json({
+        success: false,
+        error,
+      });
     }
   }
 }

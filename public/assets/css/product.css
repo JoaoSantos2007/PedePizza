@@ -1,11 +1,17 @@
-main{
-    width: 100%;
+.itemContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.pizzaIMG{
+.itemName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3em;
+    margin: 30px 0px;
+}
+
+.itemPizza{
     width: 50%;
     margin-bottom: 30px;
 }
