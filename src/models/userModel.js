@@ -6,8 +6,8 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   email: {
     type: String,
-    required: true,
     unique: true,
+    required: true,
   },
   name: {
     type: String,
@@ -19,14 +19,12 @@ const userSchema = new Schema({
   },
   admin: {
     type: Boolean,
-    required: true,
   },
   cart: {
     type: Object,
-    required: true,
   },
 });
 
-const User = db.models.users || db.model('users', userSchema);
+const User = db.model('users', userSchema);
 
 export default User;

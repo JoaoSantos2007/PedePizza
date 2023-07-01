@@ -1,20 +1,21 @@
+import IncorrectRequisition from '../errors/incorrectRequisition.js';
+import NotFoundError from '../errors/notFoundError.js';
 import ProductModel from '../models/productModel.js';
 import { deleteFile } from '../utils/uploadUtils.js';
-import analyzeError from '../utils/analyzeError.js';
 
 class Product {
   // add product
-  static async create(req, res) {
-    const
-      {
-        name, type, description, price,
-      } = req.body;
-
-    const product = new ProductModel({
-      name, type, description, price, img: '',
-    });
-
+  static async create(req, res, next) {
     try {
+      const
+        {
+          name, type, description, price,
+        } = req.body;
+
+      const product = new ProductModel({
+        name, type, description, price, img: '',
+      });
+
       const response = await product.save();
       const productId = response.id;
 
@@ -23,115 +24,108 @@ class Product {
         productId,
       });
     } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
+      return next(err);
     }
   }
 
   // read products
-  static async get(req, res) {
-    const { id } = req.params;
-
+  static async get(req, res, next) {
     try {
-      // Find product if id exists or find products if is no id
-      const products = id ? await ProductModel.findById(id) : await ProductModel.find();
+      const products = await ProductModel.find();
 
       return res.status(200).json({
         success: true,
         products,
       });
     } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
+      return next(err);
     }
   }
 
-  // update product
-  static async update(req, res) {
-    const { id } = req.params;
-    const {
-      name, type, description, price,
-    } = req.body;
-    const product = {
-      name, type, description, price,
-    };
-
+  // read product by a Id
+  static async getByID(req, res, next) {
     try {
-      const response = await ProductModel.updateOne({ _id: id }, product);
-      const { modifiedCount } = response;
+      const { id } = req.params;
+      const product = await ProductModel.findById(id);
 
-      return res.status(200).json({
-        success: true,
-        modifiedCount,
-      });
-    } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
-    }
-  }
-
-  // update product image
-  static async setImage(req, res) {
-    const { id } = req.params;
-    const { img } = req; // get req img defined by Multer
-
-    try {
-      // verif if the img was sent
-      if (!img) return res.status(404).json({ success: false, error: { name: 'Image Undefined', msg: 'No image was found' } });
-
-      const response = await ProductModel.updateOne({ _id: id }, { img });
-      const { modifiedCount } = response;
-
-      return res.status(200).json({
-        success: true,
-        modifiedCount,
-      });
-    } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
-    }
-  }
-
-  // delete product
-  static async delete(req, res) {
-    const { id } = req.params;
-
-    try {
-      const response = await ProductModel.findOneAndDelete({ _id: id });
-
-      // delete img if product exists
-      if (response) {
-        const { img } = response;
-        if (img) deleteFile(img);
+      if (product === null) {
+        return next(new NotFoundError('Product Id not found!'));
       }
 
       return res.status(200).json({
         success: true,
-        deletedObject: response,
+        product,
       });
     } catch (err) {
-      const { error, status } = analyzeError(err);
+      return next(err);
+    }
+  }
 
-      return res.status(status).json({
-        success: false,
-        error,
+  // update product
+  static async update(req, res, next) {
+    try {
+      const { id } = req.params;
+
+      const {
+        name, type, description, price,
+      } = req.body;
+
+      const data = {
+        name, type, description, price,
+      };
+
+      const product = await ProductModel.findByIdAndUpdate(id, data);
+
+      if (product === null) {
+        return next(new NotFoundError('Product Id not found!'));
+      }
+
+      return res.status(200).json({
+        success: true,
+        product,
       });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
+  // update product image
+  static async updateImg(req, res, next) {
+    try {
+      const { img, product } = req;
+      if (!img) return next(new IncorrectRequisition('Image field is empty'));
+
+      product.set('img', img);
+      await product.save();
+
+      return res.status(200).json({
+        success: true,
+        product,
+      });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
+  // delete product
+  static async delete(req, res, next) {
+    try {
+      const { id } = req.params;
+      const product = await ProductModel.findByIdAndRemove(id);
+
+      if (product === null) {
+        next(new NotFoundError('Product Id not found!'));
+      }
+
+      const { img } = product;
+      if (img) deleteFile(img);
+
+      return res.status(200).json({
+        success: true,
+        product,
+      });
+    } catch (err) {
+      return next(err);
     }
   }
 }

@@ -1,21 +1,20 @@
 import UserModel from '../models/userModel.js';
-import analyzeError from '../utils/analyzeError.js';
 import { hashPassword } from '../utils/userUtils.js';
 
 class User {
   // create user
-  static async create(req, res) {
-    const { name, email, password } = req.body;
-
-    const user = new UserModel({
-      name,
-      email,
-      hashPassword: hashPassword(password),
-      admin: false,
-      cart: {},
-    });
-
+  static async create(req, res, next) {
     try {
+      const { name, email, password } = req.body;
+
+      const user = new UserModel({
+        name,
+        email,
+        hashPassword: hashPassword(password),
+        admin: false,
+        cart: {},
+      });
+
       const response = await user.save();
       const productId = response.id;
 
@@ -24,12 +23,7 @@ class User {
         productId,
       });
     } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
+      return next(err);
     }
   }
 
@@ -42,32 +36,27 @@ class User {
   }
 
   // updtate user
-  static async update(req, res) {
-    const { user } = req;
-    const { name, email, cart } = req.body;
-
-    const userData = {
-      name,
-      email,
-      cart,
-    };
-
+  static async update(req, res, next) {
     try {
+      const { user } = req;
+      const { name, email, cart } = req.body;
+
+      const userData = {
+        name,
+        email,
+        cart,
+      };
+
       const response = await UserModel.updateOne({ _id: user.id }, userData);
 
       return res.status(200).json({ updated: response.acknowledged || true });
     } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
+      return next(err);
     }
   }
 
   // delete user
-  static async delete(req, res) {
+  static async delete(req, res, next) {
     const { user } = req;
 
     try {
@@ -82,15 +71,10 @@ class User {
 
       return res.status(200).json({
         success: true,
-        deletedUser: response,
+        user: response,
       });
     } catch (err) {
-      const { error, status } = analyzeError(err);
-
-      return res.status(status).json({
-        success: false,
-        error,
-      });
+      return next(err);
     }
   }
 }
