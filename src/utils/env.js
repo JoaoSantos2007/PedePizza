@@ -12,7 +12,7 @@ const { SALT } = process.env;
 const { SECRET } = process.env;
 
 if (!MONGO_URL || !SALT || !SECRET) {
-  throw new Error('Está faltando as Variáveis de Ambiente no arquivo .env na raiz do projeto!');
+  throw new Error('It is missing the Environment Variables in the .env file at the root of the project!');
 }
 
 export {

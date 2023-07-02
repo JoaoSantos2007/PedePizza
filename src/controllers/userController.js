@@ -16,11 +16,11 @@ class User {
       });
 
       const response = await user.save();
-      const productId = response.id;
+      const userId = response.id;
 
       return res.status(201).json({
         success: true,
-        productId,
+        userId,
       });
     } catch (err) {
       return next(err);

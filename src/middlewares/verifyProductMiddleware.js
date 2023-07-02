@@ -1,6 +1,6 @@
 import NotFoundError from '../errors/notFoundError.js';
 import Product from '../models/productModel.js';
-import ErrorMiddleware from './errorMiddleware.js';
+import ErrorHandler from '../utils/errorHandler.js';
 
 async function VerifProductMiddleware(req, res, next) {
   try {
@@ -8,15 +8,12 @@ async function VerifProductMiddleware(req, res, next) {
 
     const product = await Product.findById(id);
 
-    if (product === null) {
-      const notFoundError = new NotFoundError('Product Id not found!');
-      return notFoundError.sendError(res);
-    }
+    if (product === null) throw new NotFoundError('Product Id not found!');
 
     req.product = product;
     next();
   } catch (err) {
-    return ErrorMiddleware(err, req, res, next);
+    return ErrorHandler(err, res);
   }
 }
 

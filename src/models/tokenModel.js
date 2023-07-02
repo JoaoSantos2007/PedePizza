@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import Allowlist from './allowlistModel.js';
 import Blocklist from './blocklistModel.js';
 import { ACCESSTOKEN_LIFETIME, SECRET } from '../utils/env.js';
+import UnathorizedError from '../errors/unathorizedError.js';
 
 class Token {
   static createAccessToken(email) {
@@ -16,24 +17,32 @@ class Token {
   }
 
   static async createRefreshToken(email) {
-    const refreshToken = crypto.randomBytes(24).toString('hex');
-
     try {
+      const refreshToken = crypto.randomBytes(24).toString('hex');
+
       await Allowlist.create({
         key: refreshToken,
         value: email,
       });
-    } catch (err) {
-      throw err;
-    }
 
-    return refreshToken;
+      return refreshToken;
+    } catch (err) {
+      return err;
+    }
   }
 
-  static verifyAccessToken(accessToken, callback) {
-    jwt.verify(accessToken, SECRET, (err, payload) => {
-      callback(err, payload);
-    });
+  static verifyAccessToken(accessToken) {
+    return jwt.verify(accessToken, SECRET);
+  }
+
+  static async verifyRefreshToken(refreshToken) {
+    if (!refreshToken) throw new UnathorizedError('Invalid refresh token!');
+
+    const refreshTokenData = await Allowlist.findOneAndDelete({ key: refreshToken });
+    if (!refreshTokenData) throw new UnathorizedError('Invalid refresh token!');
+
+    const email = refreshTokenData.value;
+    return email;
   }
 
   static async revokeUserTokens(accessToken, refreshToken) {
