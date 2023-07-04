@@ -31,7 +31,10 @@ class Token {
     }
   }
 
-  static verifyAccessToken(accessToken) {
+  static async verifyAccessToken(accessToken) {
+    const accessTokenInBlockList = await Blocklist.findOne({ key: accessToken });
+    if (accessTokenInBlockList) throw new UnathorizedError('Invalid access token!');
+
     return jwt.verify(accessToken, SECRET);
   }
 
@@ -41,18 +44,18 @@ class Token {
     const refreshTokenData = await Allowlist.findOneAndDelete({ key: refreshToken });
     if (!refreshTokenData) throw new UnathorizedError('Invalid refresh token!');
 
-    const email = refreshTokenData.value;
-    return email;
+    const refreshTokenValue = refreshTokenData.value;
+    return refreshTokenValue;
   }
 
   static async revokeUserTokens(accessToken, refreshToken) {
     try {
-      await Allowlist.deleteOne({
-        key: refreshToken,
-      });
-
       await Blocklist.create({
         key: accessToken,
+      });
+
+      await Allowlist.deleteOne({
+        key: refreshToken,
       });
     } catch (err) {
       throw new Error(err);

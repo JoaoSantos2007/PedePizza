@@ -9,7 +9,7 @@ class Auth {
     try {
       const { accessToken } = req.cookies;
 
-      const payload = Token.verifyAccessToken(accessToken);
+      const payload = await Token.verifyAccessToken(accessToken);
       const user = await User.findOne({ email: payload.email });
 
       if (user === null) throw new NotFoundError('User not found!');
@@ -25,7 +25,7 @@ class Auth {
     try {
       const { accessToken } = req.cookies;
 
-      const payload = Token.verifyAccessToken(accessToken);
+      const payload = await Token.verifyAccessToken(accessToken);
       const user = await User.findOne({ email: payload.email });
 
       if (user === null) throw new NotFoundError('User not found!');

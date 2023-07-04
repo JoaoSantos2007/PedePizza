@@ -16,9 +16,9 @@ function ErrorHandler(error, res) {
   } else if (error.code === 11000) {
     new DuplicateError(error).sendError(res);
   } else if (error instanceof jwt.TokenExpiredError) {
-    new UnathorizedError('Access Token expired!').sendError(res);
+    new UnathorizedError('Access token expired!').sendError(res);
   } else if (error instanceof jwt.JsonWebTokenError) {
-    new UnathorizedError('Access Token is invalid!').sendError(res);
+    new UnathorizedError('Invalid access token!').sendError(res);
   } else {
     new ErrorBase().sendError(res);
   }

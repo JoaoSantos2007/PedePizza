@@ -16,7 +16,7 @@ class Auth {
       const refreshToken = await Token.createRefreshToken(email);
 
       defineTokenCookies(req, res, accessToken, refreshToken);
-      return res.status(200).json({ authenticated: true });
+      return res.status(200).json({ success: true, authenticated: true });
     } catch (err) {
       return next(err);
     }
@@ -31,7 +31,7 @@ class Auth {
       const newRefreshToken = await Token.createRefreshToken(email);
 
       defineTokenCookies(req, res, newAccessToken, newRefreshToken);
-      return res.status(200).json({ success: true });
+      return res.status(200).json({ success: true, refreshed: true });
     } catch (err) {
       return next(err);
     }
@@ -44,7 +44,7 @@ class Auth {
       await Token.revokeUserTokens(accessToken, refreshToken);
       defineTokenCookies(req, res);
 
-      return res.status(200).json({ success: true });
+      return res.status(200).json({ success: true, left: true });
     } catch (err) {
       return next(err);
     }

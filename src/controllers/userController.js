@@ -1,4 +1,6 @@
+import Token from '../models/tokenModel.js';
 import UserModel from '../models/userModel.js';
+import { defineTokenCookies } from '../utils/authUtils.js';
 import { hashPassword } from '../utils/userUtils.js';
 
 class User {
@@ -15,13 +17,9 @@ class User {
         cart: {},
       });
 
-      const response = await user.save();
-      const userId = response.id;
+      await user.save();
 
-      return res.status(201).json({
-        success: true,
-        userId,
-      });
+      return res.status(201).json({ success: true, user });
     } catch (err) {
       return next(err);
     }
@@ -29,27 +27,23 @@ class User {
 
   // read user
   static get(req, res) {
-    return res.status(200).json({
-      success: true,
-      user: req.user,
-    });
+    return res.status(200).json({ success: true, user: req.user });
   }
 
   // updtate user
   static async update(req, res, next) {
     try {
       const { user } = req;
-      const { name, email, cart } = req.body;
+      const { name } = req.body;
 
-      const userData = {
-        name,
-        email,
-        cart,
-      };
+      if (name) {
+        user.set('name', name);
+      }
 
-      const response = await UserModel.updateOne({ _id: user.id }, userData);
+      await user.validate();
+      await user.save();
 
-      return res.status(200).json({ updated: response.acknowledged || true });
+      return res.status(200).json({ success: true, user });
     } catch (err) {
       return next(err);
     }
@@ -57,22 +51,15 @@ class User {
 
   // delete user
   static async delete(req, res, next) {
-    const { user } = req;
-
     try {
-      const response = await UserModel.findOneAndDelete({ _id: user.id });
+      const { user } = req;
+      const { accessToken, refreshToken } = req.cookies;
 
-      // TEMPORÁRIO
-      res.cookie('token', '', {
-        httpOnly: true,
-        secure: !!req.headers['sec-fetch-mode'],
-        sameSite: 'none',
-      });
+      await user.deleteOne({ _id: user.id });
+      await Token.revokeUserTokens(accessToken, refreshToken);
+      defineTokenCookies(req, res);
 
-      return res.status(200).json({
-        success: true,
-        user: response,
-      });
+      return res.status(200).json({ success: true, user });
     } catch (err) {
       return next(err);
     }

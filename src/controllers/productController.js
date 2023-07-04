@@ -96,6 +96,7 @@ class Product {
       if (!img) return next(new IncorrectRequisition('Image field is empty'));
 
       product.set('img', img);
+      await product.validate();
       await product.save();
 
       return res.status(200).json({
