@@ -10,7 +10,7 @@ class Auth {
       const { accessToken } = req.cookies;
 
       const payload = await Token.verifyAccessToken(accessToken);
-      const user = await User.findOne({ email: payload.email });
+      const user = await User.findOne({ email: payload.email }, '-hashPassword');
 
       if (user === null) throw new NotFoundError('User not found!');
 

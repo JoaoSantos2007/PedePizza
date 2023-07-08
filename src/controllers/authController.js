@@ -1,22 +1,18 @@
-import UnathorizedError from '../errors/unathorizedError.js';
 import Token from '../models/tokenModel.js';
-import { authenticate, defineTokenCookies } from '../utils/authUtils.js';
+import authenticate from '../utils/authenticate.js';
+import defineCookies from '../utils/defineCookies.js';
 
 class Auth {
   static async login(req, res, next) {
     try {
-      const data = req.body;
-      const { email, password } = data;
+      const { email, password } = req.body;
 
-      const authenticated = await authenticate(email, password);
-
-      if (!authenticated) throw new UnathorizedError('Email or password is incorrect!');
-
+      const user = await authenticate(email, password);
       const accessToken = Token.createAccessToken(email);
       const refreshToken = await Token.createRefreshToken(email);
 
-      defineTokenCookies(req, res, accessToken, refreshToken);
-      return res.status(200).json({ success: true, authenticated: true });
+      defineCookies(req, res, accessToken, refreshToken);
+      return res.status(200).json({ success: true, authenticated: true, user });
     } catch (err) {
       return next(err);
     }
@@ -30,7 +26,7 @@ class Auth {
       const newAccessToken = Token.createAccessToken(email);
       const newRefreshToken = await Token.createRefreshToken(email);
 
-      defineTokenCookies(req, res, newAccessToken, newRefreshToken);
+      defineCookies(req, res, newAccessToken, newRefreshToken);
       return res.status(200).json({ success: true, refreshed: true });
     } catch (err) {
       return next(err);
@@ -42,8 +38,8 @@ class Auth {
       const { accessToken, refreshToken } = req.cookies;
 
       await Token.revokeUserTokens(accessToken, refreshToken);
-      defineTokenCookies(req, res);
 
+      defineCookies(req, res);
       return res.status(200).json({ success: true, left: true });
     } catch (err) {
       return next(err);

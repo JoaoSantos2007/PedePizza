@@ -51,7 +51,7 @@ const productSchema = new Schema({
   img: {
     type: String,
   },
-});
+}, { versionKey: false });
 
 const Product = db.model('products', productSchema);
 

@@ -5,4 +5,4 @@ function hashPassword(password) {
   return bcrypt.hashSync(password, SALT);
 }
 
-export { hashPassword };
+export default hashPassword;

@@ -1,13 +1,13 @@
 import express from 'express';
-import UserController from '../controllers/userController.js';
-import AuthMiddleware from '../middlewares/authMiddleware.js';
+import User from '../controllers/userController.js';
+import Auth from '../middlewares/authMiddleware.js';
 
 const Router = express.Router();
 
 Router
-  .get('/user', AuthMiddleware.verifyAuthorization, UserController.get)
-  .post('/user', UserController.create)
-  .put('/user', AuthMiddleware.verifyAuthorization, UserController.update)
-  .delete('/user', AuthMiddleware.verifyAuthorization, UserController.delete);
+  .get('/user', Auth.verifyAuthorization, User.get)
+  .post('/user', User.create)
+  .put('/user', Auth.verifyAuthorization, User.update)
+  .delete('/user', Auth.verifyAuthorization, User.delete);
 
 export default Router;

@@ -4,6 +4,8 @@ import Allowlist from './allowlistModel.js';
 import Blocklist from './blocklistModel.js';
 import { ACCESSTOKEN_LIFETIME, SECRET } from '../utils/env.js';
 import UnathorizedError from '../errors/unathorizedError.js';
+import User from './userModel.js';
+import NotFoundError from '../errors/notFoundError.js';
 
 class Token {
   static createAccessToken(email) {
@@ -45,6 +47,10 @@ class Token {
     if (!refreshTokenData) throw new UnathorizedError('Invalid refresh token!');
 
     const refreshTokenValue = refreshTokenData.value;
+
+    const user = await User.findOne({ email: refreshTokenValue });
+    if (user === null) throw new NotFoundError('User not found!');
+
     return refreshTokenValue;
   }
 

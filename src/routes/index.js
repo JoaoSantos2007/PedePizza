@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser';
 import product from './productRoutes.js';
 import user from './userRoutes.js';
 import auth from './authRoutes.js';
-import order from './orderRoutes.js';
+import cart from './cartRoutes.js';
 
 const Routes = (app) => {
   app.use((req, res, next) => {
@@ -20,7 +20,7 @@ const Routes = (app) => {
     product,
     user,
     auth,
-    order,
+    cart,
   );
 };
 

@@ -1,7 +1,7 @@
 import Token from '../models/tokenModel.js';
 import UserModel from '../models/userModel.js';
-import { defineTokenCookies } from '../utils/authUtils.js';
-import { hashPassword } from '../utils/userUtils.js';
+import defineCookies from '../utils/defineCookies.js';
+import hashPassword from '../utils/hashPassword.js';
 
 class User {
   // create user
@@ -14,7 +14,7 @@ class User {
         email,
         hashPassword: hashPassword(password),
         admin: false,
-        cart: {},
+        cart: [],
       });
 
       await user.save();
@@ -57,7 +57,7 @@ class User {
 
       await user.deleteOne({ _id: user.id });
       await Token.revokeUserTokens(accessToken, refreshToken);
-      defineTokenCookies(req, res);
+      defineCookies(req, res);
 
       return res.status(200).json({ success: true, user });
     } catch (err) {

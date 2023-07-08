@@ -3,6 +3,20 @@ import db from '../config/mongo.js';
 
 const { Schema } = mongoose;
 
+const productCart = new Schema({
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: 'products',
+    required: [true, 'The product field is required!'],
+  },
+  quantity: {
+    type: Number,
+    required: [true, 'The quantity field is required!'],
+    min: [1, 'The quantity field must be a value between 1 and 10. {VALUE} is not allowed!'],
+    max: [10, 'The quantity field must be a value between 1 and 10. {VALUE} is not allowed!'],
+  },
+}, { versionKey: false });
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -38,10 +52,9 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  cart: {
-    type: Object,
-  },
-});
+  cart: [productCart],
+
+}, { versionKey: false });
 
 const User = db.model('users', userSchema);
 
