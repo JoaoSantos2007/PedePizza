@@ -20,7 +20,6 @@ function ErrorHandler(error, res) {
   } else if (error instanceof jwt.JsonWebTokenError) {
     new UnathorizedError('Invalid access token!').sendError(res);
   } else {
-    console.log(error)
     new ErrorBase().sendError(res);
   }
 }

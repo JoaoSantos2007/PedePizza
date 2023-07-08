@@ -1,15 +1,18 @@
+import NotFoundError from '../errors/notFoundError.js';
+
 class Cart {
   static async add(req, res, next) {
     try {
       const { user } = req;
-      const cart = user.get('cart');
       const { product, quantity } = req.body;
 
+      const cart = user.get('cart');
       cart.push({ product, quantity });
-      user.set('cart', cart);
-      await user.populate('cart.product');
 
+      user.set('cart', cart);
       await user.save();
+
+      await user.populate('cart.product');
 
       return res.status(201).json({ success: true, cart });
     } catch (err) {
@@ -20,9 +23,9 @@ class Cart {
   static async read(req, res, next) {
     try {
       const { user } = req;
-      await user.populate('cart.product');
-
       const cart = user.get('cart');
+
+      await user.populate('cart.product');
 
       return res.status(200).json({ success: true, cart });
     } catch (err) {
@@ -36,11 +39,14 @@ class Cart {
       const { id } = req.params;
       const { quantity } = req.body;
 
-      await user.populate('cart.product');
-      user.cart.id(id).quantity = quantity;
+      const productInCart = user.cart.id(id);
+      if (!productInCart) throw new NotFoundError('Product not found!');
+
+      productInCart.quantity = quantity;
       await user.save();
 
       const cart = user.get('cart');
+      await user.populate('cart.product');
 
       return res.status(200).json({ success: true, cart });
     } catch (err) {
@@ -53,10 +59,14 @@ class Cart {
       const { user } = req;
       const { id } = req.params;
 
-      await user.updateOne({ $pull: { cart: { _id: id } } }, { new: true });
-      await user.populate('cart.product');
+      const productInCart = user.cart.id(id);
+      if (!productInCart) throw new NotFoundError('Product not found!');
+
+      await productInCart.deleteOne();
+      await user.save();
 
       const cart = user.get('cart');
+      await user.populate('cart.product');
 
       return res.status(200).json({ success: true, cart });
     } catch (err) {
