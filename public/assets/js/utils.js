@@ -29,11 +29,11 @@ async function api(route, method, body = null, callback) {
 
     callback(data);
   } catch (err) {
-    if (res.status === 401) return navigate('/login.html');
+    // if (res.status === 401) return navigate('/login.html');
 
     console.error(err);
 
-    error(err);
+    // error(err);
   }
 }
 

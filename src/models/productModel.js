@@ -17,7 +17,7 @@ const productSchema = new Schema({
 
         return false;
       },
-      message: (props) => `The name field must have between 4 and 30 caracters. ${props.value.length} caracters is not allowed!`,
+      message: (props) => `The name field must have between 4 and 30 characters. ${props.value.length} characters is not allowed!`,
     },
   },
   type: {
@@ -27,6 +27,24 @@ const productSchema = new Schema({
       values: ['pizza', 'drink'],
       message: "The type property must be 'pizza' or 'drink'. {VALUE} is not supported!",
     },
+  },
+  flavor: {
+    type: String,
+    required: [true, 'The flavor field is required!'],
+    trim: true,
+    validate: {
+      validator: (value) => {
+        const valueLength = value.length;
+        if (valueLength >= 3 && valueLength <= 12) return true;
+
+        return false;
+      },
+      message: (props) => `The flavor field must have between 3 and 12 characters. ${props.value.length} characters is not allowed!`,
+    },
+  },
+  ingredients: {
+    type: Array,
+    required: [true, 'The ingredients field is required!'],
   },
   description: {
     type: String,
@@ -39,7 +57,7 @@ const productSchema = new Schema({
 
         return false;
       },
-      message: (props) => `The description field must have between 10 and 150 caracteres. ${props.value.length} caracters is not allowed!`,
+      message: (props) => `The description field must have between 10 and 150 characters. ${props.value.length} characters is not allowed!`,
     },
   },
   price: {

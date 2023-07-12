@@ -1,6 +1,7 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+/*
+==============================
+          RESET CSS
+==============================
 */
 
 html, body, div, span, applet, object, iframe,
@@ -64,3 +65,116 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     color: red;
     background-color: rgb(212, 126, 126);
 }
+
+:root{
+    --vermelho: rgb(209, 20, 20);
+    --branco: #FFF;
+    --preto: #000;
+    --cor-fundo: rgb(221, 196, 196);
+}
+
+body{
+    background: var(--cor-fundo);
+}
+
+/*
+=========================
+        Navbar
+=========================
+*/
+
+.navbar{
+    width: 100%;
+    background: var(--vermelho);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a{
+    color: var(--branco);
+    font-size: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar a:hover{
+    color: rgb(224, 95, 95);
+}
+
+.navbar__cart img{
+    width: 48px;
+    height: 48px;
+}
+
+
+.header__title{
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+@media (max-width: 600px){
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a{
+        margin: 7px 0px;
+    }
+}
+
+
+/*
+====================
+        FOOTER
+====================
+*/
+
+footer{
+    display: flex;
+    align-items: center;
+    background: var(--preto);
+    margin-top: 60px;
+    height: 48px;
+    padding: 15px 15px;
+    justify-content: space-between;
+}
+
+.footer__social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__social img{
+    margin: 0px 25px;
+    cursor: pointer;
+}
+
+.footer__logo > img{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .footer__social img{
+        margin: 0px 12px;
+    }
+}
+
+@media screen and (max-width: 518px) {
+    footer{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .footer__social{
+        margin-top: 20px;
+    }
+}
+

@@ -1,57 +1,128 @@
-.itemContainer{
+.product__container{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.itemName{
+.product__container__header{
+    margin: 30px 0px;
+}
+
+.productName{
     text-align: center;
     font-weight: bold;
     font-size: 3em;
-    margin: 30px 0px;
 }
 
-.itemPizza{
-    width: 50%;
-    margin-bottom: 30px;
+.product__container__main{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.pizzaDescricao{
-    font-size: 1.5rem;
-    margin: 30px 0px;
-    width: 50%;
-    text-align: center;
-}    
+.productImage{
+    margin-left: 10%;
+}
 
-.pizzaPreco{
+.productInfo{
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 2.5rem;
-    color: rgb(107, 11, 11);
-    margin: 30px 0px;
+    font-weight: bold;
 }
 
-.addToCart{
-    width: 15rem;
+.productFlavor, .productIngredients, .productPrice, .productBuyBtn{
+    margin-top: 30px;
+}
+
+.productFlavor > span,.productIngredients > span,.productPrice > span {
+    font-weight: normal;
+}
+
+.productIngredients > span{
+    font-size: 1.75rem;
+}
+
+.productPrice > span {
+    color: #17a117;
+}
+
+.productBuyBtn{
     height: 64px;
     border: none;
     background-color: #59c00b;
     color: #FFF;
     font-size: 1rem;
-    margin: 30px 0px;
     cursor: pointer;
     border-radius: 3px;
 }
 
-.addToCart:hover{
-    /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.411);*/
+.productBuyBtn:hover{
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.411);
     background-color: #479907;
 }
 
-@media screen and (max-width: 768px) {
-    .pizzaIMG{
-        width: 100vw;
+.product__container__footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0px;
+}
+
+.productDescription{
+    font-size: 1.5rem;
+    width: 90%;
+}    
+
+@media screen and (max-width: 1100px) {
+    .productImage{
+        margin-left: 5%;
+    }
+    
+    .productFlavor, .productIngredients, .productPrice{
+        font-size: 2rem;
     }
 
-    .pizzaDescricao{
-        width: 100vw;
+    .productIngredients > span{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 448px) {
+    .productBuyBtn{
+        width: 256px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productImage{
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product__container__main{
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+    }
+
+    .productImage{
+        margin: 0px auto;
+    }
+
+    .productInfo{
+        margin-left: 30px;
+        margin-top: 0px;
+    }
+
+    .productBuyBtn{
+        width: 256px;
+    }
+
+    .productDescription{
+        width: 95%;
     }
 }

@@ -9,11 +9,11 @@ class Product {
     try {
       const
         {
-          name, type, description, price,
+          name, type, description, price, flavor, ingredients,
         } = req.body;
 
       const product = new ProductModel({
-        name, type, description, price, img: '',
+        name, type, flavor, ingredients, description, price, img: '',
       });
 
       const response = await product.save();
@@ -67,11 +67,11 @@ class Product {
       const { id } = req.params;
 
       const {
-        name, type, description, price,
+        name, type, description, price, flavor, ingredients,
       } = req.body;
 
       const data = {
-        name, type, description, price,
+        name, type, description, price, flavor, ingredients,
       };
 
       const product = await ProductModel.findByIdAndUpdate(id, data);

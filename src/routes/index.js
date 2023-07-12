@@ -4,6 +4,7 @@ import product from './productRoutes.js';
 import user from './userRoutes.js';
 import auth from './authRoutes.js';
 import cart from './cartRoutes.js';
+import order from './orderRoutes.js';
 
 const Routes = (app) => {
   app.use((req, res, next) => {
@@ -21,6 +22,7 @@ const Routes = (app) => {
     user,
     auth,
     cart,
+    order,
   );
 };
 

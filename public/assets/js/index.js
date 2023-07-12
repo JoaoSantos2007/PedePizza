@@ -52,9 +52,10 @@ const createItemFooterElement = () => {
 };
 
 const createItemPriceElement = (price) => {
+  const priceInBrl = `R$${String(price).replace('.', ',')}`;
   const itemPrice = document.createElement('p');
   itemPrice.classList.add('item__price');
-  itemPrice.textContent = `R$${price},00`;
+  itemPrice.textContent = priceInBrl;
 
   return itemPrice;
 };
@@ -66,7 +67,8 @@ const renderProducts = (products) => {
     const {
       name, price, img,
     } = product;
-    const id = product._id;
+    const { _id } = product;
+    const id = _id;
     const productContainer = document.querySelector('#productContainer');
 
     const item = createItemElement(id);
