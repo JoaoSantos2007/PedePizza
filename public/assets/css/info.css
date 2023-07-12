@@ -10,9 +10,9 @@ main{
 }
 
 .informacoes{
+    width: 100%;
     font-size: 2rem;
     text-indent: 20px;
-    text-align: center;
 }
 
 .horarios{
