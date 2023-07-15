@@ -1,0 +1,26 @@
+.navbar__link{
+    color: var(--branco);
+    cursor: pointer;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.navbar__link:hover{
+    color: #fdfdfd;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar__link{
+        margin-top: 20px;
+    }
+
+    .navbar__link--logo{
+        display: none;
+    }
+
+    .navbar__link--cart{
+        height: 48px;
+        width: 48px;
+    }
+}

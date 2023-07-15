@@ -1,0 +1,6 @@
+.footer__name{
+    color: var(--branco);
+    font-size: 38px;
+    font-weight: bold;
+    margin-left: 7px;
+}

@@ -1,0 +1,17 @@
+.product{
+    width: 100%;
+    max-width: 250px;
+    background: rgb(214, 71, 68);
+    border-radius: 4.5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 300ms;
+    margin: 20px;
+    position: relative;
+}
+
+.product:hover{
+    box-shadow: 6px 6px 6px #000;
+}

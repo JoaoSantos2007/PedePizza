@@ -1,63 +1,63 @@
 import { navigate, api, url } from './utils.js';
 
-const createItemElement = (id) => {
-  const item = document.createElement('div');
-  item.classList.add('item');
+const createProductElement = (id) => {
+  const product = document.createElement('div');
+  product.classList.add('product');
 
-  item.addEventListener('click', () => {
+  product.addEventListener('click', () => {
     navigate(`/product.html?id=${id}`);
   });
 
-  return item;
+  return product;
 };
 
-const createItemHeaderElement = () => {
-  const itemHeader = document.createElement('div');
-  itemHeader.classList.add('item__header');
+const createProductHeaderElement = () => {
+  const productHeader = document.createElement('div');
+  productHeader.classList.add('product__header');
 
-  return itemHeader;
+  return productHeader;
 };
 
-const createItemImageElement = (img, name) => {
+const createProductImageElement = (img, name) => {
   const image = `${url}/uploads/${img}`;
 
-  const itemImage = document.createElement('img');
-  itemImage.classList.add('item__img');
-  itemImage.src = image;
-  itemImage.alt = `${name} image`;
+  const productImage = document.createElement('img');
+  productImage.classList.add('product__image');
+  productImage.src = image;
+  productImage.alt = `${name} image`;
 
-  return itemImage;
+  return productImage;
 };
 
-const createItemMainElement = () => {
-  const itemMain = document.createElement('div');
-  itemMain.classList.add('item__main');
+const createProductMainElement = () => {
+  const productMain = document.createElement('div');
+  productMain.classList.add('product__main');
 
-  return itemMain;
+  return productMain;
 };
 
-const createItemNameElement = (name) => {
-  const itemName = document.createElement('p');
-  itemName.classList.add('item__name');
-  itemName.textContent = name;
+const createProductNameElement = (name) => {
+  const productName = document.createElement('p');
+  productName.classList.add('product__name');
+  productName.textContent = name;
 
-  return itemName;
+  return productName;
 };
 
-const createItemFooterElement = () => {
-  const itemFooter = document.createElement('div');
-  itemFooter.classList.add('item__footer');
+const createProductFooterElement = () => {
+  const productFooter = document.createElement('div');
+  productFooter.classList.add('product__footer');
 
-  return itemFooter;
+  return productFooter;
 };
 
-const createItemPriceElement = (price) => {
+const createProductPriceElement = (price) => {
   const priceInBrl = `R$${String(price).replace('.', ',')}`;
-  const itemPrice = document.createElement('p');
-  itemPrice.classList.add('item__price');
-  itemPrice.textContent = priceInBrl;
+  const productPrice = document.createElement('p');
+  productPrice.classList.add('product__price');
+  productPrice.textContent = priceInBrl;
 
-  return itemPrice;
+  return productPrice;
 };
 
 const renderProducts = (products) => {
@@ -71,23 +71,22 @@ const renderProducts = (products) => {
     const id = _id;
     const productContainer = document.querySelector('#productContainer');
 
-    const item = createItemElement(id);
-    const itemHeader = createItemHeaderElement();
-    const itemImage = createItemImageElement(img, name);
-    const itemMain = createItemMainElement();
-    const itemName = createItemNameElement(name);
+    const productElement = createProductElement(id);
+    const productHeader = createProductHeaderElement();
+    const productImage = createProductImageElement(img, name);
+    const productMain = createProductMainElement();
+    const productName = createProductNameElement(name);
+    const productFooter = createProductFooterElement();
+    const productPrice = createProductPriceElement(price);
 
-    const itemFooter = createItemFooterElement();
-    const itemPrice = createItemPriceElement(price);
+    productHeader.append(productImage);
+    productMain.append(productName);
+    productFooter.append(productPrice);
+    productElement.append(productHeader);
+    productElement.append(productMain);
+    productElement.append(productFooter);
 
-    itemHeader.append(itemImage);
-    itemMain.append(itemName);
-    itemFooter.append(itemPrice);
-    item.append(itemHeader);
-    item.append(itemMain);
-    item.append(itemFooter);
-
-    return productContainer.append(item);
+    return productContainer.append(productElement);
   });
 };
 

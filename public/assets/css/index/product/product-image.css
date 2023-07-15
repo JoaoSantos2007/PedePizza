@@ -1,0 +1,6 @@
+.product__image{
+    border-top-left-radius: 4.5px;
+    border-top-right-radius: 4.5px;
+    height: 190px;
+    width: 100%;
+}

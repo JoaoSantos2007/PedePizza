@@ -1,0 +1,14 @@
+.navbar{
+    align-items: center;
+    background: var(--vermelho);
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar{
+        align-items: center;
+        flex-direction: column;
+    }
+}

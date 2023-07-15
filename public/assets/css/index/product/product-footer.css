@@ -1,0 +1,13 @@
+.product__footer{
+    align-items: center;
+    background: rgb(194, 0, 0);
+    border-bottom-left-radius: 4.5px;
+    border-bottom-right-radius: 4.5px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 20px 0px;
+    position: absolute;
+    width: 100%;
+}
