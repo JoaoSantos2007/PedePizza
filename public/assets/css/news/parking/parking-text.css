@@ -1,6 +1,30 @@
 .parking__text{
-    font-size: 2rem;
     margin-bottom: 30px;
     text-indent: 20px;
-    width: 50%;
+}
+
+@media screen and (min-width: 0) {
+    .parking__text{
+        width: 95%;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 446px) {
+    .parking__text{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .parking__text{
+        width: 85%;
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .parking__text{
+        font-size: 2rem;
+    }
 }
