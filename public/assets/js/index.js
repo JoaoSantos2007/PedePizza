@@ -1,4 +1,4 @@
-import { navigate, api, url } from './utils.js';
+import { navigate, url } from './utils.js';
 
 const createProductElement = (id) => {
   const product = document.createElement('div');
@@ -90,8 +90,12 @@ const renderProducts = (products) => {
   });
 };
 
-window.addEventListener('load', () => {
-  api('/product', 'GET', null, (res) => {
-    renderProducts(res.products);
-  });
+window.addEventListener('load', async () => {
+  try {
+    const response = await axios.get(`${url}/product`);
+    const { data } = response;
+    renderProducts(data.products);
+  } catch (err) {
+    console.error(err);
+  }
 });
