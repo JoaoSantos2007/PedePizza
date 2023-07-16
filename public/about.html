@@ -6,92 +6,120 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PedePizza</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/root.css">
-        <link rel="stylesheet" href="assets/css/info.css">
+        <link rel="stylesheet" href="assets/css/title.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar-link.css">
+        <link rel="stylesheet" href="assets/css/footer/footer.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-header.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-media.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-name.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-social.css">
+        <link rel="stylesheet" href="assets/css/about/about.css">
+        <link rel="stylesheet" href="assets/css/about/front.css">
+        <link rel="stylesheet" href="assets/css/about/description.css">
+        <link rel="stylesheet" href="assets/css/about/timetable/timetable.css">
+        <link rel="stylesheet" href="assets/css/about/timetable/timetable-description.css">
+        <link rel="stylesheet" href="assets/css/about/timetable/timetable-days.css">
+        <link rel="stylesheet" href="assets/css/about/timetable/timetable-opening.css">
+        <link rel="stylesheet" href="assets/css/about/timetable/timetable-closure.css">
+        <link rel="stylesheet" href="assets/css/about/music/music.css">
+        <link rel="stylesheet" href="assets/css/about/music/music-text.css">
+        <link rel="stylesheet" href="assets/css/about/music/music-audio.css">
+        <link rel="stylesheet" href="assets/css/about/video.css">
     </head>
     <body>
         <header>
-            <nav class="navbar header__navbar">
-                <a href="index.html" class="logo"><img src="assets/img/logo.avif" width="64px" height="64px" alt="Pizza logo"></a>
-                <a href="index.html">Loja</a>
-                <a href="news.html">Novidades</a>
-                <a href="info.html">Sobre</a>
-                <a href="account.html">Conta</a>
-                <a href="cart.html" class="navbar__cart"><img src="assets/img/cart.svg" alt="cart"></a>
+            <nav class="navbar">
+                <a class="navbar__link navbar__link--logo" href="index.html"><img class="navbar__logo" src="assets/img/logo.avif" width="64px" height="64px" alt="Logo da pizzaria PedePizza"></a>
+                <a class="navbar__link" href="index.html">Loja</a>
+                <a class="navbar__link" href="news.html">Novidades</a>
+                <a class="navbar__link" href="about.html">Sobre</a>
+                <a class="navbar__link" href="account.html">Conta</a>
+                <a class="navbar__link navbar__link--cart" href="cart.html"><img class="navbar__cart" src="assets/img/cart.svg" alt="Carrinho do Usuário" width="48px" height="48px"></a>
             </nav>
-            <h1 class="header__title">Sobre</h1>
         </header>
-
+        
         <main>
-            <img class="fachada" src="assets/img/pizzaria.avif" alt="Imagem da fachada da pizzaria">
-            <p class="informacoes">
-                A pizza, um verdadeiro símbolo da culinária italiana, conquistou o paladar de pessoas ao redor do mundo com sua combinação irresistível de sabores e texturas. Originada de um disco de massa fermentada feito com farinha de trigo, a pizza é cuidadosamente coberta com um delicioso molho de tomate, que realça o sabor e acentua sua suculência. Os ingredientes utilizados na sua composição são variados e podem incluir uma ampla gama de opções, desde diferentes tipos de queijos, como mussarela, parmesão e gorgonzola, até carnes preparadas ou defumadas, como pepperoni, presunto, frango ou calabresa. Além disso, as ervas aromáticas, como o orégano e o manjericão, são frequentemente adicionadas para trazer um toque de frescor e intensificar o sabor. Para alcançar a perfeição, a pizza é assada em um forno, onde a massa ganha uma textura crocante e os ingredientes se fundem em uma harmonia de sabores inigualável. É impossível resistir a uma fatia quentinha e cheirosa, com queijo derretido e ingredientes cuidadosamente distribuídos sobre a massa dourada. Seja nas versões clássicas, como a margherita, ou nas criações mais elaboradas, a pizza é uma opção gastronômica que agrada a todos os paladares e transcende fronteiras culturais. Sua popularidade global é um testemunho da sua versatilidade e da habilidade dos pizzaiolos em criar verdadeiras obras-primas da gastronomia. Uma boa pizza é capaz de reunir amigos e familiares em torno de uma mesa, criando momentos de alegria, conversas animadas e memórias duradouras. Afinal, a pizza é muito mais do que uma simples refeição, é uma experiência que desperta todos os sentidos e une as pessoas em torno de uma paixão compartilhada por uma das maiores criações culinárias da humanidade.
-            </p>
-            <video controls class="video">
-                <source src="assets/video/pizzaria.mp4" type="">
-            </video>
-            <table class="horarios">
-                <thead>
-                    <tr>
-                        <th>Dia</th>
-                        <th>Abertura</th>
-                        <th>Fechamento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Segunda</td>
-                        <td>19:00</td>
-                        <td>23:00</td>
-                    </tr>
-                    <tr>
-                        <td>Terça</td>
-                        <td>18:00</td>
-                        <td>23:00</td>
-                    </tr>
-                    <tr>
-                        <td>Quarta</td>
-                        <td>18:00</td>
-                        <td>23:00</td>
-                    </tr>
-                    <tr>
-                        <td>Quinta</td>
-                        <td>18:00</td>
-                        <td>23:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sexta</td>
-                        <td>17:00</td>
-                        <td>24:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sábado</td>
-                        <td>17:00</td>
-                        <td>24:00</td>
-                    </tr>
-                    <tr>
-                        <td>Domingo</td>
-                        <td>17:00</td>
-                        <td>22:00</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h1 class="title">Sobre</h1>
             
-            <div class="musica">
-                <p class="musica__texto">Music Tarantella</p>
-                <audio class="musica__audio" src="assets/audio/pizza.mp3" controls></audio>
-            </div>
-
+            <section class="about">
+                <img class="front" src="assets/img/pizzaria.avif" alt="Imagem da fachada da pizzaria">
+            
+                <p class="description">
+                    A pizza, um verdadeiro símbolo da culinária italiana, conquistou o paladar de pessoas ao redor do mundo com sua combinação irresistível de sabores e texturas. Originada de um disco de massa fermentada feito com farinha de trigo, a pizza é cuidadosamente coberta com um delicioso molho de tomate, que realça o sabor e acentua sua suculência. Os ingredientes utilizados na sua composição são variados e podem incluir uma ampla gama de opções, desde diferentes tipos de queijos, como mussarela, parmesão e gorgonzola, até carnes preparadas ou defumadas, como pepperoni, presunto, frango ou calabresa. Além disso, as ervas aromáticas, como o orégano e o manjericão, são frequentemente adicionadas para trazer um toque de frescor e intensificar o sabor. Para alcançar a perfeição, a pizza é assada em um forno, onde a massa ganha uma textura crocante e os ingredientes se fundem em uma harmonia de sabores inigualável. É impossível resistir a uma fatia quentinha e cheirosa, com queijo derretido e ingredientes cuidadosamente distribuídos sobre a massa dourada. Seja nas versões clássicas, como a margherita, ou nas criações mais elaboradas, a pizza é uma opção gastronômica que agrada a todos os paladares e transcende fronteiras culturais. Sua popularidade global é um testemunho da sua versatilidade e da habilidade dos pizzaiolos em criar verdadeiras obras-primas da gastronomia. Uma boa pizza é capaz de reunir amigos e familiares em torno de uma mesa, criando momentos de alegria, conversas animadas e memórias duradouras. Afinal, a pizza é muito mais do que uma simples refeição, é uma experiência que desperta todos os sentidos e une as pessoas em torno de uma paixão compartilhada por uma das maiores criações culinárias da humanidade.
+                </p>
+    
+                <video controls class="video">
+                    <source src="assets/video/pizzaria.mp4" type="">
+                </video>
+                
+                <table class="timetable">
+                    <thead class="timetable__header">
+                        <tr>
+                            <th class="timetable__description">Dia</th>
+                            <th class="timetable__description">Abertura</th>
+                            <th class="timetable__description">Fechamento</th>
+                        </tr>
+                    </thead>
+                    <tbody class="timetable__main">
+                        <tr>
+                            <td class="timetable__days">Segunda</td>
+                            <td class="timetable__opening">19:00</td>
+                            <td class="timetable__closure">23:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Terça</td>
+                            <td class="timetable__opening">18:00</td>
+                            <td class="timetable__closure">23:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Quarta</td>
+                            <td class="timetable__opening">18:00</td>
+                            <td class="timetable__closure">23:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Quinta</td>
+                            <td class="timetable__opening">18:00</td>
+                            <td class="timetable__closure">23:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Sexta</td>
+                            <td class="timetable__opening">17:00</td>
+                            <td class="timetable__closure">24:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Sábado</td>
+                            <td class="timetable__opening">17:00</td>
+                            <td class="timetable__closure">24:00</td>
+                        </tr>
+                        <tr>
+                            <td class="timetable__days">Domingo</td>
+                            <td class="timetable__opening">17:00</td>
+                            <td class="timetable__closure">22:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="music">
+                    <p class="music__text">Music Tarantella</p>
+                    <audio class="music__audio" src="assets/audio/pizza.mp3" controls></audio>
+                </div>
+            </section>
         </main>
 
         <footer>
-            <img src="assets/img/banner.avif" width="235px" height="32px" alt="Banner da pizzaria">
+            <div class="footer__header">
+                <img class="footer__logo" src="assets/img/logo.avif" alt="Logo da pizzaria PedePizza" width="48px" height="48px">
+                <p class="footer__name">PedePizza</p>
+            </div>
             
             <div class="footer__social">
-                <img src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
-                <img src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
-                <img src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
-                <img src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
+                <img class="footer__media" src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
+                <img class="footer__media" src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
+                <img class="footer__media" src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
+                <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
             </div>
         </footer>
     </body>

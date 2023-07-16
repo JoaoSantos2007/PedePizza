@@ -1,6 +1,8 @@
-.about{
+.music{
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 0px 20px;
+    margin-top: 45px;
+    max-width: 95%;
+    width: 500px;
 }
