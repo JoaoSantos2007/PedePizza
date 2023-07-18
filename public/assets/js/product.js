@@ -1,4 +1,4 @@
-import { url, api, navigate } from './utils.js';
+import { url, navigate } from './utils.js';
 
 const getProductId = () => {
   const urlString = window.location;
@@ -52,7 +52,7 @@ const defineImgWidthAndHeight = (img) => {
 
 const createProductNameElement = (name) => {
   const productNameElement = document.createElement('h1');
-  productNameElement.classList.add('productName');
+  productNameElement.classList.add('product__name');
   productNameElement.textContent = name;
 
   return productNameElement;
@@ -60,7 +60,7 @@ const createProductNameElement = (name) => {
 
 const createProductImageElement = async (img) => {
   const productImageElement = await loadImg(img);
-  productImageElement.classList.add('productImage');
+  productImageElement.classList.add('product__image');
   productImageElement.alt = 'product image';
   const { idealWidth, idealHeight } = defineImgWidthAndHeight(productImageElement);
 
@@ -71,42 +71,42 @@ const createProductImageElement = async (img) => {
 
 const createProductInfoElement = () => {
   const productInfoElement = document.createElement('div');
-  productInfoElement.classList.add('productInfo');
+  productInfoElement.classList.add('product__info');
 
   return productInfoElement;
 };
 
 const createProductFlavorElement = (flavor) => {
   const productFlavorElement = document.createElement('p');
-  productFlavorElement.classList.add('productFlavor');
-  productFlavorElement.innerHTML = `Sabor: <span>${flavor}</span>`;
+  productFlavorElement.classList.add('product__flavor');
+  productFlavorElement.innerHTML = `Sabor: <span class='product__flavor--value'>${flavor}</span>`;
 
   return productFlavorElement;
 };
 
 const createProductIngredients = (ingredients) => {
   const productIngredientsElement = document.createElement('p');
-  productIngredientsElement.classList.add('productIngredients');
+  productIngredientsElement.classList.add('product__ingredients');
   let ingredientsList = '';
   ingredients.forEach((ingredient) => {
     ingredientsList += `<br> - ${ingredient}`;
   });
-  productIngredientsElement.innerHTML = `Ingredientes: <span> ${ingredientsList} </span>`;
+  productIngredientsElement.innerHTML = `Ingredientes: <span class='product__ingredients--value'> ${ingredientsList} </span>`;
 
   return productIngredientsElement;
 };
 
 const createProductPriceElement = (price) => {
   const productPriceElement = document.createElement('p');
-  productPriceElement.classList.add('productPrice');
-  productPriceElement.innerHTML = `Preço: <span>R$${String(price).replace('.', ',')}</span> `;
+  productPriceElement.classList.add('product__price');
+  productPriceElement.innerHTML = `Preço: <span class='product__price--value'>R$${String(price).replace('.', ',')}</span> `;
 
   return productPriceElement;
 };
 
 const createProductBuyButtonElement = (productId) => {
   const productBuyBtnElement = document.createElement('button');
-  productBuyBtnElement.classList.add('productBuyBtn');
+  productBuyBtnElement.classList.add('product__buy-btn');
   productBuyBtnElement.textContent = 'Comprar';
 
   productBuyBtnElement.addEventListener('click', () => {
@@ -120,7 +120,7 @@ const createProductBuyButtonElement = (productId) => {
 
 const createProductDescriptionElement = (description) => {
   const productDescription = document.createElement('p');
-  productDescription.classList.add('productDescription');
+  productDescription.classList.add('product__description');
   productDescription.textContent = description;
 
   return productDescription;
@@ -128,21 +128,21 @@ const createProductDescriptionElement = (description) => {
 
 const createProductContainerHeader = () => {
   const productContainerHeader = document.createElement('div');
-  productContainerHeader.classList.add('product__container__header');
+  productContainerHeader.classList.add('product__header');
 
   return productContainerHeader;
 };
 
 const createProductContainerMain = () => {
   const productContainerMain = document.createElement('div');
-  productContainerMain.classList.add('product__container__main');
+  productContainerMain.classList.add('product__main');
 
   return productContainerMain;
 };
 
 const createProductContainerFooter = () => {
   const productContainerFooter = document.createElement('div');
-  productContainerFooter.classList.add('product__container__footer');
+  productContainerFooter.classList.add('product__footer');
 
   return productContainerFooter;
 };
@@ -179,10 +179,11 @@ const renderProduct = async (product) => {
   productContainer.append(productContainerHeader, productContainerMain, productContainerFooter);
 };
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   const productId = getProductId();
 
-  api(`/product/${productId}`, 'GET', null, (result) => {
-    renderProduct(result.product);
-  });
+  const response = await axios.get(`${url}/product/${productId}`);
+  const { data } = response;
+
+  renderProduct(data.product);
 });

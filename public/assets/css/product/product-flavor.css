@@ -1,0 +1,24 @@
+.product__flavor--value{
+    font-weight: normal;
+}
+
+@media screen and (min-width: 0) {
+    .product__flavor, .product__flavor--value{
+        font-size: 1.5rem;
+        margin: 15px 0 0 15px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .product__flavor, .product__flavor--value{
+        font-size: 1.75rem;
+        margin: 22.5px 0 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__flavor, .product__flavor--value{
+        font-size: 2rem;
+        margin-top: 30px;
+    }
+}

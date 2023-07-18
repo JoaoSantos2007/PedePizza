@@ -1,0 +1,14 @@
+.product__info{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    font-weight: bold;
+    justify-content: center;
+    margin-left: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .product__info{
+        margin-left: 0px;
+    }
+}

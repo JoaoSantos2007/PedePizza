@@ -1,0 +1,10 @@
+.product__description{
+    font-size: 1.5rem;
+    width: 90%;
+}    
+
+@media screen and (max-width: 768px) {
+    .product__description{
+        width: 95%;
+    }
+}

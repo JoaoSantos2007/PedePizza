@@ -6,36 +6,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PedePizza</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/root.css">
-        <link rel="stylesheet" href="assets/css/product.css" />
+        <link rel="stylesheet" href="assets/css/navbar/navbar.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar-link.css">
+        <link rel="stylesheet" href="assets/css/footer/footer.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-header.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-media.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-name.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-social.css">
+        <link rel="stylesheet" href="assets/css/root.css">
+        <link rel="stylesheet" href="assets/css/product/product.css">
+        <link rel="stylesheet" href="assets/css/product/product-price.css">
+        <link rel="stylesheet" href="assets/css/product/product-name.css">
+        <link rel="stylesheet" href="assets/css/product/product-main.css">
+        <link rel="stylesheet" href="assets/css/product/product-ingredients.css">
+        <link rel="stylesheet" href="assets/css/product/product-info.css">
+        <link rel="stylesheet" href="assets/css/product/product-image.css">
+        <link rel="stylesheet" href="assets/css/product/product-header.css">
+        <link rel="stylesheet" href="assets/css/product/product-footer.css">
+        <link rel="stylesheet" href="assets/css/product/product-flavor.css">
+        <link rel="stylesheet" href="assets/css/product/product-description.css">
+        <link rel="stylesheet" href="assets/css/product/product-buyBtn.css">
     </head>
     <body>
         <header>
-            <nav class="navbar header__navbar">
-                <a href="index.html" class="logo"><img src="assets/img/logo.avif" width="64px" height="64px" alt="Pizza logo"></a>
-                <a href="index.html">Loja</a>
-                <a href="news.html">Novidades</a>
-                <a href="info.html">Sobre</a>
-                <a href="account.html">Conta</a>
-                <a href="cart.html" class="navbar__cart"><img src="assets/img/cart.svg" alt="cart"></a>
+            <nav class="navbar">
+                <a class="navbar__link navbar__link--logo" href="index.html"><img class="navbar__logo" src="assets/img/logo.avif" width="64px" height="64px" alt="Logo da pizzaria PedePizza"></a>
+                <a class="navbar__link" href="index.html">Loja</a>
+                <a class="navbar__link" href="news.html">Novidades</a>
+                <a class="navbar__link" href="about.html">Sobre</a>
+                <a class="navbar__link" href="account.html">Conta</a>
+                <a class="navbar__link navbar__link--cart" href="cart.html"><img class="navbar__cart" src="assets/img/cart.svg" alt="Carrinho do Usuário" width="48px" height="48px"></a>
             </nav>
         </header>
 
         <main>
-            <section class="product__container" id="productContainer"></section>
+            <section class="product" id="productContainer"></section>
         </main>
 
         <footer>
-            <img src="assets/img/banner.avif" width="235px" height="32px" alt="Banner da pizzaria">
+            <div class="footer__header">
+                <img class="footer__logo" src="assets/img/logo.avif" alt="Logo da pizzaria PedePizza" width="48px" height="48px">
+                <p class="footer__name">PedePizza</p>
+            </div>
             
             <div class="footer__social">
-                <img src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
-                <img src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
-                <img src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
-                <img src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
+                <img class="footer__media" src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
+                <img class="footer__media" src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
+                <img class="footer__media" src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
+                <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
             </div>
         </footer>
 
+        <script src="assets/js/axios.js"></script>
         <script src="assets/js/product.js" type="module"></script>
     </body>
 </html>

@@ -1,0 +1,36 @@
+.product__ingredients--value{
+    font-weight: normal;
+}
+
+@media screen and (min-width: 0) {
+    .product__ingredients{
+        font-size: 1.5rem;
+        margin: 15px 0 0 15px;
+    }
+
+    .product__ingredients--value{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .product__ingredients{
+        font-size: 1.75rem;
+        margin: 22.5px 0 0;
+    }
+
+    .product__ingredients--value{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__ingredients{
+        font-size: 2rem;
+        margin-top: 30px;
+    }
+
+    .product__ingredients--value{
+        font-size: 1.75rem;
+    }
+}

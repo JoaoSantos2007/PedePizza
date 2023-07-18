@@ -1,0 +1,17 @@
+@media screen and (min-width: 0px) {
+    .product__image{
+        margin: 0px auto;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .product__image{
+        margin: 0 0 0 5%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .product__image{
+        margin: 0 0 0 10%;
+    }
+}
