@@ -1,0 +1,16 @@
+.form__submit-btn{
+    background-color: var(--vermelho);
+    color: #FFF;
+    border: none;
+    margin: 30px 0px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 50%;
+    padding: 20px 0px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.form__submit-btn:hover{
+    background-color: var(--vermelho2);
+}

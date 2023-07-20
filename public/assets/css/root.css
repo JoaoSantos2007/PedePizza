@@ -10,13 +10,14 @@ table::selection, caption::selection, tbody::selection, tfoot::selection, thead:
 article::selection, aside::selection, canvas::selection, details::selection, embed::selection, 
 figure::selection, figcaption::selection, footer::selection, header::selection, hgroup::selection, 
 menu::selection, nav::selection, output::selection, ruby::selection, section::selection, summary::selection,
-time::selection, mark::selection, audio::selection, video::selection, br::selection {
+time::selection, mark::selection, audio::selection, video::selection, br::selection, input::selection {
     color: red;
     background-color: rgb(212, 126, 126);
 }
 
 :root{
     --vermelho: rgb(209, 20, 20);
+    --vermelho2: rgb(124, 12, 12);
     --branco: #FFF;
     --preto: #000;
     --cor-fundo: rgb(221, 196, 196);
