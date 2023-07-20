@@ -17,11 +17,11 @@ const spawnError = (error) => {
 
   const errorName = document.createElement('p');
   errorName.classList.add('error__name');
-  errorName.textContent = error.name;
+  errorName.textContent = `${error.name}: `;
 
   const errorMessage = document.createElement('p');
   errorMessage.classList.add('error__message');
-  errorMessage.textContent = error.msg;
+  errorMessage.textContent = error.message;
 
   errorHeader.append(errorClose);
   errorMain.append(errorName);
