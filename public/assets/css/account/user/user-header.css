@@ -1,0 +1,8 @@
+.user__header{
+    min-height: 76px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    background-color: var(--vermelho);
+}

@@ -1,0 +1,12 @@
+.user__img{
+    margin-left: 15px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    border-radius: 64px;
+}
+
+.user__img{
+    width: 48px;
+    height: 48px;
+}

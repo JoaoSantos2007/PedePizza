@@ -1,0 +1,7 @@
+.user__options{
+    width: calc(100% - 15px);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}

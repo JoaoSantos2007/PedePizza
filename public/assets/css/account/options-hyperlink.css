@@ -1,0 +1,17 @@
+.options__hyperlink{
+    font-size: 1.75rem;
+    font-style: normal;
+    text-decoration: none;
+    color: #3b4349;
+    cursor: pointer;
+}
+
+.options__hyperlink--delete{
+    color: var(--vermelho);
+}
+
+@media screen and (min-width: 0) {
+    .options__hyperlink{
+        font-size: 1.5rem;
+    }
+}

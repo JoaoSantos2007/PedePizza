@@ -1,0 +1,13 @@
+.form__save{
+    background-color: #33ff44;
+    height: 64px;
+    border: none;
+    width: 146px;
+    color: #FFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.form__save:hover{
+    background-color: #23b82f;
+}

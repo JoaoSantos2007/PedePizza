@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,6 +23,14 @@
         <link rel="stylesheet" href="assets/css/error/error-message.css">
         <link rel="stylesheet" href="assets/css/error/error-name.css">
         <link rel="stylesheet" href="assets/css/signup/signup.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-footer.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-header.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-input.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-main.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-title.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-save.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-cancel.css">
     </head>
     <body>
         <header>
@@ -37,38 +45,29 @@
         </header> 
 
         <main>
-            <form action="" class="signupForm" id="signupForm">
-                <section class="signupForm__header">
-                    <h2>Create Account</h2>
-                </section>
+            <section class="signup">
+                <form action="" class="form" id="signupForm">
+                    <div class="form__header">
+                        <h1 class="form__title">Create Account</h1>
+                    <div/>
+    
+                    <div class="form__main">
+                        <input class="form__input" type="text" required="true" id="inputName" placeholder="Name">
+    
+                        <input class="form__input" type="email" required="true" id="inputEmail" placeholder="Email">
 
-                <section class="signupForm__main">
-                    <div>
-                        <label for="inputName">UserName</label>
-                        <input type="text" required="true" id="inputName">
+                        <input class="form__input" type="password" required="true" id="inputPassword" placeholder="Password">
+        
+                        <input class="form__input" type="url" id="inputUserIMG" placeholder="Image Url">
                     </div>
-    
-                    <div>
-                        <label for="inputEmail">Email</label>
-                        <input type="email" required="true" id="inputEmail">
+                    
+                    <div class="form__footer">
+                        <button class="form__cancel" id="cancelBTN">Cancel</button>
+                        <input class="form__save" type="submit" value="Save">
                     </div>
-    
-                    <div>
-                        <label for="inputPassword">Password</label>
-                        <input type="password" required="true" id="inputPassword">
-                    </div>
-    
-                    <div>
-                        <label for="inputUserIMG">Image</label>
-                        <input type="url" id="inputUserIMG">
-                    </div>
-                </section>
-                
-                <section class="signupForm__footer">
-                    <input type="button" value="Cancel" id="cancelBTN">
-                    <input type="submit" value="Save" id="saveBTN">
-                </section>
-            </form>
+                </form>
+            </section>
+
         </main>
 
         <footer>

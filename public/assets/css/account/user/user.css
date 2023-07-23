@@ -1,0 +1,9 @@
+.user{
+    background: rgb(255, 255, 255);
+    margin: 0px auto;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 260px;
+    display: flex;
+    flex-direction: column;
+}

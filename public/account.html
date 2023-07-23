@@ -6,66 +6,102 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PedePizza</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/root.css">
-        <link rel="stylesheet" href="assets/css/account.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar-link.css">
+        <link rel="stylesheet" href="assets/css/footer/footer.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-header.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-name.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-social.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-media.css">
+        <link rel="stylesheet" href="assets/css/title.css">
+        <link rel="stylesheet" href="assets/css/error/error-close.css">
+        <link rel="stylesheet" href="assets/css/error/error-header.css">
+        <link rel="stylesheet" href="assets/css/error/error-main.css">
+        <link rel="stylesheet" href="assets/css/error/error-message.css">
+        <link rel="stylesheet" href="assets/css/error/error-name.css">
+        <link rel="stylesheet" href="assets/css/error/error.css">
+        <link rel="stylesheet" href="assets/css/account/line.css">
+        <link rel="stylesheet" href="assets/css/account/user/user.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-config.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-header.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-img.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-main.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-name.css">
+        <link rel="stylesheet" href="assets/css/account/user/user-options.css">
+        <link rel="stylesheet" href="assets/css/account/options-hyperlink.css">
     </head>
     <body>
         <header>
-            <nav class="navbar header__navbar">
-                <a href="index.html" class="logo"><img src="assets/img/logo.avif" width="64px" height="64px" alt="Pizza logo"></a>
-                <a href="index.html">Loja</a>
-                <a href="news.html">Novidades</a>
-                <a href="info.html">Sobre</a>
-                <a href="account.html">Conta</a>
-                <a href="cart.html" class="navbar__cart"><img src="assets/img/cart.svg" alt="cart"></a>
+            <nav class="navbar">
+                <a class="navbar__link navbar__link--logo" href="index.html"><img class="navbar__logo" src="assets/img/logo.avif" width="64px" height="64px" alt="Logo da pizzaria PedePizza"></a>
+                <a class="navbar__link" href="index.html">Loja</a>
+                <a class="navbar__link" href="news.html">Novidades</a>
+                <a class="navbar__link" href="about.html">Sobre</a>
+                <a class="navbar__link" href="account.html">Conta</a>
+                <a class="navbar__link navbar__link--cart" href="cart.html"><img class="navbar__cart" src="assets/img/cart.svg" alt="Carrinho do Usuário" width="48px" height="48px"></a>
             </nav>
-            <h1 class="header__title">Conta</h1>
         </header>
 
         <main>
+            <h1 class="title">Conta</h1>
+
             <section class="user">
                 <div class="user__header">
-                    <img class="user__img" id="userImg" src="assets/icon/user.svg" alt="user Image" >
+                    <img class="user__img" id="userImg" src="assets/img/user.svg" alt="user Image" >
                     <p class="user__name" id="userName">Name</p>
                     
-                    <a class="user__config" href="./config.html"><img src="assets/icon/settings.svg" alt="user settings"></a>
+                    <a class="user__config" href="./config.html"><img src="assets/img/settings.svg" alt="user settings"></a>
                 </div>
 
-                <hr>
+                <div class="user__main" id="user-options-list">
+                    <div class="user__options">
+                        <a class="options__hyperlink options__hyperlink--orders" href="orders.html">Pedidos</a>
+                    </div>
 
-                <div class="user__main">
-                    <p class="user__email">Email: <span id="userEmail">email@email.com</span></p>
-                    
-                    <p class="user__id">UserID: <span id="userID">xxxxxxxxxxxxxxxxxx</span></p>
-                    
-                    <p class="user__order">Orders: <a href="orders.html">View</a></p>
-                </div>
+                    <hr class="line">
 
-                <hr>
+                    <div class="user__options">
+                        <a class="options__hyperlink options__hyperlink--cart" href="cart.html">Carrinho</a>
+                    </div>
 
-                <div class="user__footer">
-                    <button class="user__logout" id="logoutBTN">
-                        <p>Logout</p>
-                    </button>
-                    <button class="user__delete" id="deleteBTN">
-                        <p>Delete Account</p>
-                    </button>
+                    <hr class="line">
+
+                    <div class="user__options">
+                        <a class="options__hyperlink options__hyperlink--change-password" href="#">Mudar Senha</a>
+                    </div>
+
+                    <hr class="line">
+
+                    <div class="user__options">
+                        <a class="options__hyperlink options__hyperlink--logout" id="logoutBTN">Sair</a>
+                    </div>
+
+                    <hr class="line">
+                
+                    <div class="user__options">
+                        <a class="options__hyperlink options__hyperlink--delete" id="deleteBTN">Deletar Conta</a>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <img src="assets/img/banner.avif" width="235px" height="32px" alt="Banner da pizzaria">
+            <div class="footer__header">
+                <img class="footer__logo" src="assets/img/logo.avif" alt="Logo da pizzaria PedePizza" width="48px" height="48px">
+                <p class="footer__name">PedePizza</p>
+            </div>
             
             <div class="footer__social">
-                <img src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
-                <img src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
-                <img src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
-                <img src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
+                <img class="footer__media" src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
+                <img class="footer__media" src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
+                <img class="footer__media" src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
+                <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
             </div>
         </footer>
 
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/account.js" type="module"></script>
+        <script src="assets/js/lib/axios.js"></script>
+        <script src="assets/js/account/index.js" type="module"></script>
     </body>
 </html>

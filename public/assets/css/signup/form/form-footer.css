@@ -1,0 +1,6 @@
+.form__footer{
+    margin: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

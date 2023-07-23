@@ -1,23 +1,33 @@
-import { login } from './login.js';
-import { api, navigate } from './script.js';
+import createUser from '../createUser.js';
+import login from '../login.js';
+import errorHandler from '../errorHandler.js';
+import navigate from '../navigate.js';
 
-$('#cancelBTN').click(() => {
+const cancelBtn = document.querySelector('#cancelBTN');
+cancelBtn.addEventListener('click', () => {
   navigate('/login.html');
 });
 
-$('#signupForm').submit((event) => {
-  event.preventDefault();
+const form = document.querySelector('#signupForm');
+form.addEventListener('submit', async (event) => {
+  try {
+    event.preventDefault();
 
-  createUser({
-    name: $('#inputName').val(),
-    email: $('#inputEmail').val(),
-    password: (window.document.getElementById('inputPassword')).value,
-    img: $('#inputUserIMG').val(),
-  });
+    const user = {
+      name: (document.querySelector('#inputName')).value,
+      email: (document.querySelector('#inputEmail')).value,
+      password: (document.querySelector('#inputPassword')).value,
+      img: (document.querySelector('#inputUserIMG')).value,
+    };
+
+    const userCreated = await createUser(user);
+    if (!userCreated) throw new Error('Usuáruio não criado');
+
+    const logged = await login(user);
+    if (!logged) throw new Error('Authentication Failed');
+
+    // navigate('/index.html');
+  } catch (err) {
+    errorHandler(err);
+  }
 });
-
-function createUser(user) {
-  api('/user', 'POST', user, (data) => {
-    if (data.created) login(user);
-  });
-}
