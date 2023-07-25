@@ -1,18 +1,21 @@
 import url from '../url.js';
 import getProductId from './getProductId.js';
-import mountProductElement from './mountProductElement.js';
+import createProductElement from './createProductElement.js';
+import errorHandler from '../errorHandler.js';
 
 window.addEventListener('load', async () => {
   try {
     const productId = getProductId();
-    const productElement = document.querySelector('#product');
+    const mainPage = document.querySelector('main');
 
+    // eslint-disable-next-line no-undef
     const response = await axios.get(`${url}/product/${productId}`);
     const { data } = response;
     const { product } = data;
 
-    await mountProductElement(product, productElement);
+    const productElement = await createProductElement(product);
+    mainPage.append(productElement);
   } catch (err) {
-    console.error(err);
+    errorHandler(err);
   }
 });
