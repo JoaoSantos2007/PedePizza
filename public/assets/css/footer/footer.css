@@ -1,6 +1,6 @@
 footer{
     align-items: center;
-    background: var(--preto);
+    background: var(--color-black);
     display: flex;
     height: 48px;
     justify-content: space-between;
@@ -11,7 +11,7 @@ footer{
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 520px) {
     footer{
         flex-direction: column;
         height: auto;

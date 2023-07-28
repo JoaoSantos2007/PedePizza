@@ -1,10 +1,19 @@
-.product__description{
-    font-size: 1.5rem;
-    width: 90%;
-}    
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 0) {
     .product__description{
+        font-size: var(--fs-smartphone-principal);
         width: 95%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .product__description{
+        font-size: var(--fs-tablet-principal);
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__description{
+        font-size: var(--fs-desktop-principal);
     }
 }

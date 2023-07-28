@@ -1,9 +1,8 @@
 import defineImgSize from './defineImgSize.js';
 import loadImg from './loadImage.js';
 import navigate from '../navigate.js';
-import url from '../url.js';
 import errorHandler from '../errorHandler.js';
-import addProductToCart from './addProductToCart.js';
+import Cart from '../requests/Cart.js';
 
 const createProductHeaderElement = () => {
   const productHeaderElement = document.createElement('div');
@@ -87,10 +86,7 @@ const createProductBuyButtonElement = (productId) => {
 
   productBuyBtnElement.addEventListener('click', async () => {
     try {
-      const response = await addProductToCart(productId);
-
-      if (response.status !== 201) throw new Error('Failed to add this product to the cart');
-
+      await Cart.post(productId);
       navigate('/index.html');
     } catch (err) {
       errorHandler(err);

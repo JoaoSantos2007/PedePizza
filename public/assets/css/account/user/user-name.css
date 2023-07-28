@@ -1,24 +1,29 @@
 .user__name{
-    color: #FFF;
+    color: var(--fc-default);
     font-weight: bold;
 }
 
 @media screen and (min-width: 0) {
     .user__name{
-        font-size: 1.75rem;
+        font-size: var(--fs-smartphone-principal);
         margin-left: 10px;
     }
 }
 
 @media screen and (min-width: 448px) {
     .user__name{
-        font-size: 2rem;
         margin-left: 30px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .user__name{
-        font-size: 3rem;
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .user__name{
+        font-size: var(--fs-desktop-principal);
     }
 }

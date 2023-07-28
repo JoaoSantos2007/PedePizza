@@ -1,5 +1,22 @@
 .form__singup{
-    font-size: 1.25rem;
-    color: rgb(29, 29, 235);
+    color: var(--color-hypelink);
     text-align: center;
+}
+
+@media screen and (min-width: 0) {
+    .form__singup{
+        font-size: var(--fs-smartphone-small);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .form__singup{
+        font-size: var(--fs-tablet-small);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .form__singup{
+        font-size: var(--fs-desktop-small);
+    }
 }

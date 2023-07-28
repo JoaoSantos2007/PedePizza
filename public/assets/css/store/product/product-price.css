@@ -1,5 +1,22 @@
 .product__price{
-    color: white;
-    font-size: 2rem;
+    color: var(--fc-default);
     font-weight: bold;
+}
+
+@media screen and (min-width: 0) {
+    .product__price{
+        font-size: var(--fs-smartphone-secondary);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .product__price{
+        font-size: var(--fs-tablet-secondary);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__price{
+        font-size: var(--fs-desktop-secondary);
+    }
 }

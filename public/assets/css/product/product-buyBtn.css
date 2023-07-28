@@ -1,16 +1,15 @@
 .product__buy-btn{
-    background-color: #59c00b;
+    background-color: var(--color-confirm-btn);
     border: none;
     border-radius: 3px;
-    color: #FFF;
+    color: var(--fc-default);
     cursor: pointer;
-    font-size: 1rem;
     height: 64px;
 }
 
 .product__buy-btn:hover{
-    background-color: #479907;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.411);
+    background-color: var(--color-confirm-btn-hover);
+    box-shadow: var(--shadowing);
 }
 
 @media screen and (min-width: 0) {
@@ -18,6 +17,7 @@
         margin: 15px auto 0;
         max-width: 256px;
         width: 95%;
+        font-size: var(--fs-smartphone-small);
     }
 }
 
@@ -32,11 +32,13 @@
         margin: 22.5px 0 0;
         max-width: none;
         width: auto;
+        font-size: var(--fs-tablet-small);
     }
 }
 
 @media screen and (min-width: 992px) {
     .product__buy-btn{
         margin-top: 30px;
+        font-size: var(--fs-desktop-small);
     }
 }

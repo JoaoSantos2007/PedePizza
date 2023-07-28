@@ -1,25 +1,23 @@
-.timetable{
-    font-size: 24px;
-    margin-top: 45px;
+.news__text{
+    text-indent: 20px;
 }
 
 @media screen and (min-width: 0) {
-    .timetable{
+    .news__text{
         font-size: var(--fs-smartphone-principal);
         width: 95%;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .timetable{
+    .news__text{
         font-size: var(--fs-tablet-principal);
-        width: 90%;
+        width: 85%;
     }
 }
 
 @media screen and (min-width: 992px) {
-    .timetable{
+    .news__text{
         font-size: var(--fs-desktop-principal);
-        width: 75%;
     }
 }

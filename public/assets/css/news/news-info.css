@@ -1,6 +1,10 @@
-.kitchen{
+.news__info{
     align-items: center;
     display: flex;
     flex-direction: column;
     margin-top: 60px;
+}
+
+.news__info:first-child{
+    margin-top: 0px;
 }

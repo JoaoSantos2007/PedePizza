@@ -1,7 +1,7 @@
-import createUser from '../createUser.js';
-import login from '../login.js';
 import errorHandler from '../errorHandler.js';
 import navigate from '../navigate.js';
+import Auth from '../requests/Auth.js';
+import User from '../requests/User.js';
 
 const cancelBtn = document.querySelector('#cancelBTN');
 cancelBtn.addEventListener('click', () => {
@@ -20,13 +20,10 @@ form.addEventListener('submit', async (event) => {
       img: (document.querySelector('#inputUserIMG')).value,
     };
 
-    const userCreated = await createUser(user);
-    if (!userCreated) throw new Error('Usuáruio não criado');
+    await User.post(user);
+    await Auth.login(user);
 
-    const logged = await login(user);
-    if (!logged) throw new Error('Authentication Failed');
-
-    // navigate('/index.html');
+    navigate('/index.html');
   } catch (err) {
     errorHandler(err);
   }

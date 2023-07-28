@@ -1,5 +1,4 @@
 .options__hyperlink{
-    font-size: 1.75rem;
     font-style: normal;
     text-decoration: none;
     color: #3b4349;
@@ -7,11 +6,23 @@
 }
 
 .options__hyperlink--delete{
-    color: var(--vermelho);
+    color: var(--color-theme);
 }
 
 @media screen and (min-width: 0) {
     .options__hyperlink{
-        font-size: 1.5rem;
+        font-size: var(--fs-smartphone-secondary);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .options__hyperlink{
+        font-size: var(--fs-tablet-secondary);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .options__hyperlink{
+        font-size: var(--fs-desktop-secondary);
     }
 }

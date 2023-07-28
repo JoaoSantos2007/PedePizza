@@ -1,14 +1,10 @@
-import url from '../url.js';
 import createProductElement from './createProductElement.js';
 import errorHandler from '../errorHandler.js';
+import Product from '../requests/Product.js';
 
 window.addEventListener('load', async () => {
   try {
-    // eslint-disable-next-line no-undef
-    const response = await axios.get(`${url}/product`);
-    const { data } = response;
-    const { products } = data;
-
+    const products = await Product.get();
     products.map((product) => {
       const productContainer = document.querySelector('#products');
 

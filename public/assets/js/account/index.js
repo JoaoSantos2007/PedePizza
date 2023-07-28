@@ -1,11 +1,13 @@
 import errorHandler from '../errorHandler.js';
-import logout from '../logout.js';
+import navigate from '../navigate.js';
+import Auth from '../requests/Auth.js';
+import User from '../requests/User.js';
 
 const logoutBtn = document.querySelector('#logoutBTN');
 logoutBtn.addEventListener('click', async () => {
   try {
-    const left = await logout();
-    if (left) window.location.reload();
+    await Auth.logout();
+    navigate('.');
   } catch (err) {
     errorHandler(err);
   }
@@ -16,12 +18,10 @@ deleteBTN.addEventListener('click', async () => {
   try {
     // eslint-disable-next-line no-alert
     const result = window.confirm('Você realmente deseja apagar esta conta?');
-
     if (!result) return;
 
-    // eslint-disable-next-line no-undef
-    const response = await axios.delete('/user');
-    if (response.status === 200) window.location.reload();
+    await User.delete();
+    navigate('.');
   } catch (err) {
     errorHandler(err);
   }
@@ -44,11 +44,8 @@ const renderUser = (user) => {
 
 window.addEventListener('load', async () => {
   try {
-    // eslint-disable-next-line no-undef
-    const response = await axios.get('/user');
-    const { data } = response;
-
-    renderUser(data.user);
+    const user = await User.get();
+    renderUser(user);
   } catch (err) {
     errorHandler(err);
   }

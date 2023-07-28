@@ -1,25 +1,38 @@
+.product__price{
+    font-weight: bold;
+}
+
 .product__price--value {
     font-weight: normal;
-    color: #17a117;
+    color: var(--fc-price);
 }
 
 @media screen and (min-width: 0) {
     .product__price, .product__price--value{
-        font-size: 1.5rem;
+        font-size: var(--fs-smartphone-principal);
+    }
+
+    .product__price{
         margin: 15px 0 0 15px;
     }
 }
 
 @media screen and (min-width: 769px) {
     .product__price, .product__price--value{
-        font-size: 1.75rem;
+        font-size: var(--fs-tablet-principal);
+    }
+
+    .product__price{
         margin: 22.5px 0 0;
     }
 }
 
 @media screen and (min-width: 992px) {
     .product__price, .product__price--value{
-        font-size: 2rem;
+        font-size: var(--fs-desktop-principal);
+    }
+
+    .product__price{
         margin-top: 30px;
     }
 }

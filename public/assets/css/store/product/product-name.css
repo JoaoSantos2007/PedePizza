@@ -1,8 +1,25 @@
 .product__name{
-    color: white;
-    font-size: 2rem;
+    color: var(--fc-default);
     font-weight: bold;
     height: auto;
     margin: 20px 0px;
     text-align: center;
+}
+
+@media screen and (min-width: 0) {
+    .product__name{
+        font-size: var(--fs-smartphone-principal);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .product__name{
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__name{
+        font-size: var(--fs-desktop-principal);
+    }
 }

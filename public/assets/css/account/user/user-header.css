@@ -4,5 +4,5 @@
     flex-direction: row;
     align-items: center;
     position: relative;
-    background-color: var(--vermelho);
+    background-color: var(--color-theme);
 }

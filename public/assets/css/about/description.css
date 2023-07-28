@@ -5,21 +5,21 @@
 
 @media screen and (min-width: 0) {
     .description{
-        font-size: 1.15rem;
+        font-size: var(--fs-smartphone-principal);
         width: 100%;
     }
 }
 
 @media screen and (min-width: 768px) {
     .description{
-        font-size: 1.5rem;
+        font-size: var(--fs-tablet-principal);
         width: 90%;
     }
 }
 
 @media screen and (min-width: 992px) {
     .description{
-        font-size: 2rem;
+        font-size: var(--fs-desktop-principal);
         width: 75%;
     }
 }

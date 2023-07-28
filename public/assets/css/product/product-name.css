@@ -1,6 +1,23 @@
 .product__name{
-    font-size: 3em;
     font-weight: bold;
     text-align: center;
     margin: 30px 0px 20px;
+}
+
+@media screen and (min-width: 0) {
+    .product__name{
+        font-size: var(--fs-smartphone-title);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .product__name{
+        font-size: var(--fs-tablet-title);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product__name{
+        font-size: var(--fs-desktop-title);
+    }
 }

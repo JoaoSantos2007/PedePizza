@@ -1,8 +1,7 @@
 .timetable__days{
-    background-color: #a71717;
-    color: #ffffff;
+    background-color: var(--color-theme-dark);
+    color: var(--fc-default);
     font-weight: bold;
-    font-size: 24px;
     border: 1px solid #000;
     text-align: center;
     padding: 20px 0px;

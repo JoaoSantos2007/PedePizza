@@ -1,8 +1,7 @@
 .timetable__description{
-    background-color: #FF0000;
-    color: #ffffff;
+    background-color: var(--color-theme);
+    color: var(--fc-default);
     font-weight: bold;
-    font-size: 24px;
     border: 1px solid #000;
     text-align: center;
     padding: 20px 0px;

@@ -1,6 +1,6 @@
 .form{
     align-items: center;
-    background-color: var(--branco);
+    background-color: var(--color-white);
     display: flex;
     flex-direction: column;
     justify-content: center;

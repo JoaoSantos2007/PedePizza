@@ -1,5 +1,5 @@
 import spawnError from './spawnError.js';
-import refreshToken from './refreshToken.js';
+import Auth from './requests/Auth.js';
 import navigate from './navigate.js';
 
 const errorHandler = async (error) => {
@@ -17,7 +17,7 @@ const errorHandler = async (error) => {
 
       if (message === 'Access token expired!') {
         try {
-          await refreshToken();
+          await Auth.refreshToken();
           window.location.reload();
         } catch (err) {
           navigate('/login.html');
@@ -28,6 +28,11 @@ const errorHandler = async (error) => {
       if (message === 'Invalid access token!') {
         navigate('/login.html');
       }
+    } else if (response.data) {
+      const { data } = response;
+      const { message } = data;
+
+      return spawnError({ name: 'API', message });
     }
   }
 

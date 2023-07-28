@@ -1,12 +1,11 @@
 .navbar__link{
-    color: var(--branco);
+    color: var(--fc-default);
     cursor: pointer;
-    font-size: 2rem;
     text-decoration: none;
 }
 
 .navbar__link:hover{
-    color: #fdfdfd;
+    color: var(--fc-default-dark);
     text-decoration: underline;
 }
 
@@ -22,5 +21,23 @@
     .navbar__link--cart{
         height: 48px;
         width: 48px;
+    }
+}
+
+@media screen and (min-width: 0) {
+    .navbar__link{
+        font-size: var(--fs-smartphone-principal);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar__link{
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .navbar__link{
+        font-size: var(--fs-desktop-principal);
     }
 }

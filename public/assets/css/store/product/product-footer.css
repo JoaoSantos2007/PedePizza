@@ -1,6 +1,6 @@
 .product__footer{
     align-items: center;
-    background: rgb(194, 0, 0);
+    background: var(--color-theme);
     border-bottom-left-radius: 4.5px;
     border-bottom-right-radius: 4.5px;
     bottom: 0;

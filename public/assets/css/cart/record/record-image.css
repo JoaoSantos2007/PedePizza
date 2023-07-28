@@ -1,0 +1,4 @@
+.record__image{
+    width: calc(100vw / 5);
+    height: calc(100vw / 10);
+}

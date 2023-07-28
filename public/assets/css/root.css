@@ -10,16 +10,35 @@ table::selection, caption::selection, tbody::selection, tfoot::selection, thead:
 article::selection, aside::selection, canvas::selection, details::selection, embed::selection, 
 figure::selection, figcaption::selection, footer::selection, header::selection, hgroup::selection, 
 menu::selection, nav::selection, output::selection, ruby::selection, section::selection, summary::selection,
-time::selection, mark::selection, audio::selection, video::selection, br::selection, input::selection {
+time::selection, mark::selection, audio::selection, video::selection, br::selection, input::selection, button::selection {
     color: red;
     background-color: rgb(212, 126, 126);
 }
 
 :root{
-    --vermelho: rgb(209, 20, 20);
-    --vermelho2: rgb(124, 12, 12);
-    --branco: #FFF;
-    --preto: #000;
+    --color-black: #000000;
+    --color-confirm-btn: #32CD32;
+    --color-confirm-btn-hover: #2E8B44;
+    --color-hypelink: #e91e63;
+    --color-theme: rgb(209, 20, 20);
+    --color-theme-dark: rgb(124, 12, 12);
+    --color-white: #ffffff;
+    --fc-price: #008000;
+    --fc-default: #ffffff;
+    --fc-default-dark: #f0f0f0;
+    --fs-desktop-title: 3rem;
+    --fs-desktop-principal: 1.8rem;
+    --fs-desktop-secondary: 1.6rem;
+    --fs-desktop-small: 1.4rem;
+    --fs-smartphone-title: 2.5rem;
+    --fs-smartphone-principal: 1.6rem;
+    --fs-smartphone-secondary: 1.4rem;
+    --fs-smartphone-small: 1.2rem;
+    --fs-tablet-title: 2.8rem;
+    --fs-tablet-principal: 1.7rem;
+    --fs-tablet-secondary: 1.5rem;
+    --fs-tablet-small: 1.3rem;
+    --shadowing: 4px 4px 4px rgba(0, 0, 0, 0.61);
     --cor-fundo: rgb(221, 196, 196);
 }
 

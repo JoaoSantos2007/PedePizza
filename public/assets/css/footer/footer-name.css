@@ -1,6 +1,23 @@
 .footer__name{
-    color: var(--branco);
-    font-size: 38px;
+    color: var(--fc-default);
     font-weight: bold;
     margin-left: 7px;
+}
+
+@media screen and (min-width: 0) {
+    .footer__name{
+        font-size: var(--fs-smartphone-principal);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer__name{
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .footer__name{
+        font-size: var(--fs-desktop-principal);
+    }
 }
