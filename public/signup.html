@@ -8,82 +8,86 @@
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/root.css">
-        <link rel="stylesheet" href="assets/css/navbar/navbar.css">
-        <link rel="stylesheet" href="assets/css/navbar/navbar-link.css">
-        <link rel="stylesheet" href="assets/css/footer/footer.css">
-        <link rel="stylesheet" href="assets/css/footer/footer-header.css">
-        <link rel="stylesheet" href="assets/css/footer/footer-name.css">
-        <link rel="stylesheet" href="assets/css/footer/footer-social.css">
-        <link rel="stylesheet" href="assets/css/footer/footer-media.css">
-        <link rel="stylesheet" href="assets/css/title.css">
+        <link rel="stylesheet" href="assets/css/signup/signup.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-field.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-footer.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-input.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-main.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-submit.css">
+        <link rel="stylesheet" href="assets/css/signup/form/form-title.css">
+        <link rel="stylesheet" href="assets/css/signup/form/input-icon.css">
+        <link rel="stylesheet" href="assets/css/signup/info/info.css">
+        <link rel="stylesheet" href="assets/css/signup/info/info-brand.css">
+        <link rel="stylesheet" href="assets/css/signup/info/info-login.css">
+        <link rel="stylesheet" href="assets/css/signup/info/info-logo.css">
+        <link rel="stylesheet" href="assets/css/signup/info/info-name.css">
+        <link rel="stylesheet" href="assets/css/signup/info/login-hyperlink.css">
+        <link rel="stylesheet" href="assets/css/signup/links/links.css">
+        <link rel="stylesheet" href="assets/css/signup/links/links-banner.css">
+        <link rel="stylesheet" href="assets/css/signup/links/links-header.css">
+        <link rel="stylesheet" href="assets/css/signup/links/links-hyperlink.css">
+        <link rel="stylesheet" href="assets/css/signup/links/links-main.css">
         <link rel="stylesheet" href="assets/css/error/error.css">
         <link rel="stylesheet" href="assets/css/error/error-close.css">
         <link rel="stylesheet" href="assets/css/error/error-header.css">
         <link rel="stylesheet" href="assets/css/error/error-main.css">
         <link rel="stylesheet" href="assets/css/error/error-message.css">
         <link rel="stylesheet" href="assets/css/error/error-name.css">
-        <link rel="stylesheet" href="assets/css/signup/signup.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-footer.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-header.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-input.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-main.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-title.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-save.css">
-        <link rel="stylesheet" href="assets/css/signup/form/form-cancel.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <a class="navbar__link navbar__link--logo" href="index.html"><img class="navbar__logo" src="assets/img/logo.avif" width="64px" height="64px" alt="Logo da pizzaria PedePizza"></a>
-                <a class="navbar__link" href="index.html">Loja</a>
-                <a class="navbar__link" href="news.html">Novidades</a>
-                <a class="navbar__link" href="about.html">Sobre</a>
-                <a class="navbar__link" href="account.html">Conta</a>
-                <a class="navbar__link navbar__link--cart" href="cart.html"><img class="navbar__cart" src="assets/img/cart.svg" alt="Carrinho do Usuário" width="48px" height="48px"></a>
-            </nav>
-        </header> 
+      <section class="signup">
+        <div class="info">
+          <div class="info__brand">
+            <img class="info__logo" src="assets/img/logo.avif" alt="">
+            <h1 class="info__name">PedePizza</h1>
+          </div>
 
-        <main>
-            <section class="signup">
-                <form action="" class="form" id="signupForm">
-                    <div class="form__header">
-                        <h1 class="form__title">Create Account</h1>
-                    <div/>
-    
-                    <div class="form__main">
-                        <input class="form__input" type="text" required="true" id="inputName" placeholder="Name">
-    
-                        <input class="form__input" type="email" required="true" id="inputEmail" placeholder="Email">
-
-                        <input class="form__input" type="password" required="true" id="inputPassword" placeholder="Password">
-        
-                        <input class="form__input" type="url" id="inputUserIMG" placeholder="Image Url">
-                    </div>
-                    
-                    <div class="form__footer">
-                        <button class="form__cancel" id="cancelBTN">Cancel</button>
-                        <input class="form__save" type="submit" value="Save">
-                    </div>
-                </form>
-            </section>
-
-        </main>
-
-        <footer>
-            <div class="footer__header">
-                <img class="footer__logo" src="assets/img/logo.avif" alt="Logo da pizzaria PedePizza" width="48px" height="48px">
-                <p class="footer__name">PedePizza</p>
+          <form action="signup.html" class="form" id="signupForm">
+            <div class="form__header">
+              <h2 class="form__title">Create Account</h2>
             </div>
+
+            <div class="form__main">
+              <div class="form__field">              
+                <img class="input_icon" src="assets/img/user.svg"></img>
+                <input id="inputName" class="form__input form__inputs--name" type="text" placeholder="Full name">
+              </div>
+  
+              <div class="form__field">
+                <img class="input_icon" src="assets/img/email.svg"></img>
+                <input id="inputEmail" class="form__input form__inputs--email" type="email" placeholder="Email address">
+              </div>
+  
+              <div class="form__field">
+                <img class="input_icon" src="assets/img/lock.svg"></img>
+                <input id="inputPassword" class="form__input form__inputs--password" type="password" placeholder="Password">
+              </div>
+            </div>
+  
+            <div class="form__footer">
+              <input class="form__submit" type="submit" value="SIGN UP">
+            </div>
+          </form>
             
-            <div class="footer__social">
-                <img class="footer__media" src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
-                <img class="footer__media" src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
-                <img class="footer__media" src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
-                <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
-            </div>
-        </footer>
-        
-        <script src="assets/js/signup/index.js" type="module"></script>
+          <p class="info__login">Already have an account? <a class="login__hyperlink" href="login.html">Log In</a>;</p>
+        </div>
+
+        <div class="links">
+          <div class="links__header">
+            <a class="links__hyperlink" href="index.html">Store</a>
+            <a class="links__hyperlink" href="about.html">About</a>
+          </div>
+
+          <div class="links__main">
+            <img class="links__banner" src="assets/img/banner.png" alt="Banner da pizzaria PedePizza">
+          </div>
+        </div>
+      </section>
+
+      <script src="assets/js/signup/index.js" type="module"></script>
     </body>
 </html>

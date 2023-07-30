@@ -1,7 +1,7 @@
 .error{
     z-index: 0;
     width: 100%;
-    background-color: var(--vermelho);
+    background-color: var(--color-theme);
     position: absolute;
     top: 0;
     display: flex;

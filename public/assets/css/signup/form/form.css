@@ -1,8 +1,5 @@
 .form{
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFF;
-    margin: 100px 0px;
+  margin-left: 101px;
+  display: flex;
+  flex-direction: column;
 }

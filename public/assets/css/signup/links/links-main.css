@@ -1,0 +1,7 @@
+.links__main{
+  height: calc(100% - 78px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

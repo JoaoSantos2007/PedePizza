@@ -1,0 +1,9 @@
+.login__hyperlink{
+  color: var(--color-hyperlink);
+  font-family: Athiti;
+  font-size: 17.74px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}

@@ -1,0 +1,19 @@
+.form__submit{
+  border: none;
+  border-radius: 11.826px;
+  background: var(--color-theme);
+  box-shadow: 0px -1.4782986640930176px 2.956597328186035px 0px rgba(0, 0, 0, 0.25) inset, 0px 1.4782986640930176px 2.956597328186035px 0px rgba(255, 255, 255, 0.25) inset, 0px 2.956597328186035px 2.956597328186035px 0px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  width: 75%;
+  min-width: 361.38px;
+  height: 41.392px;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-family: Athiti;
+  font-size: 11.826px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

@@ -3,11 +3,6 @@ import navigate from '../navigate.js';
 import Auth from '../requests/Auth.js';
 import User from '../requests/User.js';
 
-const cancelBtn = document.querySelector('#cancelBTN');
-cancelBtn.addEventListener('click', () => {
-  navigate('/login.html');
-});
-
 const form = document.querySelector('#signupForm');
 form.addEventListener('submit', async (event) => {
   try {
@@ -17,7 +12,6 @@ form.addEventListener('submit', async (event) => {
       name: (document.querySelector('#inputName')).value,
       email: (document.querySelector('#inputEmail')).value,
       password: (document.querySelector('#inputPassword')).value,
-      img: (document.querySelector('#inputUserIMG')).value,
     };
 
     await User.post(user);

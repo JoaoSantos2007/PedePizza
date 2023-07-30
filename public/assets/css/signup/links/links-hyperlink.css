@@ -1,0 +1,13 @@
+.links__hyperlink{
+  text-decoration: none;
+  color: var(--color-hyperlink);
+  font-family: Athiti;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.links__hyperlink:last-child{
+  margin-left: 60px;
+}
