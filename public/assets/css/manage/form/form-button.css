@@ -1,0 +1,22 @@
+.form__button{
+  width: 40%;
+  max-width: 200px;
+  height: 64px;
+  padding: 15px 15px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  transition: 250ms;
+}
+
+.form__button:hover{
+  box-shadow: 5px 5px 5px #000;
+}
+
+.form__button--cancel{
+  background-color: rgb(255, 51, 51);
+}
+.form__button--save{
+  background-color: rgb(51, 255, 68);
+}

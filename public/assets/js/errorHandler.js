@@ -6,6 +6,7 @@ const errorHandler = async (error) => {
   if (error.name === 'AxiosError') {
     const { response } = error;
 
+    // eslint-disable-next-line no-console
     console.log(error);
 
     if (response.status === 401) {
@@ -18,15 +19,15 @@ const errorHandler = async (error) => {
       if (message === 'Access token expired!') {
         try {
           await Auth.refreshToken();
-          window.location.reload();
+          return window.location.reload();
         } catch (err) {
-          navigate('/login.html');
+          navigate('/auth.html');
           return spawnError({ name: 'Authentication Failed', message: 'Token Expired!' });
         }
       }
 
       if (message === 'Invalid access token!') {
-        navigate('/login.html');
+        return navigate('/auth.html');
       }
     } else if (response.data) {
       const { data } = response;

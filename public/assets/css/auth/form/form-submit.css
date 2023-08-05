@@ -1,0 +1,25 @@
+.form__submit{
+  border: none;
+  border-radius: 11.826px;
+  background: var(--color-theme);
+  display: flex;
+  width: 75%;
+  min-width: 361.38px;
+  height: 41.392px;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-family: Athiti;
+  font-size: 11.826px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .form__submit{
+    max-width: 361.38px;
+    min-width: 0;
+    width: 75vw;
+  }
+}

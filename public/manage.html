@@ -6,59 +6,88 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PedePizza</title>
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/root.css">
-        <link rel="stylesheet" href="assets/css/manage.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar.css">
+        <link rel="stylesheet" href="assets/css/navbar/navbar-link.css">
+        <link rel="stylesheet" href="assets/css/footer/footer.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-header.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-name.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-social.css">
+        <link rel="stylesheet" href="assets/css/footer/footer-media.css">
+        <link rel="stylesheet" href="assets/css/title.css">
+        <link rel="stylesheet" href="assets/css/manage/manage.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form-button.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form-footer.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form-input.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form-main.css">
+        <link rel="stylesheet" href="assets/css/manage/form/form-title.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone-image.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone-input.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone-main.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone-text.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone-uploadIcon.css">
+        <link rel="stylesheet" href="assets/css/manage/dropzone/dropzone.css">
     </head>
     <body>
         <header>
-            <nav class="navbar header__navbar">
-                <a href="index.html" class="logo"><img src="assets/img/logo.avif" width="64px" height="64px" alt="Pizza logo"></a>
-                <a href="index.html">Loja</a>
-                <a href="news.html">Novidades</a>
-                <a href="info.html">Sobre</a>
-                <a href="account.html">Conta</a>
-                <a href="cart.html" class="navbar__cart"><img src="assets/img/cart.svg" alt="cart"></a>
+            <nav class="navbar">
+                <a class="navbar__link navbar__link--logo" href="index.html"><img class="navbar__logo" src="assets/img/logo.avif" width="64px" height="64px" alt="Logo da pizzaria PedePizza"></a>
+                <a class="navbar__link" href="index.html">Loja</a>
+                <a class="navbar__link" href="news.html">Novidades</a>
+                <a class="navbar__link" href="about.html">Sobre</a>
+                <a class="navbar__link" href="account.html">Conta</a>
             </nav>
-            <h1 class="header__title">Pizzas</h1>
         </header>
 
         <main>
-            <form action="" method="post" id="pizzaForm" class="pizzaForm">
+            <h1 class="title">Product</h1>
+
+            <form action="manage.html" id="productForm" class="form">
                 <div class="form__main">
-                    <input type="text" id="inputName" placeholder="Nome Pizza">
-                    <input type="number" id="inputPreco" placeholder="Preço Pizza">
-                    <textarea class="inputDescricao" id="inputDescricao" cols="30" rows="5" placeholder="Descrição da pizza"></textarea>
-                    <div class="drop-zone">
-                        <div class="drop-zone__main">
-                            <img src="assets/icon/upload.svg" alt="upload icon" class="uploadIcon">
-                            <input type="file" name="inputFile" id="inputFile" accept=".png, .jpg, .jpeg">
-                            <p>Supports: JPGE, JPG, PNG</p>
+                    <input class="form__input" type="text" id="inputName" placeholder="Nome">
+                    <select id="inputType">
+                        <option value="pizza">Pizza</option>
+                        <option value="drink">Drink</option>
+                    </select>
+                    <input class="form__input" type="text" id="inputFlavor" placeholder="Sabor">
+                    <input class="form__input" type="text" id="inputIngredients" placeholder="Ingredientes">
+                    <input class="form__input" type="number" id="inputPrice" placeholder="Preço">
+                    <textarea class="form__input form__input--description" id="inputDescription" cols="30" rows="5" placeholder="Descrição do produto"></textarea>
+
+                    <div class="dropzone">
+                        <div class="dropzone__main">
+                            <img class="dropzone__upload-icon" src="assets/img/upload.svg" alt="upload icon">
+                            <input class="dropzone__input" type="file" id="inputFile" accept=".png, .jpg, .jpeg">
+                            <p class="dropzone__text">Supports: JPGE, JPG, PNG</p>
                         </div>
 
-                        <img src="" class="uploadedImage" alt="">
+                        <img class="dropzone__image" alt="Imagem Enviada">
                     </div>
-
                 </div>
     
                 <div class="form__footer">
-                    <input type="button" id="cancelBTN" value="Cancel">
-                    <input type="submit" id="submitBTN" value="Save" >
+                    <input class="form__button form__button--cancel" type="button" id="cancelBTN" value="Cancel">
+                    <input class="form__button form__button--save" type="submit" id="submitBTN" value="Save" >
                 </div>
             </form>
         </main>
 
         <footer>
-            <img src="assets/img/banner.avif" width="235px" height="32px" alt="Banner da pizzaria">
+            <div class="footer__header">
+                <img class="footer__logo" src="assets/img/logo.avif" alt="Logo da pizzaria PedePizza" width="48px" height="48px">
+                <p class="footer__name">PedePizza</p>
+            </div>
             
             <div class="footer__social">
-                <img src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
-                <img src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
-                <img src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
-                <img src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
+                <img class="footer__media" src="assets/img/instagram.svg" width="32px" height="32px" alt="Ícone do instagram">
+                <img class="footer__media" src="assets/img/whatsapp.svg" width="32px" height="32px" alt="Ícone do whatsapp">
+                <img class="footer__media" src="assets/img/ifood.svg" width="32px" height="32px" alt="Ícone do ifood">
+                <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
             </div>
         </footer>
 
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/manage.js" type="module"></script>
+        <script src="assets/js/manage/index.js" type="module"></script>
     </body>
 </html>

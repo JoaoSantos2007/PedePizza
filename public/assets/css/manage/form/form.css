@@ -1,0 +1,11 @@
+.form{
+  background: var(--color-white);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+  padding: 15px 0px;
+  margin-bottom: 60px;
+}

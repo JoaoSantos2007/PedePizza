@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PedePizza</title>
+        <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/root.css">
+        <link rel="stylesheet" href="assets/css/auth/auth.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-field.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-footer.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-input.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-main.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-submit.css">
+        <link rel="stylesheet" href="assets/css/auth/form/form-title.css">
+        <link rel="stylesheet" href="assets/css/auth/form/input-icon.css">
+        <link rel="stylesheet" href="assets/css/auth/info/info.css">
+        <link rel="stylesheet" href="assets/css/auth/info/info-brand.css">
+        <link rel="stylesheet" href="assets/css/auth/info/info-login.css">
+        <link rel="stylesheet" href="assets/css/auth/info/info-logo.css">
+        <link rel="stylesheet" href="assets/css/auth/info/info-name.css">
+        <link rel="stylesheet" href="assets/css/auth/info/login-hyperlink.css">
+        <link rel="stylesheet" href="assets/css/auth/links/links.css">
+        <link rel="stylesheet" href="assets/css/auth/links/links-banner.css">
+        <link rel="stylesheet" href="assets/css/auth/links/links-header.css">
+        <link rel="stylesheet" href="assets/css/auth/links/links-hyperlink.css">
+        <link rel="stylesheet" href="assets/css/auth/links/links-main.css">
+        <link rel="stylesheet" href="assets/css/error/error.css">
+        <link rel="stylesheet" href="assets/css/error/error-close.css">
+        <link rel="stylesheet" href="assets/css/error/error-header.css">
+        <link rel="stylesheet" href="assets/css/error/error-main.css">
+        <link rel="stylesheet" href="assets/css/error/error-message.css">
+        <link rel="stylesheet" href="assets/css/error/error-name.css">
+    </head>
+    <body>
+      <section class="auth">
+        <div class="info">
+          <div class="info__brand">
+            <img class="info__logo" src="assets/img/logo.avif" alt="">
+            <h1 class="info__name">PedePizza</h1>
+          </div>
+
+          <form action="auth.html" class="form" id="authForm">
+            <div class="form__header">
+              <h2 class="form__title">Login</h2>
+            </div>
+
+            <div class="form__main">
+              <div class="form__field form__field--input-name">              
+                <img class="input_icon" src="assets/img/user.svg"></img>
+                <input id="inputName" class="form__input form__inputs--name" type="text" placeholder="Full name">
+              </div>
+  
+              <div class="form__field">
+                <img class="input_icon" src="assets/img/email.svg"></img>
+                <input id="inputEmail" class="form__input form__inputs--email" type="email" placeholder="Email address">
+              </div>
+  
+              <div class="form__field">
+                <img class="input_icon" src="assets/img/lock.svg"></img>
+                <input id="inputPassword" class="form__input form__inputs--password" type="password" placeholder="Password">
+              </div>
+            </div>
+  
+            <div class="form__footer">
+              <input class="form__submit" type="submit" value="LOGIN">
+            </div>
+          </form>
+            
+          <p class="info__login">Not have an account yet? <a class="login__hyperlink" href="auth.html?type=signup">Sign Up</a>;</p>
+        </div>
+
+        <div class="links">
+          <div class="links__header">
+            <a class="links__hyperlink" href="index.html">Store</a>
+            <a class="links__hyperlink" href="about.html">About</a>
+          </div>
+
+          <div class="links__main">
+            <img class="links__banner" src="assets/img/banner.png" alt="Banner da pizzaria PedePizza">
+          </div>
+        </div>
+      </section>
+
+      <script src="assets/js/auth/index.js" type="module"></script>
+    </body>
+</html>

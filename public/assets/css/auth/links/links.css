@@ -1,0 +1,17 @@
+.links{
+  width: 50vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 992px) {
+  .links{
+    width: 35vw;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .links{
+    display: none;
+  }
+}

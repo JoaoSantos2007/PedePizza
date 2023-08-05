@@ -1,0 +1,21 @@
+.info{
+  width: 50vw;
+  height: 100vh;
+  border-radius: 0px 51.74px 51.74px 0px;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 992px) {
+  .info{
+    width: 65vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .info{
+    width: 100vw;
+    border-radius: 0px;
+  }
+}

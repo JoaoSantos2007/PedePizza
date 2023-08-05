@@ -1,0 +1,19 @@
+.form{
+  margin-left: 101px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .form{
+    margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .form{
+    margin-left: 0px;
+    width: 100%;
+    align-items: center;
+  }
+}

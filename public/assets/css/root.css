@@ -42,6 +42,13 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     --cor-fundo: rgb(221, 196, 196);
 }
 
+@font-face {
+    font-family: 'Athiti';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Athiti.woff2') format('woff2');
+}
+
 body{
     background: var(--cor-fundo);
 }

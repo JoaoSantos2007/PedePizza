@@ -1,0 +1,9 @@
+.form__field{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.form__field--input-name{
+  display: none;
+}
