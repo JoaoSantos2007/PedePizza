@@ -5,10 +5,10 @@ import Product from '../requests/Product.js';
 window.addEventListener('load', async () => {
   try {
     const products = await Product.get();
-    products.map((product) => {
+    products.map(async (product) => {
       const productContainer = document.querySelector('#products');
 
-      const productElement = createProductElement(product);
+      const productElement = await createProductElement(product);
       return productContainer.append(productElement);
     });
   } catch (err) {

@@ -1,8 +1,9 @@
 import defineImgSize from './defineImgSize.js';
-import loadImg from './loadImage.js';
+import loadProductImage from '../loadProductImage.js';
 import navigate from '../navigate.js';
 import errorHandler from '../errorHandler.js';
 import Cart from '../requests/Cart.js';
+import Product from '../requests/Product.js';
 
 const createProductHeaderElement = () => {
   const productHeaderElement = document.createElement('div');
@@ -34,7 +35,7 @@ const createProductNameElement = (name) => {
 };
 
 const createProductImageElement = async (img) => {
-  const productImageElement = await loadImg(img);
+  const productImageElement = await loadProductImage(img);
   productImageElement.classList.add('product__image');
   productImageElement.alt = 'product image';
   const { idealWidth, idealHeight } = defineImgSize(productImageElement);
@@ -104,6 +105,36 @@ const createProductDescriptionElement = (description) => {
   return productDescriptionElement;
 };
 
+const createProductControlElement = (productId) => {
+  const productControlElement = document.createElement('div');
+  productControlElement.classList.add('product__control');
+
+  const editProductElement = document.createElement('img');
+  editProductElement.classList.add('product__action');
+  editProductElement.src = 'assets/img/pencil.svg';
+  editProductElement.alt = 'edit button';
+  editProductElement.addEventListener('click', () => {
+    navigate(`/manage.html?id=${productId}`);
+  });
+
+  const deleteProductElement = document.createElement('img');
+  deleteProductElement.classList.add('product__action');
+  deleteProductElement.src = '/assets/img/trash.svg';
+  deleteProductElement.alt = 'delete button';
+  deleteProductElement.addEventListener('click', async () => {
+    try {
+      await Product.delete(productId);
+      navigate('/index.html');
+    } catch (err) {
+      errorHandler(err);
+    }
+  });
+
+  productControlElement.append(editProductElement, deleteProductElement);
+
+  return productControlElement;
+};
+
 const createProductElement = async (product) => {
   const {
     _id, name, img, description, price, flavor, ingredients,
@@ -116,26 +147,21 @@ const createProductElement = async (product) => {
   const productHeader = createProductHeaderElement();
   const productMain = createProductMainElement();
   const productFooter = createProductFooterElement();
-
   const productName = createProductNameElement(name);
-
   const productImage = await createProductImageElement(img);
   const productInfo = createProductInfoElement();
-
   const productFlavor = createProductFlavorElement(flavor);
   const productIngredients = createProductIngredientsElement(ingredients);
   const productPrice = createProductPriceElement(price);
   const productBuyBtn = createProductBuyButtonElement(id);
-
   const productDescription = createProductDescriptionElement(description);
+  const productControl = createProductControlElement(id);
 
   productInfo.append(productFlavor, productIngredients, productPrice, productBuyBtn);
-
   productHeader.append(productName);
   productMain.append(productImage, productInfo);
   productFooter.append(productDescription);
-
-  productElement.append(productHeader, productMain, productFooter);
+  productElement.append(productHeader, productMain, productFooter, productControl);
 
   return productElement;
 };

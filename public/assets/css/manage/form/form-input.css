@@ -9,17 +9,19 @@
 }
 
 .form__input--description{
-  width: 80%;
-  margin: 20px 0px;
-  outline: none;
-  font-size: 1.5rem;
   border: 1px solid black;
+}
+
+.form__input--type{
+  padding: 5px;
+  text-indent: 10px;
+  margin: 5px 0px;
 }
 
 .form__input:focus, .form__input:hover{
   border-bottom: 1px solid var(--color-theme);
 }
 
-.form__input--description:focus, .form__input--description:hover{
+.form__input--description:focus, .form__input--type:focus, .form__input--description:hover, .form__input--type:hover{
   border: 1px solid var(--color-theme);
 }

@@ -46,16 +46,17 @@
 
             <form action="manage.html" id="productForm" class="form">
                 <div class="form__main">
-                    <input class="form__input" type="text" id="inputName" placeholder="Nome">
-                    <select id="inputType">
-                        <option value="pizza">Pizza</option>
-                        <option value="drink">Drink</option>
+                    <input class="form__input" type="text" id="inputName" placeholder="Nome" required>
+                    <input class="form__input" type="text" id="inputFlavor" placeholder="Sabor" required>
+                    <input class="form__input" type="text" id="inputIngredients" placeholder="Ingredientes" required>
+                    <input class="form__input" type="number" id="inputPrice" placeholder="Preço" required step="0.01">
+                    <textarea class="form__input form__input--description" id="inputDescription" cols="30" rows="5" placeholder="Descrição do produto" required></textarea>
+                    
+                    <select class="form__input form__input--type" id="inputType">
+                        <option class="option__pizza" value="pizza">Pizza</option>
+                        <option class="option__drink" value="drink">Drink</option>
                     </select>
-                    <input class="form__input" type="text" id="inputFlavor" placeholder="Sabor">
-                    <input class="form__input" type="text" id="inputIngredients" placeholder="Ingredientes">
-                    <input class="form__input" type="number" id="inputPrice" placeholder="Preço">
-                    <textarea class="form__input form__input--description" id="inputDescription" cols="30" rows="5" placeholder="Descrição do produto"></textarea>
-
+                    
                     <div class="dropzone">
                         <div class="dropzone__main">
                             <img class="dropzone__upload-icon" src="assets/img/upload.svg" alt="upload icon">

@@ -1,8 +1,12 @@
 import { handleDropZoneEvents, getFile } from './dropzone.js';
-// import { verifyUpdatePizzaMode } from './update-pizza.js';
-
+import setUpdateFormMode from './setUpdateFormMode.js';
 import Product from '../requests/Product.js';
 import errorHandler from '../errorHandler.js';
+import getProductId from '../getProductId.js';
+import navigate from '../navigate.js';
+
+let productId = getProductId();
+const isUpdateMode = !!productId;
 
 const productForm = document.querySelector('#productForm');
 productForm.addEventListener('submit', async (event) => {
@@ -18,21 +22,29 @@ productForm.addEventListener('submit', async (event) => {
       type: document.querySelector('#inputType').options[document.querySelector('#inputType').selectedIndex].value,
     };
 
-    const data = await Product.post(product);
-    const { productId } = data;
+    if (!isUpdateMode) {
+      const data = await Product.post(product);
+      productId = data.productId;
+    } else {
+      await Product.put(productId, product);
+    }
 
-    const formData = new FormData();
-    formData.append('img', getFile());
+    const file = getFile();
+    if (file) {
+      const formData = new FormData();
+      formData.append('img', getFile());
 
-    Product.setProductImage(productId, formData);
+      await Product.setProductImage(productId, formData);
+    }
 
-    // createPizza(formData);
+    navigate('/index.html');
   } catch (err) {
     errorHandler(err);
   }
 });
 
 window.addEventListener('load', () => {
-  // verifyUpdatePizzaMode();
   handleDropZoneEvents();
+
+  if (productId) setUpdateFormMode(productId);
 });

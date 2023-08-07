@@ -42,4 +42,4 @@ function handleDropZoneEvents() {
   });
 }
 
-export { handleDropZoneEvents, getFile };
+export { handleDropZoneEvents, getFile, showImage };

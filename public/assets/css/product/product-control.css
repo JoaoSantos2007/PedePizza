@@ -1,0 +1,6 @@
+.product__control{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+    margin-bottom: 15px;
+}

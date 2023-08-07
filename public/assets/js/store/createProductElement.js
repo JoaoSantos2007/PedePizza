@@ -1,5 +1,5 @@
-import url from '../url.js';
 import navigate from '../navigate.js';
+import loadProductImage from '../loadProductImage.js';
 
 const createProductHeaderElement = () => {
   const productHeader = document.createElement('div');
@@ -8,12 +8,12 @@ const createProductHeaderElement = () => {
   return productHeader;
 };
 
-const createProductImageElement = (img, name) => {
-  const image = `${url}/uploads/${img}`;
+const createProductImageElement = async (img, name) => {
+  const image = await loadProductImage(img);
 
   const productImage = document.createElement('img');
   productImage.classList.add('product__image');
-  productImage.src = image;
+  productImage.src = image.src;
   productImage.alt = `${name} image`;
 
   return productImage;
@@ -50,7 +50,7 @@ const createProductPriceElement = (price) => {
   return productPrice;
 };
 
-const createProductElement = (product) => {
+const createProductElement = async (product) => {
   const {
     name, price, img, _id,
   } = product;
@@ -63,7 +63,7 @@ const createProductElement = (product) => {
   });
 
   const productHeader = createProductHeaderElement();
-  const productImage = createProductImageElement(img, name);
+  const productImage = await createProductImageElement(img, name);
   const productMain = createProductMainElement();
   const productName = createProductNameElement(name);
   const productFooter = createProductFooterElement();

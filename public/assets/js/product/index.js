@@ -1,4 +1,4 @@
-import getProductId from './getProductId.js';
+import getProductId from '../getProductId.js';
 import createProductElement from './createProductElement.js';
 import errorHandler from '../errorHandler.js';
 import Product from '../requests/Product.js';
