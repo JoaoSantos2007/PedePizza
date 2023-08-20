@@ -23,15 +23,22 @@
         <link rel="stylesheet" href="assets/css/error/error-message.css">
         <link rel="stylesheet" href="assets/css/error/error-name.css">
         <link rel="stylesheet" href="assets/css/cart/cart.css">
+        <link rel="stylesheet" href="assets/css/cart/cart-footer.css">
+        <link rel="stylesheet" href="assets/css/cart/cart-main.css">
+        <link rel="stylesheet" href="assets/css/cart/cart-title.css">
         <link rel="stylesheet" href="assets/css/cart/record/record.css">
+        <link rel="stylesheet" href="assets/css/cart/record/record-action.css">
         <link rel="stylesheet" href="assets/css/cart/record/record-delete.css">
-        <link rel="stylesheet" href="assets/css/cart/record/record-footer.css">
-        <link rel="stylesheet" href="assets/css/cart/record/record-header.css">
+        <link rel="stylesheet" href="assets/css/cart/record/record-flavor.css">
         <link rel="stylesheet" href="assets/css/cart/record/record-image.css">
         <link rel="stylesheet" href="assets/css/cart/record/record-main.css">
         <link rel="stylesheet" href="assets/css/cart/record/record-name.css">
         <link rel="stylesheet" href="assets/css/cart/record/record-price.css">
-        <link rel="stylesheet" href="assets/css/cart/record/record-quantity.css">
+        <link rel="stylesheet" href="assets/css/cart/record/record-finalPrice.css">
+        <link rel="stylesheet" href="assets/css/cart/record/record-subtotal.css">
+        <link rel="stylesheet" href="assets/css/cart/inputSpinner/inputSpinner.css">
+        <link rel="stylesheet" href="assets/css/cart/inputSpinner/inputSpinner-button.css">
+        <link rel="stylesheet" href="assets/css/cart/inputSpinner/inputSpinner-number.css">
     </head>
     <body>
         <header>
@@ -45,9 +52,21 @@
         </header>
 
         <main>
-            <h1 class="title">Carrinho</h1>
+            <section class="cart">
+                <div class="cart__header">
+                    <h1 class="cart__title">Carrinho de compras</h1>
+                </div>
 
-            <ul class="cart__content" id="cartList"></ul>
+                <hr>
+
+                <div class="cart__main" id="records"></div>
+
+                <hr>
+
+                <div class="cart__footer">
+                    <p class="record__final-price">Subtotal(<span id="itens" class="record_total-itens">0</span> itens): <span class="record__subtotal" id="subtotal">R$0,00</span></p>
+                </div>
+            </section>
         </main>
 
         <footer>

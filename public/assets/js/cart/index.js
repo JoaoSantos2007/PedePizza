@@ -1,17 +1,14 @@
 import errorHandler from '../errorHandler.js';
-import createProductElement from './createProductElement.js';
-import Cart from '../requests/Cart.js';
+import renderCart from './renderCart.js';
 
 window.addEventListener('load', async () => {
   try {
-    const cart = await Cart.get();
-    const cartList = document.querySelector('#cartList');
-
-    cart.map((record) => {
-      const productElement = createProductElement(record);
-      return cartList.append(productElement);
-    });
+    renderCart();
   } catch (err) {
     errorHandler(err);
   }
 });
+
+const quantityChanged = (value, id) => {
+  console.log('ok');
+};

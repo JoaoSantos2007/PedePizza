@@ -1,7 +1,7 @@
-.cart__content{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 200px;
-    margin-top: 20px;
+.cart{
+    background-color: #fff;
+    max-width: 1000px;
+    width: 75%;
+    margin: 70px auto;
+    padding: 20px;
 }

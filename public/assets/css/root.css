@@ -49,6 +49,13 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     src: url('../fonts/Athiti.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    src: url('../fonts/Montserrat.ttf');
+}
+
 body{
     background: var(--cor-fundo);
+    /* font-family: Arial; */
 }

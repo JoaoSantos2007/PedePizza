@@ -7,7 +7,7 @@ import ErrorHandler from '../utils/errorHandler.js';
 class Auth {
   static async verifyAuthorization(req, res, next) {
     try {
-      const { accessToken } = req.cookies;
+      const { accessToken } = await Token.verifyExpiredTokensAndRefresh(req, res);
 
       const payload = await Token.verifyAccessToken(accessToken);
       const user = await User.findOne({ email: payload.email }, '-hashPassword');
@@ -17,6 +17,7 @@ class Auth {
       req.user = user;
       return next();
     } catch (err) {
+      // console.log(err);
       return ErrorHandler(err, res);
     }
   }

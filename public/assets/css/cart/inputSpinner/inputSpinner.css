@@ -1,0 +1,7 @@
+.input-spinner{
+  display: flex;
+  width: 102px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 40px;
+}

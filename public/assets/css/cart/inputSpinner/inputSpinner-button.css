@@ -1,0 +1,15 @@
+.input-spinner__button{
+  background-color: #fff;
+  border: none;
+  width: 44px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-spinner__button > img{
+  width: 20px;
+  height: 20px;
+}

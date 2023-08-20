@@ -6,6 +6,9 @@ import { ACCESSTOKEN_LIFETIME, SECRET } from '../utils/env.js';
 import UnathorizedError from '../errors/unathorizedError.js';
 import User from './userModel.js';
 import NotFoundError from '../errors/notFoundError.js';
+// eslint-disable-next-line import/no-cycle
+import refresh from '../utils/refresh.js';
+import defineCookies from '../utils/defineCookies.js';
 
 class Token {
   static createAccessToken(email) {
@@ -28,6 +31,23 @@ class Token {
       });
 
       return refreshToken;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  static async verifyExpiredTokensAndRefresh(req, res) {
+    const { accessToken, refreshToken } = req.cookies;
+
+    try {
+      if (jwt.decode(accessToken).exp <= Math.trunc(Date.now() / 1000)) {
+        const { newAccessToken, newRefreshToken } = await refresh(refreshToken);
+        defineCookies(req, res, newAccessToken, newRefreshToken);
+
+        return { accessToken: newAccessToken, refreshToken: newRefreshToken };
+      }
+
+      return { accessToken, refreshToken };
     } catch (err) {
       return err;
     }

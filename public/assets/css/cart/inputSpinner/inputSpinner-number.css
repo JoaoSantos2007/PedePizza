@@ -1,0 +1,12 @@
+.input-spinner__number{
+  text-align: center;
+  outline: none;
+  width: 22px;
+  border: none;
+}
+
+.input-spinner__number::-webkit-outer-spin-button,
+.input-spinner__number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,6 +1,7 @@
 import Token from '../models/tokenModel.js';
 import authenticate from '../utils/authenticate.js';
 import defineCookies from '../utils/defineCookies.js';
+import refresh from '../utils/refresh.js';
 
 class Auth {
   static async login(req, res, next) {
@@ -21,10 +22,7 @@ class Auth {
   static async refresh(req, res, next) {
     try {
       const { refreshToken } = req.cookies;
-      const email = await Token.verifyRefreshToken(refreshToken);
-
-      const newAccessToken = Token.createAccessToken(email);
-      const newRefreshToken = await Token.createRefreshToken(email);
+      const { newAccessToken, newRefreshToken } = await refresh(refreshToken);
 
       defineCookies(req, res, newAccessToken, newRefreshToken);
       return res.status(200).json({ success: true, refreshed: true });
