@@ -7,8 +7,6 @@ const router = express.Router();
 router
   .get('/order', Auth.verifyAuthorization, Order.read)
   .get('/order/:id', Auth.verifyAuthorization, Order.read)
-  .post('/order', Auth.verifyAuthorization, Order.add)
-  .put('/order/:id', Auth.verifyAuthorization, Order.update)
-  .delete('/order/:id', Auth.verifyAuthorization, Order.delete);
+  .post('/order', Auth.verifyAuthorization, Order.add);
 
 export default router;

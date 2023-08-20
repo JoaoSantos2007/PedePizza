@@ -1,9 +1,10 @@
 {
-  "name": "pizzas_api",
+  "name": "pedepizza",
   "version": "1.0.0",
   "description": "api de pizzas",
   "main": "server.js",
   "type": "module",
+  "author": "João Pedro Tomaz dos Santos",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",

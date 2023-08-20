@@ -14,22 +14,6 @@ class Order {
       return next(err);
     }
   }
-
-  static async update(req, res, next) {
-    try {
-
-    } catch (err) {
-      return next(err);
-    }
-  }
-
-  static async delete(req, res, next) {
-    try {
-
-    } catch (err) {
-      return next(err);
-    }
-  }
 }
 
 export default Order;

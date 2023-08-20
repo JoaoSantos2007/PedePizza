@@ -2,14 +2,14 @@
 function defineCookies(req, res, accessToken = '', refreshToken = '') {
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
-    secure: !!req.headers['sec-fetch-mode'],
-    sameSite: 'none',
+    secure: true,
+    sameSite: 'strict',
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    secure: !!req.headers['sec-fetch-mode'],
-    sameSite: 'none',
+    secure: true,
+    sameSite: 'strict',
   });
 }
 
