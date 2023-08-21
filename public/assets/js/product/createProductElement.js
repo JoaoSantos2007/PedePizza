@@ -4,6 +4,7 @@ import navigate from '../navigate.js';
 import errorHandler from '../errorHandler.js';
 import Cart from '../requests/Cart.js';
 import Product from '../requests/Product.js';
+import url from '../url.js';
 
 const createProductHeaderElement = () => {
   const productHeaderElement = document.createElement('div');
@@ -111,7 +112,7 @@ const createProductControlElement = (productId) => {
 
   const editProductElement = document.createElement('img');
   editProductElement.classList.add('product__action');
-  editProductElement.src = 'assets/img/pencil.svg';
+  editProductElement.src = `${url}/assets/img/pencil.svg`;
   editProductElement.alt = 'edit button';
   editProductElement.addEventListener('click', () => {
     navigate(`/manage.html?id=${productId}`);
@@ -119,7 +120,7 @@ const createProductControlElement = (productId) => {
 
   const deleteProductElement = document.createElement('img');
   deleteProductElement.classList.add('product__action');
-  deleteProductElement.src = '/assets/img/trash.svg';
+  deleteProductElement.src = `${url}/assets/img/trash.svg`;
   deleteProductElement.alt = 'delete button';
   deleteProductElement.addEventListener('click', async () => {
     try {

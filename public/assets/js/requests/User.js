@@ -1,9 +1,10 @@
 import '../lib/axios.js';
+import url from '../url.js';
 
 class User {
   static async get() {
     // eslint-disable-next-line no-undef
-    const response = await axios.get('/user');
+    const response = await axios.get(`${url}/user`);
     const { data } = response;
     const { user } = data;
 
@@ -12,7 +13,7 @@ class User {
 
   static async post(user) {
     // eslint-disable-next-line no-undef
-    const response = await axios.post('/user', user);
+    const response = await axios.post(`${url}/user`, user);
     const { data } = response;
 
     return data;
@@ -20,7 +21,7 @@ class User {
 
   static async delete() {
     // eslint-disable-next-line no-undef
-    const response = await axios.delete('/user');
+    const response = await axios.delete(`${url}/user`);
     const { data } = response;
 
     return data;

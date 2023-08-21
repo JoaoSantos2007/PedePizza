@@ -5,7 +5,7 @@ import url from '../url.js';
 class Product {
   static async get() {
     // eslint-disable-next-line no-undef
-    const response = await axios.get('/product');
+    const response = await axios.get(`${url}/product`);
     const { data } = response;
     const { products } = data;
 
@@ -14,7 +14,7 @@ class Product {
 
   static async getById(productId) {
     // eslint-disable-next-line no-undef
-    const response = await axios.get(`/product/${productId}`);
+    const response = await axios.get(`${url}/product/${productId}`);
     const { data } = response;
     const { product } = data;
 
@@ -23,7 +23,7 @@ class Product {
 
   static async getImage(img) {
     // eslint-disable-next-line no-undef
-    const response = await axios.get(`/uploads/${img}`, { responseType: 'blob' });
+    const response = await axios.get(`${url}/uploads/${img}`, { responseType: 'blob' });
     const { data } = response;
 
     return data;
@@ -31,7 +31,7 @@ class Product {
 
   static async post(product) {
     // eslint-disable-next-line no-undef
-    const response = await axios.post('/product', product);
+    const response = await axios.post(`${url}/product`, product);
     const { data } = response;
 
     return data;
@@ -39,7 +39,7 @@ class Product {
 
   static async put(productId, product) {
     // eslint-disable-next-line no-undef
-    const response = await axios.put(`/product/${productId}`, product);
+    const response = await axios.put(`${url}/product/${productId}`, product);
     const { data } = response;
 
     return data;
@@ -58,7 +58,7 @@ class Product {
 
   static async delete(productId) {
     // eslint-disable-next-line no-undef
-    const response = await axios.delete(`/product/${productId}`);
+    const response = await axios.delete(`${url}/product/${productId}`);
     const { data } = response;
 
     return data;

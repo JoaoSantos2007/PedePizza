@@ -62,7 +62,7 @@ const createInputSpinnerElement = (recordId, quantity) => {
   const minusBtn = document.createElement('button');
   minusBtn.classList.add('input-spinner__button');
   const minusIcon = document.createElement('img');
-  minusIcon.src = '/assets/img/dash.svg';
+  minusIcon.src = `${url}/assets/img/dash.svg`;
   minusBtn.id = `minus-${recordId}`;
   minusBtn.append(minusIcon);
 
@@ -78,7 +78,7 @@ const createInputSpinnerElement = (recordId, quantity) => {
   const plusBtn = document.createElement('button');
   plusBtn.classList.add('input-spinner__button');
   const plusIcon = document.createElement('img');
-  plusIcon.src = '/assets/img/plus.svg';
+  plusIcon.src = `${url}/assets/img/plus.svg`;
   plusBtn.append(plusIcon);
   plusBtn.id = `plus-${recordId}`;
 

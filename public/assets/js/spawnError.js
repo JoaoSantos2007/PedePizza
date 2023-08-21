@@ -1,3 +1,5 @@
+import url from './url.js';
+
 const spawnError = (error) => {
   const errorElement = document.createElement('section');
   errorElement.classList.add('error');
@@ -7,7 +9,7 @@ const spawnError = (error) => {
 
   const errorClose = document.createElement('img');
   errorClose.classList.add('error__close');
-  errorClose.src = '/assets/img/close.svg';
+  errorClose.src = `${url}/assets/img/close.svg`;
   errorClose.addEventListener('click', () => {
     errorElement.style.display = 'none';
   });
