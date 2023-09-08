@@ -4,3 +4,18 @@
   font-weight: 500;
   font-family: 'Montserrat';
 }
+
+@media screen and (min-width: 0px) {
+  .cart__title{
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 342px) {
+  .cart__title{
+    text-align: start;
+    margin: 0;
+    margin-left: 12px;
+  }
+}

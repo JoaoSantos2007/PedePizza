@@ -1,9 +1,19 @@
 .user{
     background: var(--color-white);
-    margin: 0px auto;
     width: 100%;
     max-width: 800px;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 0px) {
+    .user{
+        margin: 60px auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .user{
+        margin: 120px auto;
+    }
 }

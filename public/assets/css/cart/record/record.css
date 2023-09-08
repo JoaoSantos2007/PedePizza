@@ -1,5 +1,17 @@
 .record{
-  padding: 12px 0px 12px 12px;
   display: flex;
-  flex-direction: row;
+}
+
+@media screen and (min-width: 0px) {
+  .record{
+    flex-direction: column;
+    padding: 12px 12px 12px 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .record{
+    flex-direction: row;
+    padding: 12px;
+  }
 }

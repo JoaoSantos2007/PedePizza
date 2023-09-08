@@ -1,6 +1,6 @@
-import errorHandler from '../errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 import Product from '../requests/Product.js';
-import loadProductImage from '../loadProductImage.js';
+import loadProductImage from '../utils/loadProductImage.js';
 import { showImage } from './dropzone.js';
 
 async function setUpdateFormMode(productId) {

@@ -1,5 +1,5 @@
 import '../lib/axios.js';
-import url from '../url.js';
+import url from '../utils/url.js';
 
 class Auth {
   static async login(user) {

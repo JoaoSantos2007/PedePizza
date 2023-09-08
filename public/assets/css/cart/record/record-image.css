@@ -1,3 +1,16 @@
 .record__image{
   width: 25%;
 }
+
+@media screen and (min-width: 0px) {
+  .record__image{
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .record__image{
+    width: 25%;
+  }
+}

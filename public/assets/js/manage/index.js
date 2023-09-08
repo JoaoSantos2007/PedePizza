@@ -1,9 +1,9 @@
 import { handleDropZoneEvents, getFile } from './dropzone.js';
 import setUpdateFormMode from './setUpdateFormMode.js';
 import Product from '../requests/Product.js';
-import errorHandler from '../errorHandler.js';
-import getProductId from '../getProductId.js';
-import navigate from '../navigate.js';
+import errorHandler from '../utils/errorHandler.js';
+import getProductId from '../utils/getProductId.js';
+import navigate from '../utils/navigate.js';
 
 let productId = getProductId();
 const isUpdateMode = !!productId;

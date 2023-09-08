@@ -1,5 +1,5 @@
-import errorHandler from '../errorHandler.js';
-import navigate from '../navigate.js';
+import errorHandler from '../utils/errorHandler.js';
+import navigate from '../utils/navigate.js';
 import Auth from '../requests/Auth.js';
 import User from '../requests/User.js';
 

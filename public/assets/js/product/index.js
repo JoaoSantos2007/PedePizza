@@ -1,6 +1,6 @@
-import getProductId from '../getProductId.js';
+import getProductId from '../utils/getProductId.js';
 import createProductElement from './createProductElement.js';
-import errorHandler from '../errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 import Product from '../requests/Product.js';
 
 window.addEventListener('load', async () => {

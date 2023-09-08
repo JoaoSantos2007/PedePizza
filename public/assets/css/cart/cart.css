@@ -1,7 +1,21 @@
 .cart{
     background-color: #fff;
-    max-width: 1000px;
-    width: 75%;
-    margin: 70px auto;
-    padding: 20px;
+    
+}
+
+@media screen and (min-width: 0px) {
+    .cart{
+        width: 100%;
+        max-width: none;
+        padding: 20px 0px 20px 0px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .cart{
+        max-width: 1000px;
+        width: 75%;
+        padding: 20px;
+        margin: 70px auto;
+    }
 }

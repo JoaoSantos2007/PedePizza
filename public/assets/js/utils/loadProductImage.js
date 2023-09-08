@@ -1,4 +1,4 @@
-import Product from './requests/Product.js';
+import Product from '../requests/Product.js';
 import url from './url.js';
 
 const loadProductImage = (path) => new Promise((resolve) => {

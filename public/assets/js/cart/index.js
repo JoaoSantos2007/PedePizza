@@ -1,4 +1,4 @@
-import errorHandler from '../errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 import renderCart from './renderCart.js';
 
 window.addEventListener('load', async () => {
@@ -8,7 +8,3 @@ window.addEventListener('load', async () => {
     errorHandler(err);
   }
 });
-
-const quantityChanged = (value, id) => {
-  console.log('ok');
-};

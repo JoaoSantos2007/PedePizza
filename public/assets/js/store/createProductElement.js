@@ -1,5 +1,5 @@
-import navigate from '../navigate.js';
-import loadProductImage from '../loadProductImage.js';
+import navigate from '../utils/navigate.js';
+import loadProductImage from '../utils/loadProductImage.js';
 
 const createProductHeaderElement = () => {
   const productHeader = document.createElement('div');

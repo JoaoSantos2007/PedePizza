@@ -1,10 +1,11 @@
 import defineImgSize from './defineImgSize.js';
-import loadProductImage from '../loadProductImage.js';
-import navigate from '../navigate.js';
-import errorHandler from '../errorHandler.js';
+import loadProductImage from '../utils/loadProductImage.js';
+import navigate from '../utils/navigate.js';
+import errorHandler from '../utils/errorHandler.js';
 import Cart from '../requests/Cart.js';
 import Product from '../requests/Product.js';
-import url from '../url.js';
+import url from '../utils/url.js';
+import verifyAdmin from '../utils/verifyAdmin.js';
 
 const createProductHeaderElement = () => {
   const productHeaderElement = document.createElement('div');
@@ -156,7 +157,7 @@ const createProductElement = async (product) => {
   const productPrice = createProductPriceElement(price);
   const productBuyBtn = createProductBuyButtonElement(id);
   const productDescription = createProductDescriptionElement(description);
-  const productControl = createProductControlElement(id);
+  const productControl = await verifyAdmin() ? createProductControlElement(id) : '';
 
   productInfo.append(productFlavor, productIngredients, productPrice, productBuyBtn);
   productHeader.append(productName);

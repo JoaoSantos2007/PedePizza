@@ -30,10 +30,10 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     --fs-desktop-principal: 1.8rem;
     --fs-desktop-secondary: 1.6rem;
     --fs-desktop-small: 1.4rem;
-    --fs-smartphone-title: 2.5rem;
-    --fs-smartphone-principal: 1.6rem;
-    --fs-smartphone-secondary: 1.4rem;
-    --fs-smartphone-small: 1.2rem;
+    --fs-smartphone-title: 2rem;
+    --fs-smartphone-principal: 1.2rem;
+    --fs-smartphone-secondary: 1rem;
+    --fs-smartphone-small: 0.8rem;
     --fs-tablet-title: 2.8rem;
     --fs-tablet-principal: 1.7rem;
     --fs-tablet-secondary: 1.5rem;
@@ -57,5 +57,5 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
 
 body{
     background: var(--cor-fundo);
-    /* font-family: Arial; */
+    font-family: Arial;
 }

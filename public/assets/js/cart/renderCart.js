@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import errorHandler from '../errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 import Cart from '../requests/Cart.js';
-import url from '../url.js';
+import url from '../utils/url.js';
 
 let records = [];
 

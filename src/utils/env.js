@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const ACCESSTOKEN_LIFETIME = process.env.ACCESSTOKEN_LIFETIME || 15;
 const REFRESHTOKEN_LIFETIME = process.env.REFRESHTOKEN_LIFETIME || 52;
 const UPLOAD_PATH = process.env.UPLOAD_PATH || path.resolve('./uploads');
+const HTTPS = process.env.HTTPS === 'true' || false;
 const { DATABASE_NAME } = process.env;
 const { MONGO_URL } = process.env;
 const { SALT } = process.env;
@@ -17,5 +18,5 @@ if (!MONGO_URL || !SALT || !SECRET || !DATABASE_NAME) {
 }
 
 export {
-  PORT, REFRESHTOKEN_LIFETIME, ACCESSTOKEN_LIFETIME, UPLOAD_PATH, MONGO_URL, SALT, SECRET, DATABASE_NAME,
+  PORT, REFRESHTOKEN_LIFETIME, ACCESSTOKEN_LIFETIME, UPLOAD_PATH, MONGO_URL, SALT, SECRET, DATABASE_NAME, HTTPS,
 };

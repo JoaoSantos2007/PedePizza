@@ -1,6 +1,6 @@
-import errorHandler from '../errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 import '../lib/axios.js';
-import url from '../url.js';
+import url from '../utils/url.js';
 
 class Product {
   static async get() {
