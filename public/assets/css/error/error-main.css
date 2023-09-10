@@ -3,4 +3,5 @@
     align-items: center;
     justify-content: center;
     margin: 12px 0px 60px;
+    flex-wrap: wrap;
 }

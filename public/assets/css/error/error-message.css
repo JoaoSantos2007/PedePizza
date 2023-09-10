@@ -1,5 +1,22 @@
 .error__message{
     color: white;
-    font-size: 2rem;
     margin-left: 5px;
+}
+
+@media screen and (min-width: 0px) {
+    .error__message{
+        font-size: var(--fs-smartphone-principal);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .error__message{
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .error__message{
+        font-size: var(--fs-desktop-principal);
+    }
 }

@@ -1,5 +1,22 @@
 .error__name{
-    font-size: 2rem;
     color: white;
     font-weight: bold;
+}
+
+@media screen and (min-width: 0px) {
+    .error__name{
+        font-size: var(--fs-smartphone-principal);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .error__name{
+        font-size: var(--fs-tablet-principal);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .error__name{
+        font-size: var(--fs-desktop-principal);
+    }
 }

@@ -200,21 +200,25 @@ const handleInputSpinnerClickEvent = ({ _id: recordId, product }) => {
 };
 
 const renderCart = async () => {
-  const cart = await Cart.get();
-  records = {};
-  const cartList = document.querySelector('#records');
-  cartList.innerHTML = '';
+  try {
+    const cart = await Cart.get();
+    records = {};
+    const cartList = document.querySelector('#records');
+    cartList.innerHTML = '';
 
-  cart.map((record) => {
-    const productElement = createRecordElement(record);
-    cartList.append(productElement);
-    handleInputSpinnerClickEvent(record);
-    records[record._id] = record;
+    cart.map((record) => {
+      const productElement = createRecordElement(record);
+      cartList.append(productElement);
+      handleInputSpinnerClickEvent(record);
+      records[record._id] = record;
 
-    return true;
-  });
+      return true;
+    });
 
-  calculateSubTotal();
+    calculateSubTotal();
+  } catch (err) {
+    errorHandler(err);
+  }
 };
 
 export default renderCart;
