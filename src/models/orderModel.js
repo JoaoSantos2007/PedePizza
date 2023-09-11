@@ -4,9 +4,9 @@ import db from '../config/mongo.js';
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-  name: {
-    type: String,
-  },
+  items: [],
+}, {
+  timestamps: true,
 });
 
 const orderModel = db.model('orders', orderSchema);

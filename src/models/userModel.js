@@ -52,8 +52,11 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  img: {
+    type: String,
+    require: false,
+  },
   cart: [productCart],
-
 }, { versionKey: false });
 
 const User = db.model('users', userSchema);

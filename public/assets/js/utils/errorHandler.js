@@ -1,3 +1,4 @@
+import navigate from './navigate.js';
 import spawnError from './spawnError.js';
 
 const errorHandler = async (error) => {
@@ -20,7 +21,7 @@ const errorHandler = async (error) => {
       }
 
       if (message === 'Invalid access token!' || message === 'Access token expired!') {
-        return spawnError({ name: 'Falha na Autenticação', message: 'Usuário não está logado' });
+        return navigate('/auth.html');
       }
 
       if (message === 'You need admin!') {
