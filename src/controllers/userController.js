@@ -7,7 +7,9 @@ class User {
   // create user
   static async create(req, res, next) {
     try {
-      const { name, email, password } = req.body;
+      const {
+        name, email, password, img,
+      } = req.body;
 
       const user = new UserModel({
         name,
@@ -15,6 +17,7 @@ class User {
         hashPassword: hashPassword(password),
         admin: false,
         cart: [],
+        img,
       });
 
       await user.save();
@@ -34,10 +37,11 @@ class User {
   static async update(req, res, next) {
     try {
       const { user } = req;
-      const { name } = req.body;
+      const { name, img } = req.body;
 
       if (name) {
         user.set('name', name);
+        user.set('img', img);
       }
 
       await user.validate();

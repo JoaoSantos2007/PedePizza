@@ -1,0 +1,22 @@
+.settings__label{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 0px) {
+  .settings__label{
+    font-size: var(--fs-smartphone-small);
+  }
+}
+
+@media screen and (min-width: 448px) {
+  .settings__label{
+    font-size: var(--fs-tablet-small)
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .settings__label{
+    font-size: var(--fs-desktop-small)
+  }
+}

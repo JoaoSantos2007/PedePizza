@@ -1,0 +1,25 @@
+.settings{
+  margin: 0px auto;
+  margin-bottom: 60px;
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 670px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 0px) {
+  .settings{
+    padding: 10px 0px;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .settings{
+    padding: 15px 15px;
+    align-items: normal;
+  }
+}

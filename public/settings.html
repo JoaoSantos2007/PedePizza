@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="assets/css/error/error-main.css">
     <link rel="stylesheet" href="assets/css/error/error-message.css">
     <link rel="stylesheet" href="assets/css/error/error-name.css">
+    <link rel="stylesheet" href="assets/css/settings/settings.css">
+    <link rel="stylesheet" href="assets/css/settings/settings-btn.css">
+    <link rel="stylesheet" href="assets/css/settings/settings-buttons.css">
+    <link rel="stylesheet" href="assets/css/settings/settings-field.css">
+    <link rel="stylesheet" href="assets/css/settings/settings-input.css">
+    <link rel="stylesheet" href="assets/css/settings/settings-label.css">
   </head>
   <body>
     <header>
@@ -38,14 +44,23 @@
       <h1 class="title">Configuração</h1>
 
       <section class="settings">
-        <div>
-          <label for="">Name</label>
-          <input type="text" id="" value="My Name">
+        <div class="settings__field">
+          <label class="settings__label">Name</label>
+          <input class="settings__input" type="text" id="userName" placeholder="namez">
         </div>
 
-        <div>
-          <label for="">Image URL</label>
-          <input type="text" id="">
+        <div class="settings__field">
+          <label class="settings__label">Image URL</label>
+          <input class="settings__input" type="text" id="userImg" placeholder="url">
+        </div>
+
+        <div class="settings__buttons">
+          <button class="settings__btn settings__btn--cancel" id="settings-cancel">
+            <p>Cancel</p>
+          </button>
+          <button class="settings__btn settings__btn--confirm" id="settings-save">
+            <p>Save</p>
+          </button>
         </div>
       </section>
     </main>
@@ -63,5 +78,7 @@
         <img class="footer__media" src="assets/img/phone.svg" width="32px" height="32px" alt="Ícone do telefone">
       </div>
     </footer>
+
+    <script src="assets/js/settings/index.js" type="module"></script>
   </body>
 </html>

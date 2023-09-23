@@ -1,0 +1,23 @@
+.settings__input{
+  width: 95%;
+  max-width: 450px;
+  outline: none;
+  height: 32px;
+  font-weight: normal;
+}
+
+.settings__input:hover{
+  border-color: var(--color-theme-dark);
+}
+
+@media screen and (min-width: 0px) {
+  .settings__input{
+    font-size: var(--fs-smartphone-secondary);
+  }
+}
+
+@media screen and (min-width: 448px) {
+  .settings__input{
+    font-size: var(--fs-tablet-secondary)
+  }
+}

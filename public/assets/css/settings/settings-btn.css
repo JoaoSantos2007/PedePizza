@@ -1,0 +1,42 @@
+.settings__btn{
+  height: 48px;
+  width: 100%;
+  max-width: 128px;
+  border: none;
+  color: var(--fc-default);
+  font-size: 21px;
+  cursor: pointer;
+  transition: var(--default-trasition);
+}
+
+.settings__btn:hover{
+  box-shadow: var(--shadowing);
+}
+
+.settings__btn--cancel{
+  background-color: var(--color-cancel-btn);
+}
+
+.settings__btn--confirm{
+  background-color: var(--color-confirm-btn);
+}
+
+@media screen and (min-width: 0) {
+  .settings__btn{
+    margin-bottom: 17px;
+  }
+
+  .settings__btn:last-child{
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  .settings__btn{
+    flex-direction: row;
+  }
+
+  .settings__btn{
+    margin-bottom: 0px;
+  }
+}

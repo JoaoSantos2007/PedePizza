@@ -19,6 +19,14 @@ class User {
     return data;
   }
 
+  static async put(user) {
+    // eslint-disable-next-line no-undef
+    const response = await axios.put(`${url}/user`, user);
+    const { data } = response;
+
+    return data;
+  }
+
   static async delete() {
     // eslint-disable-next-line no-undef
     const response = await axios.delete(`${url}/user`);

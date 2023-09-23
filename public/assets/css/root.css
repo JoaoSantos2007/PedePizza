@@ -19,6 +19,7 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     --color-black: #000000;
     --color-confirm-btn: #32CD32;
     --color-confirm-btn-hover: #2E8B44;
+    --color-cancel-btn: rgb(255, 51, 51);
     --color-hyperlink: #e91e63;
     --color-theme: rgb(209, 20, 20);
     --color-theme-dark: rgb(124, 12, 12);
@@ -29,7 +30,7 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     --fs-desktop-title: 3rem;
     --fs-desktop-principal: 1.8rem;
     --fs-desktop-secondary: 1.6rem;
-    --fs-desktop-small: 1.4rem;
+    --fs-desktop-small: 1.1rem;
     --fs-smartphone-title: 2rem;
     --fs-smartphone-principal: 1.2rem;
     --fs-smartphone-secondary: 1rem;
@@ -37,9 +38,10 @@ time::selection, mark::selection, audio::selection, video::selection, br::select
     --fs-tablet-title: 2.8rem;
     --fs-tablet-principal: 1.7rem;
     --fs-tablet-secondary: 1.5rem;
-    --fs-tablet-small: 1.3rem;
+    --fs-tablet-small: 1rem;
     --shadowing: 4px 4px 4px rgba(0, 0, 0, 0.61);
     --cor-fundo: rgb(221, 196, 196);
+    --default-trasition: 200ms;
 }
 
 @font-face {
