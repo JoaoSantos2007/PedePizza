@@ -9,9 +9,7 @@ class Cart {
       const cart = user.get('cart');
       cart.push({ product, quantity });
 
-      user.set('cart', cart);
       await user.save();
-
       await user.populate('cart.product');
 
       return res.status(201).json({ success: true, cart });

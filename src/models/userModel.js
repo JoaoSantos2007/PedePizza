@@ -17,6 +17,14 @@ const productCart = new Schema({
   },
 }, { versionKey: false });
 
+const order = new Schema({
+  shopping: [productCart],
+  price: {
+    type: Number,
+    required: [true, 'The price field is required!'],
+  },
+}, { timestamps: true, versionKey: false });
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -57,6 +65,7 @@ const userSchema = new Schema({
     require: false,
   },
   cart: [productCart],
+  orders: [order],
 }, { versionKey: false });
 
 const User = db.model('users', userSchema);
